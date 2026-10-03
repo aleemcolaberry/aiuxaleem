@@ -73,7 +73,7 @@ Design system: AgentCory (`_ds/…`, compiled into `site.css`). WCAG 2.2 AA is t
 - Heavy enhancements (three.js, video players, large libraries) load only when they will actually run: after first paint, and never under reduced motion, save-data or low-power. No `modulepreload`/`preload` for optional code.
 - Every page that loads Google Fonts preconnects to fonts.googleapis.com and fonts.gstatic.com. Only the weights in use; no italics unless the page sets italic text.
 - Glows are radial gradients; never stack `filter: blur()` on top of one. `backdrop-filter` only on the sticky header.
-- New pages and tools go in the lists in `DEPLOY.md` (ships / stays out).
+- New pages go in `PAGES` and new tools in `TOOLS` in `scripts/build.mjs`; components ship on their own once a page imports them. Only `dist/` is ever deployed (see `DEPLOY.md`).
 
 ## Interaction and semantics
 - Use the DS components (Button, IconButton, Chip, Badge, Card, Tabs, Input…). Targets ≥44×44px (24px is the legal minimum, 44 is ours).

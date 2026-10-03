@@ -1,4 +1,4 @@
-# Build output (scripts/build.sh)
+# Build output (scripts/build.mjs)
 dist/
 
 # Private source material: never publish
