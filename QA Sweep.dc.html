@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>QA sweep · AIUXAleem</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&amp;family=JetBrains+Mono:wght@400;600&amp;display=swap">
+  <link rel="stylesheet" href="site.css">
+</helmet>
+<main style="padding:var(--space-4); display:grid; gap:var(--space-3); font-family:var(--font-mono); font-size:var(--text-mono-sm); color:var(--text-body);">
+  <p style="margin:0; font-weight:var(--weight-bold); color:var(--text-strong);">{{ status }}</p>
+  <table style="border-collapse:collapse; table-layout:auto; inline-size:auto;">
+    <thead><tr><th style="text-align:start; padding:var(--space-1) var(--space-2);">page · state</th><sc-for list="{{ cols }}" as="w" hint-placeholder-count="14"><th style="padding:var(--space-1) var(--space-2);">{{ w }}</th></sc-for></tr></thead>
+    <tbody><sc-for list="{{ rows }}" as="r" hint-placeholder-count="20"><tr><td style="padding:var(--space-1) var(--space-2); white-space:nowrap;">{{ r.label }}</td><sc-for list="{{ r.cells }}" as="c" hint-placeholder-count="14"><td style="padding:var(--space-1) var(--space-2); text-align:center; color:{{ c.color }};">{{ c.mark }}</td></sc-for></tr></sc-for></tbody>
+  </table>
+  <pre style="margin:0; white-space:pre-wrap; font-size:var(--text-mono-sm);">{{ details }}</pre>
+  <div data-frames style="position:fixed; inset-block-start:0; inset-inline-start:0; opacity:0; pointer-events:none;"></div>
+</main>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  widths = (() => { const raw = (new URLSearchParams(location.search).get('w') || '').split(',').filter(Boolean).map(s => /^L/i.test(s) ? s.toUpperCase() : Number(s)).filter(x => typeof x === 'string' || x > 0); return raw.length ? raw : [320, 360, 375, 390, 414, 600, 640, 768, 820, 900, 1024, 1180, 1280, 1440, 1920, 'L740']; })();
+  targets = (() => {
+    const t = [];
+    const st = (lang, theme) => ({ lang, theme, label: (lang === 'ar' ? 'RTL' : 'LTR') + '-' + theme });
+    const only = (new URLSearchParams(location.search).get('pages') || '').split(',').filter(Boolean);
+    const add = (file, short, states) => { if (only.length && !only.includes(short)) return; states.forEach(s => t.push({ file, short, ...s })); };
+    add('AIUXAleem Home.dc.html', 'home', [st('en', 'light'), st('en', 'dark'), st('ar', 'light'), st('ar', 'dark')]);
+    add('Case Study.dc.html', 'case', [st('en', 'light'), st('en', 'dark'), st('ar', 'light'), st('ar', 'dark')]);
+    [['Work.dc.html', 'work'], ['Services.dc.html', 'services'], ['About.dc.html', 'about'], ['Content.dc.html', 'content'], ['Guides.dc.html', 'guides'], ['Guide.dc.html', 'guide']]
+      .forEach(([f, s]) => add(f, s, [st('en', 'light'), st('en', 'dark')]));
+    add('404.dc.html', '404', [st('en', 'light')]);
+    add('QA.dc.html', 'qa', [st('en', 'light')]);
+    return t;
+  })();
+  state = { res: {}, done: 0 };
+  componentDidMount() {
+    const stress = new URLSearchParams(location.search).get('stress') === '1';
+    this.jobs = []; this.targets.forEach(tg => this.widths.forEach(w => this.jobs.push({ ...tg, w, stress })));
+    this.total = this.jobs.length;
+    this.host = document.createElement('div');
+    this.host.style.cssText = 'position:fixed; inset-block-start:0; inset-inline-start:0; inline-size:max-content; opacity:0; pointer-events:none; z-index:-1;';
+    document.body.appendChild(this.host);
+    // Step-driven API (works even when this tab is hidden and timers are throttled):
+    // AIUXSweep.load(n) mounts the next n frames; AIUXSweep.collect() measures every mounted frame that is ready.
+    this.live = [];
+    // Performance probe: fresh iframe, Web Vitals read from inside after settle. perf(file, w, opts) → promise
+    window.AIUXPerf = (file, w = 1280, opts = {}) => new Promise(res => {
+      const self = this;
+      const f = document.createElement('iframe'); f.style.cssText = 'inline-size:' + w + 'px; max-inline-size:none; block-size:900px; border:0; display:block;';
+      const q = new URLSearchParams({ theme: opts.theme || 'light', perf: '1' }); if (opts.lang) q.set('lang', opts.lang); if (opts.motion) q.set('motion', '1');
+      f.src = encodeURI(file) + '?' + q.toString() + '&_=' + Date.now();
+      (self.host || document.body).appendChild(f);
+      const t0 = performance.now();
+      const read = () => {
+        let doc; try { doc = f.contentDocument; } catch (e) { return res({ err: 'cross-origin' }); }
+        const win = f.contentWindow;
+        if (!doc || !doc.querySelector('[data-site-footer]') || !(win.__vitals)) { if (performance.now() - t0 > 40000) { f.remove(); return res({ err: 'timeout' }); } return setTimeout(read, 500); }
+        setTimeout(() => {
+          const v = win.__vitals; const res2 = win.performance.getEntriesByType('resource');
+          const kb = fl => Math.round(res2.filter(fl).reduce((a, r) => a + (r.transferSize || r.encodedBodySize || 0), 0) / 1024);
+          const out = { fcp: v.fcp, lcp: v.lcp, cls: +v.cls.toFixed(3), longTasks: v.long.length, longMax: Math.max(0, ...v.long), tbt: v.long.reduce((a, d) => a + Math.max(0, d - 50), 0), resources: res2.length, totalKB: kb(() => true), jsKB: kb(r => /\.js(\?|$)/.test(r.name)), fontKB: kb(r => /gstatic|\.woff/.test(r.name)), threeKB: kb(r => /three/.test(r.name)), canvas: !!doc.querySelector('[data-scene-canvas]') && win.getComputedStyle(doc.querySelector('[data-scene-canvas]')).display !== 'none' };
+          // scroll smoothness: 3s programmatic scroll, count frames over 34ms
+          let frames = 0, drops = 0, worst = 0, last = win.performance.now(); const total = Math.min(doc.documentElement.scrollHeight - 900, 6000); const start = last;
+          const step = t => { const dt = t - last; last = t; frames++; if (dt > 34) drops++; if (dt > worst) worst = dt; const p = (t - start) / 3000; win.scrollTo(0, total * Math.min(1, p)); if (p < 1) win.requestAnimationFrame(step); else { out.scroll = { fps: Math.round(frames / 3), dropped: drops, worstMs: Math.round(worst) }; out.clsAfterScroll = +win.__vitals.cls.toFixed(3); f.remove(); res(out); } };
+          win.requestAnimationFrame(step);
+        }, opts.settle || 2500);
+      };
+      setTimeout(read, 800);
+    });
+    window.AIUXSweep = {
+      load: n => { for (let i = 0; i < n && this.jobs.length; i++) this.mount(this.jobs.shift()); return this.jobs.length; },
+      collect: (max = 4) => { let n = 0; this.live = this.live.filter(x => (n >= max) ? true : (this.tryMeasure(x) ? (n++, false) : true)); return this.live.length; },
+      remaining: () => this.jobs.length + this.live.length,
+      tick: () => { const c = Number(new URLSearchParams(location.search).get('c')) || 5; window.AIUXSweep.collect(c); window.AIUXSweep.load(Math.max(0, c - this.live.length)); return this.jobs.length + this.live.length; },
+    };
+    // Runs by itself through the step API. ?manual=1 disables the timer (drive it with AIUXSweep.tick()).
+    if (new URLSearchParams(location.search).get('manual') !== '1') { window.AIUXSweep.tick(); this.iv = setInterval(() => { if (window.AIUXSweep.tick() === 0) { clearInterval(this.iv); this.iv = null; this.forceUpdate(); } }, 1500); }
+  }
+  componentWillUnmount() { clearInterval(this.iv); this.host && this.host.remove(); }
+  next() {
+    const job = this.jobs.shift(); if (!job) return;
+    const land = typeof job.w === 'string'; const W = land ? 740 : job.w, H = land ? 360 : 900;
+    const f = document.createElement('iframe');
+    f.style.cssText = 'inline-size:' + W + 'px; max-inline-size:none; block-size:' + H + 'px; border:0; display:block;';
+    const q = new URLSearchParams({ qa: '1', theme: job.theme }); if (job.lang === 'ar') q.set('lang', 'ar'); if (job.stress) q.set('stress', '1');
+    f.src = encodeURI(job.file) + '?' + q.toString();
+    const finish = r => { this.setState(s => ({ res: { ...s.res, [job.short + '|' + job.label + '|' + job.w]: r }, done: s.done + 1 })); f.remove(); this.next(); };
+    const started = Date.now();
+    const poll = () => {
+      let doc; try { doc = f.contentDocument; } catch (e) { return finish({ err: 'cross-origin' }); }
+      const ready = doc && doc.querySelector('[data-site-footer]') && doc.querySelector('main') && (!doc.fonts || doc.fonts.status === 'loaded');
+      if (!ready) { if (Date.now() - started > 25000) return finish({ err: 'timeout' }); return setTimeout(poll, 300); }
+      setTimeout(() => { try { finish(this.measure(f, job, W)); } catch (e) { finish({ err: String(e.message || e).slice(0, 80) }); } }, 1800);
+    };
+    this.host.appendChild(f);
+    setTimeout(poll, 1000);
+  }
+  mount(job) {
+    const land = typeof job.w === 'string'; const W = land ? 740 : job.w, H = land ? 360 : 900;
+    const f = document.createElement('iframe');
+    f.style.cssText = 'inline-size:' + W + 'px; max-inline-size:none; block-size:' + H + 'px; border:0; display:block;';
+    const q = new URLSearchParams({ qa: '1', theme: job.theme }); if (job.lang === 'ar') q.set('lang', 'ar'); if (job.stress) q.set('stress', '1');
+    f.src = encodeURI(job.file) + '?' + q.toString();
+    this.host.appendChild(f); this.live.push({ f, job, W, t: Date.now() });
+  }
+  tryMeasure(x) {
+    const key = x.job.short + '|' + x.job.label + '|' + x.job.w;
+    const done = r => { this.setState(s => ({ res: { ...s.res, [key]: r }, done: s.done + 1 })); x.f.remove(); return true; };
+    let doc; try { doc = x.f.contentDocument; } catch (e) { return done({ err: 'cross-origin' }); }
+    const ready = doc && doc.querySelector('[data-site-footer] nav') && doc.querySelector('main h1');
+    if (!ready) return Date.now() - x.t > 60000 ? done({ err: 'timeout' }) : false;
+    // settle: styles, fonts and the first layout pass must be done before measuring
+    if (!x.readyAt) { x.readyAt = Date.now(); return false; }
+    const sheetsOk = [...doc.querySelectorAll('link[rel="stylesheet"]')].every(l => l.sheet);
+    if (!sheetsOk || (doc.fonts && doc.fonts.status !== 'loaded') || Date.now() - x.readyAt < 3500) return false;
+    // Hidden iframes do not tick transitions (reduced motion forces a 1ms transition on every property). Phones use overlay scrollbars: hide the classic one so layout width equals the device width, then let observers settle
+    if (!x.sb) { const st = doc.createElement('style'); st.textContent = 'html{scrollbar-width:none}html::-webkit-scrollbar{display:none}*,*::before,*::after{transition:none!important}'; /* hidden frames never advance CSS transitions: snap them to their end values */ doc.head.appendChild(st); x.sb = Date.now(); return false; }
+    if (Date.now() - x.sb < 800) return false;
+    try { return done(this.measure(x.f, x.job, x.W)); } catch (e) { return done({ err: String(e.message || e).slice(0, 80) }); }
+  }
+  measure(f, job, W) {
+    const doc = f.contentDocument, win = f.contentWindow;
+    const hs = doc.documentElement.scrollWidth - W;
+    const dirOk = doc.documentElement.dir === (job.lang === 'ar' ? 'rtl' : 'ltr');
+    const off = [], clip = [], orph = [];
+    const skip = el => el.closest('.cory-visually-hidden, [aria-hidden="true"], canvas, [data-scene-poster], a[href="#main"], [role="region"][tabindex]') || (W >= 768 && el.closest('[data-work-track]') && !!(win.ScrollTrigger && win.ScrollTrigger.getAll().some(s => s.vars && s.vars.pin)));
+    // Inside a horizontal scroller that itself fits the viewport: reachable by design (carousels), not page overflow
+    const inScroller = el => { for (let a = el.parentElement; a && a !== doc.body; a = a.parentElement) { const o = win.getComputedStyle(a).overflowX; if (o === 'auto' || o === 'scroll') { const ar = a.getBoundingClientRect(); return ar.left >= -1 && ar.right <= W + 1; } } return false; };
+    const desc = el => (el.tagName.toLowerCase() + (el.id ? '#' + el.id : '') + ' "' + (el.textContent || '').trim().slice(0, 28) + '"');
+    doc.querySelectorAll('body *').forEach(el => {
+      if (off.length > 4 && clip.length > 4) return;
+      const own = [...el.childNodes].some(n => n.nodeType === 3 && n.textContent.trim());
+      if (!own || skip(el)) return;
+      const r = el.getBoundingClientRect(); if (!r.width || !r.height) return;
+      const cs = win.getComputedStyle(el); if (cs.visibility === 'hidden' || cs.opacity === '0') return;
+      if ((r.right > W + 1 || r.left < -1) && !inScroller(el)) off.length < 5 && off.push(desc(el) + ' ' + Math.round(r.left) + '→' + Math.round(r.right));
+      if (el.scrollWidth > el.clientWidth + 2 && cs.overflowX !== 'visible') clip.length < 5 && clip.push(desc(el));
+    });
+    doc.querySelectorAll('h1, h2').forEach(h => {
+      if (skip(h)) return; const rg = doc.createRange(); rg.selectNodeContents(h);
+      const rects = [...rg.getClientRects()].filter(x => x.width > 2); if (rects.length < 2) return;
+      const lines = {}; rects.forEach(x => { const k = Math.round(x.top / 4); lines[k] = (lines[k] || 0) + x.width; });
+      const ks = Object.keys(lines).map(Number).sort((a, b) => a - b); if (ks.length < 2) return;
+      const lastW = lines[ks[ks.length - 1]], hr = h.getBoundingClientRect().width;
+      if (lastW < hr * 0.12) orph.push(desc(h));
+    });
+    // Layout-quality heuristics (things that fit but look broken)
+    const tiny = [], overlap = [], squeeze = [], small = [], zero = [];
+    const vis = el => { const cs = win.getComputedStyle(el); if (cs.visibility === 'hidden' || cs.opacity === '0' || cs.display === 'none') return false; const dt = el.closest('details:not([open])'); if (dt && !el.closest('summary')) return false; return !clipped(el); };
+    // Hidden by an ancestor's overflow (collapsed accordions, carousels): not a visible overlap
+    const clipped = el => { const r = el.getBoundingClientRect(); for (let a = el.parentElement; a && a !== doc.body; a = a.parentElement) { const cs = win.getComputedStyle(a); if (/hidden|clip|auto|scroll/.test(cs.overflowX + cs.overflowY)) { const ar = a.getBoundingClientRect(); if (Math.min(r.right, ar.right) - Math.max(r.left, ar.left) < 2 || Math.min(r.bottom, ar.bottom) - Math.max(r.top, ar.top) < 2) return true; } } return false; };
+    doc.querySelectorAll('a[href], button, [role="button"], input, select, textarea').forEach(el => {
+      if (skip(el) || !vis(el) || tiny.length > 4) return; const cs = win.getComputedStyle(el); if (cs.display === 'inline') return;
+      const r = el.getBoundingClientRect(); if (!r.width || !r.height) return;
+      if (r.height < 40 || r.width < 40) tiny.push(desc(el) + ' ' + Math.round(r.width) + 'x' + Math.round(r.height));
+    });
+    const leaves = [];
+    doc.querySelectorAll('body *').forEach(el => {
+      if (skip(el) || !vis(el)) return;
+      const own = [...el.childNodes].filter(n => n.nodeType === 3 && n.textContent.trim()).map(n => n.textContent.trim()).join(' ');
+      if (!own) return; const r = el.getBoundingClientRect(); if (r.width < 2 || r.height < 2) return;
+      const cs = win.getComputedStyle(el); const fs = parseFloat(cs.fontSize), lh = parseFloat(cs.lineHeight) || fs * 1.4;
+      if (fs < 12 && small.length < 5) small.push(desc(el) + ' ' + fs + 'px');
+      if (own.length > 12 && r.width < 72 && r.height / lh > 2 && squeeze.length < 5) squeeze.push(desc(el) + ' w' + Math.round(r.width));
+      leaves.push({ el, r, cs });
+    });
+    for (let i = 0; i < leaves.length && overlap.length < 5; i++) for (let j = i + 1; j < leaves.length && overlap.length < 5; j++) {
+      const a = leaves[i], b = leaves[j]; if (a.el.contains(b.el) || b.el.contains(a.el)) continue;
+      if (a.cs.display === 'inline' || b.cs.display === 'inline') continue;   // a wrapped inline run's box legitimately spans its neighbours
+      const ix = Math.min(a.r.right, b.r.right) - Math.max(a.r.left, b.r.left), iy = Math.min(a.r.bottom, b.r.bottom) - Math.max(a.r.top, b.r.top);
+      if (ix > 6 && iy > 6) { const ab = a.cs.position === 'absolute' || b.cs.position === 'absolute'; if (!ab) overlap.push(desc(a.el) + ' x ' + desc(b.el)); }
+    }
+    doc.querySelectorAll('[style*="aspect-ratio"], image-slot, iframe, video, img').forEach(el => { if (skip(el) || !vis(el) || zero.length > 4) return; const r = el.getBoundingClientRect(); if (r.width > 0 && r.height < 2) zero.push(desc(el)); });
+    return { hs, dirOk, off, clip, orph, tiny, overlap, squeeze, small, zero, ok: hs <= 1 && dirOk && !off.length && !clip.length && !overlap.length && !squeeze.length && !zero.length };
+  }
+  renderVals() {
+    const res = this.state.res; const fails = [];
+    const rows = this.targets.map(tg => ({ label: tg.short + ' · ' + tg.label, cells: this.widths.map(w => {
+      const r = res[tg.short + '|' + tg.label + '|' + w];
+      if (!r) return { mark: '…', color: 'var(--text-subtle)' };
+      if (r.err) { fails.push(tg.short + ' ' + tg.label + ' ' + w + ': ERROR ' + r.err); return { mark: 'ERR', color: 'var(--text-warning)' }; }
+      if (!r.ok) fails.push(tg.short + ' ' + tg.label + ' ' + w + ': ' + [r.hs > 1 ? 'hscroll+' + r.hs : '', r.dirOk ? '' : 'DIR', r.off.length ? 'off[' + r.off.join('; ') + ']' : '', r.clip.length ? 'clip[' + r.clip.join('; ') + ']' : '', (r.overlap || []).length ? 'overlap[' + r.overlap.join('; ') + ']' : '', (r.squeeze || []).length ? 'squeeze[' + r.squeeze.join('; ') + ']' : '', (r.zero || []).length ? 'zero[' + r.zero.join('; ') + ']' : ''].filter(Boolean).join(' '));
+      const warn = [];
+      if (r.orph.length) warn.push('orphan ' + r.orph.join('; '));
+      if ((r.tiny || []).length) warn.push('tiny ' + r.tiny.join('; '));
+      if ((r.small || []).length) warn.push('small ' + r.small.join('; '));
+      if (warn.length) fails.push('  (warn) ' + tg.short + ' ' + tg.label + ' ' + w + ': ' + warn.join(' | '));
+      return r.ok ? { mark: warn.length ? 'P*' : 'P', color: 'var(--text-success)' } : { mark: 'F', color: 'var(--text-danger)' };
+    }) }));
+    return { cols: this.widths, rows, details: fails.join('\n') || 'No failures yet.', status: (this.total && this.state.done >= this.total ? (fails.some(l => !/^\s*\(warn\)/.test(l)) ? 'Done · FAILED · ' : 'Done · PASSED · ') : 'Running · ') + 'Checked ' + this.state.done + ' / ' + (this.total || '?') + (this.state.err ? ' · ' + this.state.err : '') + ' · frames ' + (this.host ? this.host.children.length : 'none') };
+  }
+}
+</script>
+</body>
+</html>

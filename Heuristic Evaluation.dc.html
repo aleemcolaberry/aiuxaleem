@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Heuristic evaluation · AIUXAleem</title>
+  <script>(function(){var d=document.documentElement,q=new URLSearchParams(location.search),t=q.get('theme');if(t!=='light'&&t!=='dark'){try{t=localStorage.getItem('aiuxaleem-theme')}catch(e){}}if(t!=='light'&&t!=='dark')t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';d.setAttribute('data-theme',t);d.lang='en';d.dir='ltr';})();</script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap">
+  <link rel="stylesheet" href="site.css">
+  <script src="_ds/agentcory-design-system-ebeb8591-9d98-4009-838b-178d8ac72f26/_ds_bundle.js"></script>
+</helmet>
+<main id="main" tabindex="-1" style="padding-block:var(--section-y);">
+  <div class="cory-container" style="display:grid; gap:var(--space-16);">
+
+    <header style="display:grid; gap:var(--space-5);">
+      <p class="cory-overline" style="margin:0;">Internal review · updated 3 October 2026</p>
+      <h1 style="margin:0; max-inline-size:18ch; font-family:var(--font-display); font-weight:var(--weight-extrabold); font-size:var(--text-fluid-display); line-height:var(--leading-tight); letter-spacing:var(--tracking-tighter); color:var(--text-strong); text-wrap:balance;">Heuristic evaluation of aiuxaleem.com</h1>
+      <p style="margin:0; max-inline-size:var(--measure-lead); font-size:var(--text-fluid-lead); line-height:var(--leading-relaxed); color:var(--text-body);">Nine pages, including the new Projects, Read and Watch sections on Home, reviewed through two visitors: a hiring manager in KSA or the UAE, and a client deciding whether to book a call. Lenses: Nielsen's 10 usability heuristics, visual consistency, and the path to contact. Accessibility and responsiveness were audited separately and pass.</p>
+      <div data-cq>
+        <dl data-cq-grid="4" style="margin:0; display:grid; gap:1px; border-radius:var(--radius-xl); overflow:hidden; border:1px solid var(--border-subtle); background:var(--border-subtle);">
+          <div style="display:grid; gap:var(--space-1); padding:var(--space-5); background:var(--surface-card);"><dt style="font-size:var(--text-caption); font-weight:var(--weight-semibold); color:var(--text-subtle);">Findings</dt><dd style="margin:0; font-family:var(--font-display); font-weight:var(--weight-extrabold); font-size:var(--text-metric-md); line-height:var(--leading-none); color:var(--text-strong); font-variant-numeric:tabular-nums;">{{ total }}</dd></div>
+          <div style="display:grid; gap:var(--space-1); padding:var(--space-5); background:var(--surface-card);"><dt style="font-size:var(--text-caption); font-weight:var(--weight-semibold); color:var(--text-subtle);">Closed</dt><dd style="margin:0; font-family:var(--font-display); font-weight:var(--weight-extrabold); font-size:var(--text-metric-md); line-height:var(--leading-none); color:var(--text-success); font-variant-numeric:tabular-nums;">{{ closedN }}</dd></div>
+          <div style="display:grid; gap:var(--space-1); padding:var(--space-5); background:var(--surface-card);"><dt style="font-size:var(--text-caption); font-weight:var(--weight-semibold); color:var(--text-subtle);">Partly closed</dt><dd style="margin:0; font-family:var(--font-display); font-weight:var(--weight-extrabold); font-size:var(--text-metric-md); line-height:var(--leading-none); color:var(--text-link); font-variant-numeric:tabular-nums;">{{ partialN }}</dd></div>
+          <div style="display:grid; gap:var(--space-1); padding:var(--space-5); background:var(--surface-card);"><dt style="font-size:var(--text-caption); font-weight:var(--weight-semibold); color:var(--text-subtle);">Open or deferred</dt><dd style="margin:0; font-family:var(--font-display); font-weight:var(--weight-extrabold); font-size:var(--text-metric-md); line-height:var(--leading-none); color:var(--text-warning); font-variant-numeric:tabular-nums;">{{ openN }}</dd></div>
+        </dl>
+      </div>
+      <p style="margin:0; font-size:var(--text-caption); line-height:var(--leading-normal); color:var(--text-muted);">Severity uses Nielsen's scale: 4 catastrophe, 3 major, 2 minor, 1 cosmetic. Rated for these two visitors, not users in general.</p>
+    </header>
+
+    <section aria-labelledby="next-title" style="display:grid; gap:var(--space-6);">
+      <div style="display:grid; gap:var(--space-3);">
+        <p class="cory-overline" style="margin:0;">Do these next</p>
+        <h2 id="next-title" style="margin:0; font-family:var(--font-display); font-weight:var(--weight-extrabold); font-size:var(--text-fluid-title); line-height:var(--leading-snug); letter-spacing:var(--tracking-tighter); color:var(--text-strong); text-wrap:balance;">What only you can supply</h2>
+      </div>
+      <div data-cq><ol data-cq-balance style="display:grid; gap:var(--grid-gap);">
+        <sc-for list="{{ top }}" as="t" hint-placeholder-count="3">
+          <li style="display:grid; gap:var(--space-3); align-content:start; padding:var(--space-6); border-radius:var(--radius-xl); background:var(--gradient-ink); color:var(--on-ink-body);">
+            <span style="font-family:var(--font-mono); font-size:var(--text-mono); color:var(--on-ink-link);">{{ t.id }} · severity {{ t.sev }}</span>
+            <strong style="font-size:var(--text-h4); line-height:var(--leading-heading); color:var(--on-ink-strong); text-wrap:balance;">{{ t.title }}</strong>
+            <span style="font-size:var(--text-body-sm); line-height:var(--leading-normal); color:var(--on-ink-body);">{{ t.ask }}</span>
+          </li>
+        </sc-for>
+      </ol></div>
+    </section>
+
+    <sc-for list="{{ groups }}" as="g" hint-placeholder-count="2">
+      <section aria-labelledby="{{ g.hid }}" style="display:grid; gap:var(--space-6);">
+        <div style="display:grid; gap:var(--space-3);">
+          <p class="cory-overline" style="margin:0;">{{ g.overline }}</p>
+          <h2 id="{{ g.hid }}" style="margin:0; font-family:var(--font-display); font-weight:var(--weight-extrabold); font-size:var(--text-fluid-title); line-height:var(--leading-snug); letter-spacing:var(--tracking-tighter); color:var(--text-strong); text-wrap:balance;">{{ g.title }}</h2>
+          <p style="margin:0; max-inline-size:var(--measure-lead); font-size:var(--text-body); line-height:var(--leading-relaxed); color:var(--text-muted);">{{ g.lead }}</p>
+        </div>
+        <ul style="display:grid; gap:var(--space-4);">
+          <sc-for list="{{ g.items }}" as="f" hint-placeholder-count="4">
+            <li style="display:grid; gap:var(--space-4); padding:var(--space-6); border-radius:var(--radius-xl); background:var(--surface-card); border:1px solid var(--border-subtle); box-shadow:var(--shadow-sm);">
+              <div style="display:flex; align-items:center; flex-wrap:wrap; gap:var(--space-2) var(--space-3);">
+                <span style="font-family:var(--font-mono); font-size:var(--text-mono); font-weight:var(--weight-medium); color:var(--text-subtle);">{{ f.id }}</span>
+                <x-import component-from-global-scope="DesignSystem_ebeb85.Badge" tone="{{ f.sevTone }}" hint-size="auto,26px">{{ f.sevLabel }}</x-import>
+                <x-import component-from-global-scope="DesignSystem_ebeb85.Badge" tone="{{ f.statusTone }}" dot="{{ true }}" hint-size="auto,26px">{{ f.statusLabel }}</x-import>
+                <span style="font-size:var(--text-caption); font-weight:var(--weight-semibold); color:var(--text-muted);">{{ f.heuristic }}</span>
+              </div>
+              <h3 style="margin:0; font-size:var(--text-h3); font-weight:var(--weight-bold); line-height:var(--leading-heading); letter-spacing:var(--tracking-tight); color:var(--text-strong); text-wrap:balance;">{{ f.title }}</h3>
+              <div data-cq>
+                <dl data-cq-grid style="margin:0; display:grid; gap:var(--space-4) var(--space-8);">
+                  <div style="display:grid; gap:var(--space-1);"><dt style="font-size:var(--text-caption); font-weight:var(--weight-semibold); color:var(--text-subtle);">Where</dt><dd style="margin:0; font-size:var(--text-body-sm); line-height:var(--leading-normal); color:var(--text-body);">{{ f.where }}</dd></div>
+                  <div style="display:grid; gap:var(--space-1);"><dt style="font-size:var(--text-caption); font-weight:var(--weight-semibold); color:var(--text-subtle);">Evidence</dt><dd style="margin:0; font-size:var(--text-body-sm); line-height:var(--leading-normal); color:var(--text-body);">{{ f.evidence }}</dd></div>
+                  <div style="display:grid; gap:var(--space-1);"><dt style="font-size:var(--text-caption); font-weight:var(--weight-semibold); color:var(--text-subtle);">Why it matters</dt><dd style="margin:0; font-size:var(--text-body-sm); line-height:var(--leading-normal); color:var(--text-body);">{{ f.why }}</dd></div>
+                  <div style="display:grid; gap:var(--space-1);"><dt style="font-size:var(--text-caption); font-weight:var(--weight-semibold); color:var(--text-subtle);">{{ f.fixLabel }}</dt><dd style="margin:0; font-size:var(--text-body-sm); line-height:var(--leading-normal); color:var(--text-strong); font-weight:var(--weight-medium);">{{ f.fix }}</dd></div>
+                </dl>
+              </div>
+            </li>
+          </sc-for>
+        </ul>
+      </section>
+    </sc-for>
+
+    <section aria-labelledby="keep-title" style="display:grid; gap:var(--space-6);">
+      <div style="display:grid; gap:var(--space-3);">
+        <p class="cory-overline" style="margin:0;">Keep</p>
+        <h2 id="keep-title" style="margin:0; font-family:var(--font-display); font-weight:var(--weight-extrabold); font-size:var(--text-fluid-title); line-height:var(--leading-snug); letter-spacing:var(--tracking-tighter); color:var(--text-strong); text-wrap:balance;">What already works</h2>
+      </div>
+      <ul style="display:grid; gap:var(--space-3); max-inline-size:var(--measure-body);">
+        <sc-for list="{{ strengths }}" as="s" hint-placeholder-count="5">
+          <li style="display:flex; gap:var(--space-3); align-items:baseline; font-size:var(--text-body); line-height:var(--leading-relaxed); color:var(--text-body);"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0; color:var(--text-success); transform:translateY(2px);"><path d="M20 6 9 17l-5-5"></path></svg><span>{{ s }}</span></li>
+        </sc-for>
+      </ul>
+      <p style="margin:0; max-inline-size:var(--measure-body); font-size:var(--text-body-sm); line-height:var(--leading-relaxed); color:var(--text-muted);">These rules now live in CLAUDE.md, so new pages inherit them. A11y Audit and QA Sweep fail a page that breaks them.</p>
+    </section>
+  </div>
+</main>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  findings = [
+    { id: 'H1', sev: 4, status: 'partial', heuristic: 'Visibility of system status · credibility', title: 'Too little of the actual design work was visible',
+      where: 'Home work row, Work, every Case study (cover + 2 gallery images)', evidence: 'Before: all 3 covers and all 6 gallery slots were empty. Now: AIXFreight shows the real console with a before and after pair, and the Colaberry Design System cover is the live docs site hero (245 tokens · 20 components · 26 templates · WCAG 2.2 AA).',
+      why: 'A hiring manager scans for the work itself in under a minute. Text claims without screens read as unproven.', fix: 'Two of three covers are real now. Still needed: a still for the AI reel pipeline, and two inside screens for the Colaberry case (the token reference and a component spec page work well).' },
+    { id: 'H2', sev: 3, status: 'fixed', heuristic: 'Match between system and the real world', title: 'Links promised a specific post but opened your LinkedIn profile',
+      where: 'Content, Home post tile', evidence: '9 links labelled with a post title or "Read on LinkedIn" went to linkedin.com/in/aiuxaleem, and the post text on Content did not match any real post.',
+      why: 'The visitor clicked for one idea and landed on a profile page, off-site.', fix: 'Content now lists your 3 LinkedIn articles and your 3 post series (AI x UX books, the EdTech series, Books reviewed by me), 8 posts in total, each linked to its exact post. The Home post tile opens the latest post, and a new tile links your newest article.' },
+    { id: 'H3', sev: 3, status: 'fixed', heuristic: 'Aesthetic and minimalist design', title: 'Placeholders for videos and reels that do not exist yet',
+      where: 'Content (long-form + reels sections), Home (video and reel tiles)', evidence: '"Recording coming soon" three times, and 3 of 4 reel thumbnails empty.',
+      why: 'Empty promises read as an unfinished site, which undercuts a portfolio about shipping.', fix: 'Removed the long-form and reels sections from Content and both tiles from Home. Bring reels back when the NotebookLM and CapCut avatar videos are published; the Reel Card component is kept for that.' },
+    { id: 'H4', sev: 2, status: 'open', heuristic: 'Help users recognise, credibility', title: 'Percentages without a source or timeframe',
+      where: 'Home proof strip, About timeline', evidence: '"+60% more leads" (learn.colaberry.com) and "+40% more engagement" (NTT DATA) have no period, baseline or measure.',
+      why: 'Hiring managers discount unsourced percentages. A period and a source turn a claim into evidence.', fix: 'Not changed: inventing a timeframe would be worse than none. Send the period and source for each (for example "in 3 months, GA4") and I will add it under the number.' },
+    { id: 'H5', sev: 2, status: 'partial', heuristic: 'Match between system and the real world', title: 'Two case studies led with outputs, not outcomes',
+      where: 'Case study: AIXFreight rebrand, AI ad reel pipeline', evidence: 'Key results read "1 identity", "0 new components", "9:16".',
+      why: 'These describe what was made, not what changed.', fix: 'AIXFreight now leads with the measured before and after from the console write-up: 1,646 below-AA text nodes cut to 7 in testing (0 expected once deployed), 97 screens re-themed with no behaviour change, focus rings on every control (was 7 types without). The reel pipeline swaps "9:16" for 3 recurring characters; it still needs a time or volume measure from you.' },
+    { id: 'H6', sev: 2, status: 'fixed', heuristic: 'Consistency, credibility', title: '"Worked with" mixed employers and in-house products',
+      where: 'Home hero, English and Arabic', evidence: 'AgentCory and AIXFreight, both Colaberry products, sat beside Colaberry, NTT DATA and Refactored.ai.',
+      why: 'A recruiter scanning names may read the list as padded.', fix: 'Companies only: Colaberry, NTT DATA, Refactored.ai. The products are shown where they belong, in the case studies.' },
+    { id: 'H7', sev: 2, status: 'fixed', heuristic: 'Visibility of system status', title: 'Relative dates that would go stale',
+      where: 'Post cards on Home and Content', evidence: 'Posts said "· 2d", "· 1w", "· 2w", typed by hand.',
+      why: 'Next week "2d" is wrong, and wrong dates make the whole page look unmaintained.', fix: 'Every post now shows its real publish date, read from the LinkedIn post id itself (for example 1 Oct 2026), so it can never drift.' },
+    { id: 'H8', sev: 1, status: 'deferred', heuristic: 'Flexibility, match with the audience', title: 'Arabic covers only Home and Case study',
+      where: 'Services, Work, About, Content, Guides', evidence: 'Switching to Arabic on these pages lands on the nearest Home section with a notice.',
+      why: 'Handled gracefully today. For GCC clients, Services is the page that sells.', fix: 'Deferred on purpose: Services is about 400 words of hard-coded English, and sales copy in Arabic needs a native reviewer before it ships. It is the right next project if KSA and UAE clients are the priority.' },
+    { id: 'F1', sev: 3, status: 'fixed', heuristic: 'Consistency and standards', title: 'Four pages were built on a different layout and type scale',
+      where: 'Services, About, Guides, Guide', evidence: 'Hand-built containers with a different gutter, a 60px hero headline instead of 72px, one-off heading sizes, copied overline styles, ad-hoc section spacing.',
+      why: 'Edges and headlines jumped between pages, so the site felt assembled rather than designed.', fix: 'Moved all four onto the shared container, heading scale, section labels and spacing. The audit now fails any page that drifts.' },
+    { id: 'F2', sev: 3, status: 'fixed', heuristic: 'Match between system and the real world', title: '"Download resume" opened a Google Drive viewer in a new tab',
+      where: '8 links: header menu, Home (2), Work, About, Case study, footer, 404', evidence: 'The label said download; the link opened drive.google.com/file/…/view.',
+      why: 'The visitor got a viewer, a second tab and a Drive sign-in prompt instead of the PDF.', fix: 'All eight now download the PDF directly.' },
+    { id: 'F3', sev: 2, status: 'fixed', heuristic: 'User control and freedom', title: '"Let\'s talk" pulled you from any page to the bottom of Home',
+      where: 'Header, on every page except Home', evidence: 'The button linked to Home #contact even when the page had its own contact block.',
+      why: 'A client reading Services lost their place right when they decided to get in touch.', fix: 'It now scrolls to the contact block on the current page, and falls back to Home only where there is none.' },
+    { id: 'F4', sev: 2, status: 'fixed', heuristic: 'Consistency and standards', title: 'One email action had four different labels',
+      where: 'Work, About, Services, Case study, Home', evidence: '"Start a conversation", "Send a brief", "Start with this" and "Email me" all opened the same mail draft.',
+      why: 'Different words suggest different outcomes. The visitor hesitates or expects a form.', fix: 'Now "Email me" everywhere, and "Email me about this" on the Services offers. The calendar link is always "Book a 15-min call".' },
+    { id: 'F5', sev: 2, status: 'fixed', heuristic: 'Aesthetic and minimalist design', title: 'Services left one offer card alone on its own row',
+      where: 'Services, between about 640 and 960px wide', evidence: 'Two cards, then "UX Audit and Redesign" by itself with half the row empty.',
+      why: 'An orphan card reads as an afterthought, on the page that sells the three offers.', fix: 'Balanced grid: 1 column, then 2 with the third spanning the row, then 3.' },
+    { id: 'F6', sev: 1, status: 'fixed', heuristic: 'Recognition rather than recall', title: 'Your name was a heading on every post card',
+      where: 'Content (3×), Home (1×)', evidence: 'The page outline read "Mohammad Abdul Aleem" three times in a row.',
+      why: 'Screen-reader users navigate by headings; repeated names hide the real structure.', fix: 'The author line is plain text now.' },
+    { id: 'F7', sev: 1, status: 'fixed', heuristic: 'Visibility of system status', title: 'Next case studies appeared with no heading',
+      where: 'Case study, after the learnings', evidence: 'Two case cards followed as new h2 sections, with no label.',
+      why: 'Readers could not tell the case had ended and a different one was offered.', fix: 'Added a visible "More case studies" heading; the two cards sit under it.' },
+    { id: 'H9', sev: 3, status: 'fixed', heuristic: 'Credibility · match with the real world', title: 'A proof number claimed more than the source shows',
+      where: 'Home proof strip, AIXFreight case study (key results and result text)', evidence: 'Copy said 1,646 below-AA text nodes were "fixed to zero". The UAT console write-up says 1,646 dropped to 7 in testing, with 0 expected on the deployed build.',
+      why: 'Hiring managers check numbers. One overstated figure makes every other number on the page suspect.', fix: 'All three places now say "cut to 7 in testing (0 expected live)", in English and Arabic.' },
+    { id: 'H10', sev: 2, status: 'fixed', heuristic: 'Credibility', title: 'Copy described YouTube content that was never checked',
+      where: 'Home, Watch section', evidence: 'It said the channel holds "talks and walkthroughs" before anyone had looked at the channel.',
+      why: 'A visitor who clicks through and finds something else stops trusting the copy.', fix: 'Now reads "My videos are on YouTube." Describe the channel once its content is confirmed.' },
+    { id: 'F8', sev: 2, status: 'fixed', heuristic: 'Efficiency of use · performance', title: 'A 1.1 MB cover image on three pages',
+      where: 'Home Projects card, Work, Colaberry case study; author avatar on posts, Guide and About', evidence: 'The Colaberry cover was a 1,896px PNG at 1,136 KB, 20× the other covers. The avatar was a 544 KB PNG shown at 44px.',
+      why: 'Heavy images slow the first view on phone data and cause scroll stutter when they decode.', fix: 'Cover is now a 1,600px JPEG at 94 KB; avatar 4 KB at 44px and 35 KB for the large About portrait. About 1.6 MB less to download.' },
+    { id: 'F9', sev: 2, status: 'fixed', heuristic: 'Visibility of system status · accessibility', title: 'Hover and focus colours fell below WCAG contrast',
+      where: 'Every page, light theme', evidence: 'Link hover lightened to 4.2:1 on white (3.8:1 on the ghost-button tint). The focus ring was 2.95:1 on grey panels.',
+      why: 'The moment someone points at or tabs to a link is exactly when it must stay readable and findable.', fix: 'Hover now darkens (6.9:1); the focus ring is 3.7:1. The audit checks every approved colour pair in both themes, including hover and focus.' },
+    { id: 'F10', sev: 2, status: 'fixed', heuristic: 'Consistency and standards', title: 'Links with no hover state, and cards that lifted but did nothing',
+      where: '26 text links on 10 pages; Services offer cards; More case studies; Content series cards', evidence: 'Inline styles cancelled the link hover. Services cards lifted though only their button was clickable. Neighbouring cards differed in height by up to 50px.',
+      why: 'Hover that promises a click and does nothing, or no hover where there is a link, both make people hesitate.', fix: 'One hover language: links underline and nudge their arrow; only whole-card links lift. Cards in a row are equal height with the action pinned to the bottom.' },
+  ];
+  renderVals() {
+    const tone = { 4: 'danger', 3: 'warning', 2: 'brand', 1: 'neutral' }, name = { 4: 'Severity 4 · catastrophe', 3: 'Severity 3 · major', 2: 'Severity 2 · minor', 1: 'Severity 1 · cosmetic' };
+    const st = { fixed: ['success', 'Closed', 'What changed'], partial: ['brand', 'Partly closed', 'What changed, and what is left'], open: ['warning', 'Open', 'Why it is still open'], deferred: ['neutral', 'Deferred', 'Why it is deferred'] };
+    const shape = f => ({ ...f, sevTone: tone[f.sev], sevLabel: name[f.sev], statusTone: st[f.status][0], statusLabel: st[f.status][1], fixLabel: st[f.status][2] });
+    const pick = (...k) => this.findings.filter(f => k.includes(f.status)).sort((a, b) => b.sev - a.sev).map(shape);
+    const partial = pick('partial'), rest = pick('open', 'deferred'), closed = pick('fixed');
+    return {
+      total: this.findings.length, closedN: closed.length, partialN: partial.length, openN: rest.length,
+      top: [{ id: 'H1', sev: 4, title: 'Three more screens', ask: 'A still from a finished reel, plus two inside screens of the Colaberry Design System docs.' }, { id: 'H4', sev: 2, title: 'Source the percentages', ask: 'Period and measure for +60% leads and +40% engagement.' }, { id: 'H5', sev: 2, title: 'One reel-pipeline outcome', ask: 'Time per reel before and after, or reels shipped per week.' }],
+      groups: [
+        { hid: 'partial-title', overline: 'Partly closed · ' + partial.length, title: 'Improved, with one thing left for you', lead: 'I closed what the repos and the site could prove. The rest needs material only you have.', items: partial },
+        { hid: 'open-title', overline: 'Open · ' + rest.length, title: 'Left open on purpose', lead: 'Closing these without your input would mean inventing facts or shipping unreviewed Arabic.', items: rest },
+        { hid: 'fixed-title', overline: 'Closed · ' + closed.length, title: 'Fixed and re-audited', lead: 'Both checks pass with 0 failures after these changes.', items: closed },
+      ],
+      strengths: [
+        'The hero says who you are, what you do and how to act on it in one screen, with a single primary action.',
+        'The live trust demo shows your thinking (cost, confidence, undo) instead of describing it. It is the most memorable moment on the site.',
+        'Two case studies now open on real product screens, and AIXFreight pairs them with measured before and after numbers: the strongest proof on the site.',
+        'Content is now entirely real: 3 articles and 8 dated posts, each one link away.',
+        'Every page ends with one clear next step, and the calendar link is never more than a scroll away.',
+        'One design system end to end: light and dark, English and Arabic, 320 to 1920px, all from shared tokens, with WCAG 2.2 AA built in.',
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>

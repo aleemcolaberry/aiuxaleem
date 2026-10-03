@@ -1,0 +1,79 @@
+/* ===========================================================================
+   AgentCory: Typography tokens
+   Plus Jakarta Sans across the brand; JetBrains Mono for data/metrics readouts.
+   Fixed steps for components; fluid steps for marketing/portfolio display.
+   =========================================================================== */
+:root {
+  /* --- Families --- */
+  --font-sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-display: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+
+  /* --- Weights --- */
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+  --weight-extrabold: 800;
+
+  /* --- Fixed type scale (px) --- */
+  --text-display-2xl: 72px;
+  --text-display-xl: 60px;
+  --text-display-lg: 48px;
+  --text-display-md: 40px;
+  --text-h1: 34px;
+  --text-h2: 28px;
+  --text-h3: 22px;
+  --text-h4: 18px;
+  --text-body-lg: 18px;
+  --text-body: 16px;
+  --text-body-sm: 14px;
+  --text-caption: 13px;
+  --text-overline: 12px;
+  --text-micro: 11px;   /* badge sm, legal, minimum size in the system */
+
+  /* --- UI control text (buttons, inputs, chips, tabs) --- */
+  --text-ui-sm: 14px;
+  --text-ui: 15px;
+  --text-ui-lg: 17px;
+  --text-label: 13px;   /* field labels, hints */
+
+  /* --- Metric (the biggest thing on screen is usually a number) --- */
+  --text-metric-xl: clamp(56px, 7vw, 88px); /* @kind font */
+  --text-metric-lg: clamp(40px, 6vw, 56px); /* @kind font */
+  --text-metric-md: 36px;
+  --text-metric-sm: 28px;
+
+  /* --- Fluid display (marketing / portfolio; shrink gracefully to 360px) --- */
+  --text-fluid-display: clamp(40px, 5.6vw, 72px); /* @kind font */
+  --text-fluid-title: clamp(32px, 4vw, 48px); /* @kind font */
+  --text-fluid-h2: clamp(24px, 2.8vw, 34px); /* @kind font */
+  --text-fluid-lead: clamp(16px, 1.5vw, 19px); /* @kind font */
+
+  /* --- Mono scale --- */
+  --text-mono-sm: 12px;
+  --text-mono: 13px;
+  --text-mono-lg: 15px;
+
+  /* --- Line heights --- */
+  --leading-none: 1; /* @kind other */
+  --leading-tight: 1.05;
+  --leading-snug: 1.18;
+  --leading-heading: 1.25;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.65;
+  --leading-mono: 1.7; /* @kind other */
+
+  /* --- Letter spacing --- */
+  --tracking-tighter: -0.03em;
+  --tracking-tight: -0.018em;
+  --tracking-ui: -0.01em; /* @kind other */
+  --tracking-normal: 0em;
+  --tracking-wide: 0.02em;
+  --tracking-overline: 0.14em;
+
+  /* --- Measure --- */
+  --measure-body: 68ch; /* @kind other */
+  --measure-lead: 56ch; /* @kind other */
+  --measure-display: 18ch; /* @kind other */
+}

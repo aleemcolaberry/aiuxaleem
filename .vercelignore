@@ -1,0 +1,20 @@
+uploads
+QA Sweep.dc.html
+QA.dc.html
+QA Cell.dc.html
+A11y Audit.dc.html
+Heuristic Evaluation.dc.html
+OG Card.dc.html
+aiuxaleem.css
+CLAUDE.md
+github.md
+*.md
+!component-spec-template.md
+dist
+scripts
+.github
+.gitignore
+.thumbnail
+*.zip
+.gitattributes
+README.md

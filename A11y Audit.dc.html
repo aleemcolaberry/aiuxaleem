@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>A11y audit · AIUXAleem</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&amp;family=JetBrains+Mono:wght@400;600&amp;display=swap">
+  <link rel="stylesheet" href="site.css">
+  <script src="a11y-audit.js"></script>
+</helmet>
+<main style="padding:var(--space-6) var(--gutter); display:grid; gap:var(--space-4); max-inline-size:var(--container-wide); margin-inline:auto; color:var(--text-body);">
+  <div style="display:grid; gap:var(--space-1);">
+    <p class="cory-overline" style="margin:0;">Internal · noindex</p>
+    <h1 style="margin:0; font-size:var(--text-h2); color:var(--text-strong);">Accessibility and visual-integrity audit</h1>
+    <p style="margin:0; font-size:var(--text-body-sm); color:var(--text-muted);">Every page in light and dark, English and Arabic, at 390 and 1280px, after a live theme switch, and under the WCAG 1.4.12 text-spacing override. Rules live in a11y-audit.js and CLAUDE.md.</p>
+  </div>
+  <p role="status" style="margin:0; font-family:var(--font-mono); font-size:var(--text-mono); font-weight:var(--weight-semibold); color:var(--text-strong);">{{ status }}</p>
+  <pre style="margin:0; padding:var(--space-4); border-radius:var(--radius-lg); background:var(--surface-card); border:1px solid var(--border-subtle); white-space:pre-wrap; font-family:var(--font-mono); font-size:var(--text-mono-sm); line-height:var(--leading-mono); color:var(--text-body);">{{ report }}</pre>
+</main>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { done: 0, res: [] };
+  componentDidMount() {
+    const q = new URLSearchParams(location.search), only = (q.get('pages') || '').split(',').filter(Boolean);
+    const pages = [['AIUXAleem Home.dc.html', 'home', true], ['Case Study.dc.html', 'case', true], ['Work.dc.html', 'work'], ['Services.dc.html', 'services'], ['About.dc.html', 'about'], ['Content.dc.html', 'content'], ['Guides.dc.html', 'guides'], ['Guide.dc.html', 'guide'], ['404.dc.html', '404']];
+    const jobs = [];
+    pages.filter(p => !only.length || only.includes(p[1])).forEach(([file, short, ar]) => {
+      [['light', 1280], ['dark', 1280], ['light', 390], ['dark', 390]].forEach(([theme, w]) => jobs.push({ file, short, theme, w, lang: 'en', mode: 'fresh' }));
+      if (ar) [['light', 1280], ['dark', 390]].forEach(([theme, w]) => jobs.push({ file, short, theme, w, lang: 'ar', mode: 'fresh' }));
+      jobs.push({ file, short, theme: 'light', to: 'dark', w: 1280, lang: 'en', mode: 'live' });
+      jobs.push({ file, short, theme: 'dark', to: 'light', w: 390, lang: 'en', mode: 'live' });
+      [390, 1280].forEach(w => jobs.push({ file, short, theme: 'light', w, lang: 'en', mode: 'spacing' }));
+    });
+    // Interaction states: open mobile menu, and the hero demo tile through why / apply / dark / RTL
+    if (!only.length || only.includes('home')) {
+      [['light', 'menu'], ['dark', 'menu']].forEach(([theme, m]) => jobs.push({ file: 'AIUXAleem Home.dc.html', short: 'home', theme, w: 390, lang: 'en', mode: m, solo: true, clicks: ['[data-hdr-mobile] button'] }));
+      [['light', 1280], ['dark', 390]].forEach(([theme, w]) => jobs.push({ file: 'AIUXAleem Home.dc.html', short: 'home', theme, w, lang: 'en', mode: 'demo', clicks: ['[data-demo] [aria-controls="demo-why"]', '[data-demo] button:not([aria-controls]):not([aria-pressed])'] }));
+      [['light', 1280], ['dark', 390]].forEach(([theme, w]) => jobs.push({ file: 'AIUXAleem Home.dc.html', short: 'home', theme, w, lang: 'en', mode: 'demo-flip', clicks: ['[data-demo] [role="group"] button', '[data-demo] [role="group"] button:last-child', '[data-demo] [aria-controls="demo-why"]'] }));
+    }
+    this.jobs = jobs; this.total = jobs.length; this.live = [];
+    this.host = document.createElement('div'); this.host.style.cssText = 'position:fixed; inset-block-start:0; inset-inline-start:0; inline-size:max-content; opacity:0; pointer-events:none; z-index:-1;'; document.body.appendChild(this.host);
+    window.AIUXA11y = { tick: () => this.tick(), results: () => this.state.res };
+    // Runs by itself. tick() stays exposed for hidden tabs, where timers are throttled. ?manual=1 disables the timer.
+    if (q.get('manual') !== '1') { this.tick(); this.iv = setInterval(() => { if (this.tick() === 0) { clearInterval(this.iv); this.iv = null; this.setState({ finished: true }); } }, 1500); }
+  }
+  componentWillUnmount() { clearInterval(this.iv); this.live && this.live.forEach(x => x.f.remove()); this.host && this.host.remove(); }
+  tick() {
+    const now = Date.now();
+    this.live = this.live.filter(x => {
+      let d; try { d = x.f.contentDocument; } catch (e) {}
+      const ready = d && d.querySelector('[data-site-footer] nav') && d.querySelector('main h1');
+      if (!ready) { if (now - x.t > 45000) { this.finish(x, [{ rule: 'load', level: 'fail', el: '', msg: 'timeout' }]); return false; } return true; }
+      if (!x.s1) { const st = d.createElement('style'); st.textContent = 'html{scrollbar-width:none}html::-webkit-scrollbar{display:none}*,*::before,*::after{transition:none!important}'; d.head.appendChild(st); x.s1 = now; return true; }
+      if (!x.s2 && now - x.s1 > 2500) {
+        // Hidden frames never tick rAF: finish every GSAP tween (reveals, counters, scrubs) so the audit sees the settled page a reader sees
+        const w = x.f.contentWindow; try { if (w.gsap) w.gsap.globalTimeline.getChildren(true, true, false).forEach(t => t.progress(1)); } catch (e) {}
+        if (x.job.mode === 'live') d.documentElement.setAttribute('data-theme', x.job.to);
+        // Frames share one focus: record focus moves as they happen, not at audit time, so parallel frames can't mask the result
+        if (x.job.mode === 'menu') d.addEventListener('focusin', ev => { if (ev.target.closest && ev.target.closest('[role="dialog"]')) x.menuFocused = true; });
+        (x.job.clicks || []).forEach((sel, k) => setTimeout(() => { const b = d.querySelector(sel); if (b) b.click(); else x.missing = (x.missing || []).concat(sel); }, k * 400));
+        if (x.job.mode === 'spacing') { const st = d.createElement('style'); st.textContent = window.AIUX_TEXT_SPACING_CSS; d.head.appendChild(st); }
+        x.s2 = now; return true;
+      }
+      if (x.s2 && now - x.s2 > (x.job.clicks ? 3200 : 1500)) {
+        let r; try { const w = x.f.contentWindow; r = window.AIUXAudit(d, w, { pinned: !!(w.ScrollTrigger && w.ScrollTrigger.getAll().some(s => s.vars && s.vars.pin)) }); } catch (e) { r = [{ rule: 'audit', level: 'fail', el: '', msg: String(e.message || e).slice(0, 120) }]; }
+        if (x.job.mode === 'spacing') r = r.filter(i => i.rule === 'reflow' || i.rule === 'clipped-text');
+        if (x.missing) r.push({ rule: 'state', level: 'fail', el: '', msg: 'Could not reach state: ' + x.missing.join(', ') });
+        if (x.job.mode === 'menu') { const dlg = d.querySelector('[role="dialog"]'); if (!dlg) r.push({ rule: 'state', level: 'fail', el: '', msg: 'Menu dialog did not open' }); else if (!x.menuFocused && !dlg.contains(d.activeElement)) r.push({ rule: 'focus', level: 'fail', el: '', msg: 'Focus did not move into the open menu (2.4.3)' }); }
+        this.finish(x, r); return false;
+      }
+      return true;
+    });
+    // Focus checks run alone: parallel frames steal focus from each other and make the result flaky
+    while (this.live.length < 6 && this.jobs.length && !this.live.some(x => x.job.solo) && !(this.jobs[0].solo && this.live.length)) {
+      const job = this.jobs.shift(), f = document.createElement('iframe');
+      f.style.cssText = 'inline-size:' + job.w + 'px; max-inline-size:none; block-size:900px; border:0; display:block;';
+      const p = new URLSearchParams({ qa: '1', theme: job.theme }); if (job.lang === 'ar') p.set('lang', 'ar');
+      f.src = encodeURI(job.file) + '?' + p.toString(); this.host.appendChild(f); this.live.push({ f, job, t: now });
+    }
+    return this.jobs.length + this.live.length;
+  }
+  finish(x, issues) { x.f.remove(); const j = x.job; const label = j.lang + '-' + j.theme + (j.mode === 'live' ? '>' + j.to + '(live)' : j.mode === 'spacing' ? '+spacing' : j.mode !== 'fresh' ? '+' + j.mode : '') + '@' + j.w; this.setState(s => ({ done: s.done + 1, res: s.res.concat([{ page: j.short, label, issues }]) })); }
+  renderVals() {
+    const groups = {};
+    this.state.res.forEach(r => r.issues.forEach(i => { const k = r.page + ' | ' + i.level.toUpperCase() + ' ' + i.rule + ' | ' + i.el + ' | ' + i.msg.replace(/\d+\.\d+:1/, 'N:1').replace(/\d+x\d+/, 'WxH'); (groups[k] = groups[k] || { n: 0, states: [], sample: i.msg }).n++; if (groups[k].states.length < 4) groups[k].states.push(r.label); }));
+    const keys = Object.keys(groups).sort((a, b) => (a.includes('FAIL') ? 0 : 1) - (b.includes('FAIL') ? 0 : 1) || a.localeCompare(b));
+    const fails = keys.filter(k => k.includes(' | FAIL')).length;
+    const finished = this.total && this.state.done >= this.total;
+    return { status: (finished ? (fails ? 'Done · FAILED · ' : 'Done · PASSED · ') : 'Running · ') + 'Checked ' + this.state.done + ' / ' + (this.total || '?') + ' states · ' + fails + ' distinct failures · ' + (keys.length - fails) + ' warnings',
+      report: keys.length ? keys.map(k => k.replace(/ \| [^|]*$/, '') + ' | ' + groups[k].sample + '  [' + groups[k].n + '×: ' + groups[k].states.join(', ') + ']').join('\n') : (finished ? 'No issues.' : 'Running… keep this tab in front; background tabs slow the checks down.') };
+  }
+}
+</script>
+</body>
+</html>

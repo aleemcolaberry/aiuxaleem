@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Component spec files: the 8-section template · AIUXAleem</title>
+  <meta name="description" content="The 8-section component spec template: metadata, overview, anatomy, tokens, props, states, code, cross-refs. Download the Markdown.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="AIUXAleem">
+  <meta property="og:title" content="Component spec files: the 8-section template · AIUXAleem">
+  <meta property="og:description" content="The 8-section component spec template: metadata, overview, anatomy, tokens, props, states, code, cross-refs. Download the Markdown.">
+  <meta property="og:image" content="https://aiuxaleem.com/assets/og-home.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="AIUXAleem: I design AI products people actually trust.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#0B1F36">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="site.css">
+  <script>(function(){var d=document.documentElement,q=new URLSearchParams(location.search),L='en',P='guide',t=q.get('theme');if(t!=='light'&&t!=='dark'){try{t=localStorage.getItem('aiuxaleem-theme')}catch(e){}}if(t!=='light'&&t!=='dark')t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';var l=q.get('lang');if(L.split(' ').indexOf(l)<0)l='en';d.setAttribute('data-theme',t);d.lang=l;d.dir=l==='ar'?'rtl':'ltr';d.setAttribute('data-langs',L);d.setAttribute('data-page',P);if(q.get('qa')==='1')d.setAttribute('data-qa','');if(matchMedia('(prefers-reduced-motion: no-preference)').matches&&!d.hasAttribute('data-qa')){d.setAttribute('data-motion','pending');setTimeout(function(){if(d.hasAttribute('data-motion')){d.removeAttribute('data-motion');d.setAttribute('data-intro-shown','')}},1000)}})();</script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;600&amp;family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&amp;family=Noto+Kufi+Arabic:wght@700;800&amp;display=swap">
+  <script src="_ds/agentcory-design-system-ebeb8591-9d98-4009-838b-178d8ac72f26/_ds_bundle.js"></script>
+  <script src="i18n.js"></script>
+</helmet>
+<dc-import name="Site Header" current="guides" hint-size="100%,72px"></dc-import>
+<div aria-hidden="true" style="position:fixed; inset-block-start:var(--header-height); inset-inline:0; block-size:var(--space-1); z-index:var(--z-sticky); pointer-events:none;"><div data-progress style="inline-size:100%; block-size:100%; background:var(--gradient-brand); transform:scaleX(0); transform-origin:var(--origin-inline-start) center;"></div></div>
+<main data-v2 id="main" data-page="guide" tabindex="-1" style="position:relative; z-index:var(--z-raised); outline:none; padding-block-start:var(--header-height);">
+  <article data-article style="padding-block:clamp(var(--space-12), 8vw, var(--space-20)) var(--section-y);">
+    <header class="cory-container cory-container-narrow" style="display:grid; gap:var(--space-5); padding-block-end:var(--space-10); border-block-end:1px solid var(--border-default);">
+      <a data-link data-hero-el href="Guides.dc.html" style="display:inline-flex; align-items:center; gap:var(--space-1); justify-self:start; white-space:nowrap; min-block-size:var(--tap-target); font-size:var(--text-body-sm); font-weight:var(--weight-semibold); color:var(--text-link); text-decoration:none;"><svg data-dir-icon width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"></path></svg> All guides</a>
+      <div data-hero-el style="display:flex; gap:var(--space-3); align-items:center; flex-wrap:wrap;">
+        <x-import component-from-global-scope="DesignSystem_ebeb85.Badge" tone="brand" hint-size="auto,26px">Design systems</x-import>
+        <span style="font-family:var(--font-mono); font-size:var(--text-caption); color:var(--text-muted);">9 min read · Updated Sep 2026</span>
+      </div>
+      <h1 data-hero-title style="margin:0; font-family:var(--font-display); font-weight:var(--weight-extrabold); font-size:var(--text-fluid-title); line-height:var(--leading-snug); letter-spacing:var(--tracking-tighter); color:var(--text-strong); text-wrap:balance; overflow-wrap:anywhere;">Component spec files: the 8-section template</h1>
+      <p data-hero-el style="margin:0; font-size:var(--text-body-lg); line-height:var(--leading-relaxed); color:var(--text-body); text-wrap:pretty;">A design system is only as good as the file an engineer, or an AI agent, opens at 11pm. This is the structure I use so that file is the same every time.</p>
+      <div data-hero-el data-hero-ctas style="display:flex; gap:var(--space-3); flex-wrap:wrap; align-items:center;">
+        <x-import component-from-global-scope="DesignSystem_ebeb85.Button" variant="primary" size="lg" href="component-spec-template.md" download="component-spec-template.md" hint-size="auto,52px">Download the template (.md)</x-import>
+        <a data-link href="Services.dc.html#offer-ds" style="display:inline-flex; align-items:center; gap:var(--space-1); min-block-size:var(--tap-target); padding-inline:var(--space-2); font-size:var(--text-body); font-weight:var(--weight-semibold); color:var(--text-link); text-decoration:none;">Need it built? See the service <svg data-dir-icon width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
+      </div>
+      <div data-hero-el style="display:flex; align-items:center; gap:var(--space-3);">
+        <x-import component-from-global-scope="DesignSystem_ebeb85.Avatar" kind="image" src="assets/author-avatar.jpg" name="Mohammad Abdul Aleem" size="{{ 40 }}" hint-size="40px,40px"></x-import>
+        <span style="display:grid; line-height:var(--leading-heading);"><span style="font-size:var(--text-body-sm); font-weight:var(--weight-bold); color:var(--text-strong);">Mohammad Abdul Aleem</span><span style="font-size:var(--text-caption); color:var(--text-muted);">AI-first Senior Product Designer</span></span>
+      </div>
+    </header>
+
+    <div class="cory-container cory-container-narrow" style="display:grid; gap:var(--space-12); padding-block-start:var(--space-10);">
+
+      <section data-reveal aria-labelledby="g-why" style="display:grid; gap:var(--space-4); min-inline-size:0;">
+        <h2 id="g-why" style="margin:0; font-family:var(--font-display); font-weight:var(--weight-extrabold); font-size:var(--text-h2); line-height:var(--leading-heading); letter-spacing:var(--tracking-tight); color:var(--text-strong); text-wrap:balance;">Why a spec file, not a Figma page</h2>
+        <p style="margin:0; font-size:var(--text-body); line-height:var(--leading-relaxed); color:var(--text-body); text-wrap:pretty;">Figma shows what a component looks like. It doesn't say which token a border reads, what happens on <code style="font-family:var(--font-mono); font-size:var(--text-body-sm); padding:0 var(--space-1); border-radius:var(--radius-xs); background:var(--surface-sunken); color:var(--text-strong);">disabled</code>, or which other components break when the padding changes. Engineers rebuild from screenshots, AI agents guess, and three months later you have four buttons.</p>
+        <p style="margin:0; font-size:var(--text-body); line-height:var(--leading-relaxed); color:var(--text-body); text-wrap:pretty;">A spec file is plain Markdown that lives next to the code. It is small enough to read in two minutes and structured enough that a model can be pointed at it and produce on-system UI. On the Colaberry Design System, 20 components share this template; new brands are themes, not rebuilds.</p>
+      </section>
+
+      <section data-reveal aria-labelledby="g-tiers" style="display:grid; gap:var(--space-4); min-inline-size:0;">
+        <h2 id="g-tiers" style="margin:0; font-family:var(--font-display); font-weight:var(--weight-extrabold); font-size:var(--text-h2); line-height:var(--leading-heading); letter-spacing:var(--tracking-tight); color:var(--text-strong); text-wrap:balance;">Six tiers of files</h2>
+        <p style="margin:0; font-size:var(--text-body); line-height:var(--leading-relaxed); color:var(--text-body); text-wrap:pretty;">Review foundations first. Get colour and spacing right and every component spec follows.</p>
+        <ol style="display:grid; gap:var(--space-2);">
+          <li style="display:grid; grid-template-columns:auto minmax(0, 1fr); gap:var(--space-3); align-items:baseline; padding:var(--space-3) var(--space-4); background:var(--surface-card); border:1px solid var(--border-subtle); border-radius:var(--radius-md);"><span style="font-family:var(--font-mono); font-size:var(--text-caption); color:var(--text-link);">TIER 01</span><span style="font-size:var(--text-body-sm); color:var(--text-body);"><strong style="color:var(--text-strong);">Foundations</strong>, colour, spacing, typography, radius, elevation, motion. The primitives every other file inherits.</span></li>
+          <li style="display:grid; grid-template-columns:auto minmax(0, 1fr); gap:var(--space-3); align-items:baseline; padding:var(--space-3) var(--space-4); background:var(--surface-card); border:1px solid var(--border-subtle); border-radius:var(--radius-md);"><span style="font-family:var(--font-mono); font-size:var(--text-caption); color:var(--text-link);">TIER 02</span><span style="font-size:var(--text-body-sm); color:var(--text-body);"><strong style="color:var(--text-strong);">Token reference</strong>, the master map of every CSS variable, grouped primitive → semantic → component.</span></li>
+          <li style="display:grid; grid-template-columns:auto minmax(0, 1fr); gap:var(--space-3); align-items:baseline; padding:var(--space-3) var(--space-4); background:var(--surface-card); border:1px solid var(--border-subtle); border-radius:var(--radius-md);"><span style="font-family:var(--font-mono); font-size:var(--text-caption); color:var(--text-link);">TIER 03</span><span style="font-size:var(--text-body-sm); color:var(--text-body);"><strong style="color:var(--text-strong);">Atoms</strong>, button, input, icon-button, badge. One spec each.</span></li>
+          <li style="display:grid; grid-template-columns:auto minmax(0, 1fr); gap:var(--space-3); align-items:baseline; padding:var(--space-3) var(--space-4); background:var(--surface-card); border:1px solid var(--border-subtle); border-radius:var(--radius-md);"><span style="font-family:var(--font-mono); font-size:var(--text-caption); color:var(--text-link);">TIER 04</span><span style="font-size:var(--text-body-sm); color:var(--text-body);"><strong style="color:var(--text-strong);">Molecules and organisms</strong>, composed components specific to your product.</span></li>
+          <li style="display:grid; grid-template-columns:auto minmax(0, 1fr); gap:var(--space-3); align-items:baseline; padding:var(--space-3) var(--space-4); background:var(--surface-card); border:1px solid var(--border-subtle); border-radius:var(--radius-md);"><span style="font-family:var(--font-mono); font-size:var(--text-caption); color:var(--text-link);">TIER 05</span><span style="font-size:var(--text-body-sm); color:var(--text-body);"><strong style="color:var(--text-strong);">Patterns</strong>, layout rules, content flow and spacing between elements.</span></li>
+          <li style="display:grid; grid-template-columns:auto minmax(0, 1fr); gap:var(--space-3); align-items:baseline; padding:var(--space-3) var(--space-4); background:var(--surface-card); border:1px solid var(--border-subtle); border-radius:var(--radius-md);"><span style="font-family:var(--font-mono); font-size:var(--text-caption); color:var(--text-link);">TIER 06</span><span style="font-size:var(--text-body-sm); color:var(--text-body);"><strong style="color:var(--text-strong);">Cross-references</strong>, "uses" and "used by" links across all files.</span></li>
+        </ol>
+      </section>
+
+      <section data-reveal aria-labelledby="g-template" style="display:grid; gap:var(--space-4); min-inline-size:0;">
+        <h2 id="g-template" style="margin:0; font-family:var(--font-display); font-weight:var(--weight-extrabold); font-size:var(--text-h2); line-height:var(--leading-heading); letter-spacing:var(--tracking-tight); color:var(--text-strong); text-wrap:balance;">The 8-section template</h2>
+        <p style="margin:0; font-size:var(--text-body); line-height:var(--leading-relaxed); color:var(--text-body); text-wrap:pretty;">Every spec from <code style="font-family:var(--font-mono); font-size:var(--text-body-sm); padding:0 var(--space-1); border-radius:var(--radius-xs); background:var(--surface-sunken); color:var(--text-strong);">button.md</code> to <code style="font-family:var(--font-mono); font-size:var(--text-body-sm); padding:0 var(--space-1); border-radius:var(--radius-xs); background:var(--surface-sunken); color:var(--text-strong);">data-table.md</code> has the same eight headings, in the same order. Readers learn the shape once.</p>
+        <ol style="display:grid; grid-template-columns:repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap:var(--space-3);">
+          <li style="display:grid; gap:var(--space-1); padding:var(--space-4); background:var(--surface-card); border:1px solid var(--border-subtle); border-radius:var(--radius-lg); min-inline-size:0;"><span style="font-family:var(--font-mono); font-size:var(--text-overline); font-weight:var(--weight-semibold); color:var(--text-link);">01</span><strong style="font-size:var(--text-body); color:var(--text-strong);">Metadata</strong><span style="font-size:var(--text-body-sm); line-height:var(--leading-normal); color:var(--text-body);">Name, tier, status, owner, version, last reviewed.</span></li>
+          <li style="display:grid; gap:var(--space-1); padding:var(--space-4); background:var(--surface-card); border:1px solid var(--border-subtle); border-radius:var(--radius-lg); min-inline-size:0;"><span style="font-family:var(--font-mono); font-size:var(--text-overline); font-weight:var(--weight-semibold); color:var(--text-link);">02</span><strong style="font-size:var(--text-body); color:var(--text-strong);">Overview</strong><span style="font-size:var(--text-body-sm); line-height:var(--leading-normal); color:var(--text-body);">What it is for, when to use it, when not to.</span></li>
+          <li style="display:grid; gap:var(--space-1); padding:var(--space-4); background:var(--surface-card); border:1px solid var(--border-subtle); border-radius:var(--radius-lg); min-inline-size:0;"><span style="font-family:var(--font-mono); font-size:var(--text-overline); font-weight:var(--weight-semibold); color:var(--text-link);">03</span><strong style="font-size:var(--text-body); color:var(--text-strong);">Anatomy</strong><span style="font-size:var(--text-body-sm); line-height:var(--leading-normal); color:var(--text-body);">Named parts, slots and their order.</span></li>
+          <li style="display:grid; gap:var(--space-1); padding:var(--space-4); background:var(--surface-card); border:1px solid var(--border-subtle); border-radius:var(--radius-lg); min-inline-size:0;"><span style="font-family:var(--font-mono); font-size:var(--text-overline); font-weight:var(--weight-semibold); color:var(--text-link);">04</span><strong style="font-size:var(--text-body); color:var(--text-strong);">Tokens</strong><span style="font-size:var(--text-body-sm); line-height:var(--leading-normal); color:var(--text-body);">Every variable the component reads, never a raw value.</span></li>
+          <li style="display:grid; gap:var(--space-1); padding:var(--space-4); background:var(--surface-card); border:1px solid var(--border-subtle); border-radius:var(--radius-lg); min-inline-size:0;"><span style="font-family:var(--font-mono); font-size:var(--text-overline); font-weight:var(--weight-semibold); color:var(--text-link);">05</span><strong style="font-size:var(--text-body); color:var(--text-strong);">Props / API</strong><span style="font-size:var(--text-body-sm); line-height:var(--leading-normal); color:var(--text-body);">Name, type, default, required, and the design intent behind each.</span></li>
+          <li style="display:grid; gap:var(--space-1); padding:var(--space-4); background:var(--surface-card); border:1px solid var(--border-subtle); border-radius:var(--radius-lg); min-inline-size:0;"><span style="font-family:var(--font-mono); font-size:var(--text-overline); font-weight:var(--weight-semibold); color:var(--text-link);">06</span><strong style="font-size:var(--text-body); color:var(--text-strong);">States</strong><span style="font-size:var(--text-body-sm); line-height:var(--leading-normal); color:var(--text-body);">Rest, hover, focus-visible, active, disabled, loading, error, with contrast noted.</span></li>
+          <li style="display:grid; gap:var(--space-1); padding:var(--space-4); background:var(--surface-card); border:1px solid var(--border-subtle); border-radius:var(--radius-lg); min-inline-size:0;"><span style="font-family:var(--font-mono); font-size:var(--text-overline); font-weight:var(--weight-semibold); color:var(--text-link);">07</span><strong style="font-size:var(--text-body); color:var(--text-strong);">Code examples</strong><span style="font-size:var(--text-body-sm); line-height:var(--leading-normal); color:var(--text-body);">The three most common compositions, copy-pasteable.</span></li>
+          <li style="display:grid; gap:var(--space-1); padding:var(--space-4); background:var(--surface-card); border:1px solid var(--border-subtle); border-radius:var(--radius-lg); min-inline-size:0;"><span style="font-family:var(--font-mono); font-size:var(--text-overline); font-weight:var(--weight-semibold); color:var(--text-link);">08</span><strong style="font-size:var(--text-body); color:var(--text-strong);">Cross-refs</strong><span style="font-size:var(--text-body-sm); line-height:var(--leading-normal); color:var(--text-body);">Uses / used by, so a change shows its blast radius.</span></li>
+        </ol>
+      </section>
+
+      <section data-reveal aria-labelledby="g-example" style="display:grid; gap:var(--space-4); min-inline-size:0;">
+        <h2 id="g-example" style="margin:0; font-family:var(--font-display); font-weight:var(--weight-extrabold); font-size:var(--text-h2); line-height:var(--leading-heading); letter-spacing:var(--tracking-tight); color:var(--text-strong); text-wrap:balance;">A skeleton you can copy</h2>
+        <figure style="margin:0; display:grid; gap:var(--space-2); min-inline-size:0;">
+          <pre role="region" aria-label="Code example: button.md" tabindex="0" style="margin:0; max-inline-size:100%; padding:var(--space-5) var(--space-6); overflow-x:auto; white-space:pre; background:var(--surface-ink); color:var(--on-ink-body); border:1px solid var(--on-ink-border); border-radius:var(--radius-lg); font-family:var(--font-mono); font-size:var(--text-body-sm); line-height:var(--leading-relaxed);"><code># button.md
+
+## 01 Metadata
+tier: atom · status: stable · owner: design-systems · v2.3
+
+## 02 Overview
+Primary action. One per view. Not for navigation.
+
+## 03 Anatomy
+[icon-left] label [icon-right]
+
+## 04 Tokens
+background  --action-primary
+label       --text-on-brand
+radius      --radius-pill
+shadow      --shadow-brand
+
+## 05 Props / API
+variant: primary | ink | secondary | ghost   (default primary)
+size:    sm | md | lg                        (default md)
+
+## 06 States
+hover → --action-primary-hover · focus-visible → --shadow-focus
+disabled → opacity 0.5, cursor not-allowed
+
+## 07 Code examples
+&lt;Button variant="primary" size="lg"&gt;Book my demo&lt;/Button&gt;
+
+## 08 Cross-refs
+uses: icon · used by: hero, dialog-footer, form-actions</code></pre>
+          <figcaption style="font-family:var(--font-mono); font-size:var(--text-caption); color:var(--text-muted);">Tokens shown are from the AgentCory system the spec was written for.</figcaption>
+        </figure>
+        <div style="display:flex; justify-content:space-between; align-items:center; gap:var(--space-4); flex-wrap:wrap; padding:var(--space-4) var(--space-5); background:var(--surface-card); border:1px solid var(--border-default); border-radius:var(--radius-lg);">
+          <span style="font-size:var(--text-body-sm); color:var(--text-body); text-wrap:pretty;">Blank version of this skeleton, with the token and props tables ready to fill.</span>
+          <x-import component-from-global-scope="DesignSystem_ebeb85.Button" variant="ink" size="md" href="component-spec-template.md" download="component-spec-template.md" hint-size="auto,44px">Download the template (.md)</x-import>
+        </div>
+      </section>
+
+      <section data-reveal aria-labelledby="g-agents" style="display:grid; gap:var(--space-4); min-inline-size:0;">
+        <h2 id="g-agents" style="margin:0; font-family:var(--font-display); font-weight:var(--weight-extrabold); font-size:var(--text-h2); line-height:var(--leading-heading); letter-spacing:var(--tracking-tight); color:var(--text-strong); text-wrap:balance;">How AI agents use it</h2>
+        <p style="margin:0; font-size:var(--text-body); line-height:var(--leading-relaxed); color:var(--text-body); text-wrap:pretty;">Point the model at the token reference and the spec for the component it needs. Because sections 04 and 06 are explicit, the agent has no reason to invent a hex code or skip the focus state. The cross-refs tell it what else to open. In practice this is the difference between "generate a card" and a card that passes review.</p>
+      </section>
+
+      <section data-reveal aria-labelledby="g-checklist" style="display:grid; gap:var(--space-4); min-inline-size:0;">
+        <h2 id="g-checklist" style="margin:0; font-family:var(--font-display); font-weight:var(--weight-extrabold); font-size:var(--text-h2); line-height:var(--leading-heading); letter-spacing:var(--tracking-tight); color:var(--text-strong); text-wrap:balance;">Before you publish a spec</h2>
+        <ul style="display:grid; gap:var(--space-2);">
+          <li style="display:flex; gap:var(--space-3); align-items:flex-start; padding:var(--space-3) var(--space-4); background:var(--surface-card); border:1px solid var(--border-subtle); border-radius:var(--radius-md); font-size:var(--text-body-sm); line-height:var(--leading-normal); color:var(--text-body);"><span aria-hidden="true" style="inline-size:var(--space-2); block-size:var(--space-2); margin-block-start:var(--space-2); flex-shrink:0; border-radius:var(--radius-pill); background:var(--text-subtle);"></span>Every value in section 04 is a token name, not a number.</li>
+          <li style="display:flex; gap:var(--space-3); align-items:flex-start; padding:var(--space-3) var(--space-4); background:var(--surface-card); border:1px solid var(--border-subtle); border-radius:var(--radius-md); font-size:var(--text-body-sm); line-height:var(--leading-normal); color:var(--text-body);"><span aria-hidden="true" style="inline-size:var(--space-2); block-size:var(--space-2); margin-block-start:var(--space-2); flex-shrink:0; border-radius:var(--radius-pill); background:var(--text-subtle);"></span>Section 06 lists focus-visible and reduced-motion behaviour, with contrast ratios.</li>
+          <li style="display:flex; gap:var(--space-3); align-items:flex-start; padding:var(--space-3) var(--space-4); background:var(--surface-card); border:1px solid var(--border-subtle); border-radius:var(--radius-md); font-size:var(--text-body-sm); line-height:var(--leading-normal); color:var(--text-body);"><span aria-hidden="true" style="inline-size:var(--space-2); block-size:var(--space-2); margin-block-start:var(--space-2); flex-shrink:0; border-radius:var(--radius-pill); background:var(--text-subtle);"></span>The code example renders in Storybook without edits.</li>
+          <li style="display:flex; gap:var(--space-3); align-items:flex-start; padding:var(--space-3) var(--space-4); background:var(--surface-card); border:1px solid var(--border-subtle); border-radius:var(--radius-md); font-size:var(--text-body-sm); line-height:var(--leading-normal); color:var(--text-body);"><span aria-hidden="true" style="inline-size:var(--space-2); block-size:var(--space-2); margin-block-start:var(--space-2); flex-shrink:0; border-radius:var(--radius-pill); background:var(--text-subtle);"></span>Cross-refs are reciprocal: if A uses B, B lists A under "used by".</li>
+        </ul>
+      </section>
+    </div>
+  </article>
+
+  <section data-contact aria-labelledby="cta-title" style="padding-block:0 var(--section-y);">
+    <div class="cory-container" style="">
+      <div data-reveal data-stack style="position:relative; overflow:hidden; background:var(--gradient-ink); border:1px solid var(--on-ink-border); border-radius:var(--radius-2xl); padding:clamp(var(--space-8), 5vw, var(--space-12)); display:grid; grid-template-columns:minmax(0, 1fr) auto; gap:var(--space-8); align-items:center;">
+        <div aria-hidden="true" style="position:absolute; inset-block-end:-40%; inset-inline-end:-5%; inline-size:min(40vw, 420px); aspect-ratio:1; border-radius:var(--radius-pill); background:var(--glow-cyan); pointer-events:none;"></div>
+        <div style="position:relative; display:grid; gap:var(--space-3); min-inline-size:0;">
+          <p class="cory-overline" style="margin:0; color:var(--on-ink-link);">Need this built?</p>
+          <h2 id="cta-title" style="margin:0; font-family:var(--font-display); font-weight:var(--weight-extrabold); font-size:var(--text-fluid-title); line-height:var(--leading-snug); letter-spacing:var(--tracking-tighter); color:var(--on-ink-strong); text-wrap:balance; overflow-wrap:anywhere;">I build design systems with spec files like this one.</h2>
+          <p style="margin:0; font-size:var(--text-body); line-height:var(--leading-relaxed); color:var(--on-ink-body); max-inline-size:var(--measure-lead); text-wrap:pretty;">Tokens, accessible components and docs your engineers and AI agents can both consume.</p>
+        </div>
+        <div style="position:relative; display:grid; gap:var(--space-2); justify-items:start;"><x-import component-from-global-scope="DesignSystem_ebeb85.Button" variant="primary" size="lg" href="Services.dc.html#offer-ds" hint-size="auto,52px">See the service</x-import><span style="color:var(--on-ink-body); font-size:var(--text-body-sm);"><dc-import name="Email Copy" subject="Scope: Design System Build" hint-size="auto,44px"></dc-import></span></div>
+      </div>
+    </div>
+  </section>
+</main>
+<dc-import name="Site Footer" hint-size="100%,320px"></dc-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  async componentDidMount() {
+    const site = await import('./site.js');
+    this.T = await site.pageInit(T => site.readingProgress(T, document.querySelector('[data-progress]'), document.querySelector('[data-article]')));
+  }
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

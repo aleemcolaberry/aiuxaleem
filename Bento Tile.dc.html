@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="site.css">
+  <script src="_ds/agentcory-design-system-ebeb8591-9d98-4009-838b-178d8ac72f26/_ds_bundle.js"></script>
+</helmet>
+<div data-card-fill data-cq style="block-size:100%;">
+  <sc-if value="{{ isHow }}" hint-placeholder-val="{{ false }}">
+    <x-import component-from-global-scope="DesignSystem_ebeb85.Card" padding="lg" style="block-size:100%;" hint-size="100%,300px">
+      <div data-cq-pad style="display:grid; gap:var(--space-5);">
+        <div role="heading" aria-level="{{ level }}" style="font-size:var(--text-h3); font-weight:var(--weight-bold); line-height:var(--leading-heading); color:var(--text-strong);">{{ copy.title }}</div>
+        <ol data-cq-grid="4" style="display:grid; grid-template-columns:minmax(0, 1fr); gap:var(--space-4);">
+          <li style="display:flex; gap:var(--space-3); align-items:flex-start;"><span aria-hidden="true" style="inline-size:var(--space-10); block-size:var(--space-10); flex-shrink:0; display:grid; place-items:center; border-radius:var(--radius-md); background:var(--gradient-ink); color:var(--on-ink-strong); font-family:var(--font-mono); font-size:var(--text-mono); font-weight:var(--weight-semibold);">01</span><div style="display:grid; gap:var(--space-1);"><strong style="font-size:var(--text-body); color:var(--text-strong);">{{ copy.s1t }}</strong><span style="font-size:var(--text-body-sm); line-height:var(--leading-normal); color:var(--text-muted);">{{ copy.s1b }}</span></div></li>
+          <li style="display:flex; gap:var(--space-3); align-items:flex-start;"><span aria-hidden="true" style="inline-size:var(--space-10); block-size:var(--space-10); flex-shrink:0; display:grid; place-items:center; border-radius:var(--radius-md); background:var(--gradient-ink); color:var(--on-ink-strong); font-family:var(--font-mono); font-size:var(--text-mono); font-weight:var(--weight-semibold);">02</span><div style="display:grid; gap:var(--space-1);"><strong style="font-size:var(--text-body); color:var(--text-strong);">{{ copy.s2t }}</strong><span style="font-size:var(--text-body-sm); line-height:var(--leading-normal); color:var(--text-muted);">{{ copy.s2b }}</span></div></li>
+          <li style="display:flex; gap:var(--space-3); align-items:flex-start;"><span aria-hidden="true" style="inline-size:var(--space-10); block-size:var(--space-10); flex-shrink:0; display:grid; place-items:center; border-radius:var(--radius-md); background:var(--gradient-ink); color:var(--on-ink-strong); font-family:var(--font-mono); font-size:var(--text-mono); font-weight:var(--weight-semibold);">03</span><div style="display:grid; gap:var(--space-1);"><strong style="font-size:var(--text-body); color:var(--text-strong);">{{ copy.s3t }}</strong><span style="font-size:var(--text-body-sm); line-height:var(--leading-normal); color:var(--text-muted);">{{ copy.s3b }}</span></div></li>
+          <li style="display:flex; gap:var(--space-3); align-items:flex-start;"><span aria-hidden="true" style="inline-size:var(--space-10); block-size:var(--space-10); flex-shrink:0; display:grid; place-items:center; border-radius:var(--radius-md); background:var(--gradient-ink); color:var(--on-ink-strong); font-family:var(--font-mono); font-size:var(--text-mono); font-weight:var(--weight-semibold);">04</span><div style="display:grid; gap:var(--space-1);"><strong style="font-size:var(--text-body); color:var(--text-strong);">{{ copy.s4t }}</strong><span style="font-size:var(--text-body-sm); line-height:var(--leading-normal); color:var(--text-muted);">{{ copy.s4b }}</span></div></li>
+        </ol>
+      </div>
+    </x-import>
+  </sc-if>
+  <sc-if value="{{ isToolkit }}" hint-placeholder-val="{{ false }}">
+    <x-import component-from-global-scope="DesignSystem_ebeb85.Card" padding="lg" style="block-size:100%;" hint-size="100%,300px">
+      <div data-cq-pad style="display:grid; gap:var(--space-5);">
+        <div role="heading" aria-level="{{ level }}" style="font-size:var(--text-h3); font-weight:var(--weight-bold); line-height:var(--leading-heading); color:var(--text-strong);">{{ copy.title }}</div>
+        <ul style="display:flex; flex-wrap:wrap; gap:var(--space-2);"><sc-for list="{{ items }}" as="it" hint-placeholder-count="12"><li><x-import component-from-global-scope="DesignSystem_ebeb85.Badge" tone="neutral" hint-size="auto,26px">{{ it }}</x-import></li></sc-for></ul>
+      </div>
+    </x-import>
+  </sc-if>
+  <sc-if value="{{ isGuide }}" hint-placeholder-val="{{ false }}">
+    <x-import component-from-global-scope="DesignSystem_ebeb85.Card" padding="lg" href="{{ copy.href }}" interactive="{{ true }}" style="block-size:100%;" hint-size="100%,260px">
+      <div data-cq-pad style="display:flex; flex-direction:column; gap:var(--space-3); block-size:100%;">
+        <p class="cory-overline" style="margin:0;">{{ copy.overline }}</p>
+        <div role="heading" aria-level="{{ level }}" style="font-size:var(--text-h3); font-weight:var(--weight-bold); line-height:var(--leading-heading); color:var(--text-strong); text-wrap:balance;">{{ copy.title }}</div>
+        <p style="margin:0; font-size:var(--text-body-sm); line-height:var(--leading-normal); color:var(--text-muted);">{{ copy.body }}</p>
+        <span style="margin-block-start:auto; display:inline-flex; align-items:center; gap:var(--space-1); min-block-size:var(--tap-target); font-size:var(--text-body-sm); font-weight:var(--weight-semibold); color:var(--text-link);">{{ copy.link }}<svg data-dir-icon width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></span>
+      </div>
+    </x-import>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:640,&quot;height&quot;:360},&quot;kind&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;how&quot;,&quot;options&quot;:[&quot;how&quot;,&quot;toolkit&quot;,&quot;guide&quot;],&quot;tsType&quot;:&quot;'how' | 'toolkit' | 'guide'&quot;},&quot;copy&quot;:{&quot;editor&quot;:null,&quot;tsType&quot;:&quot;object&quot;},&quot;level&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:3,&quot;tsType&quot;:&quot;number&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    const k = this.props.kind || 'how'; const copy = this.props.copy || {};
+    return { copy, items: copy.items || [], isHow: k === 'how', isToolkit: k === 'toolkit', isGuide: k === 'guide', level: this.props.level || 3 };
+  }
+}
+</script>
+</body>
+</html>

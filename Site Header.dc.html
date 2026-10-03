@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="site.css">
+  <script src="_ds/agentcory-design-system-ebeb8591-9d98-4009-838b-178d8ac72f26/_ds_bundle.js"></script>
+  <script src="i18n.js"></script>
+</helmet>
+<sc-if value="{{ notEmbedded }}" hint-placeholder-val="{{ true }}">
+  <a href="#main" onClick="{{ skip }}" style="position:fixed; inset-block-start:var(--space-4); inset-inline-start:var(--space-4); z-index:var(--z-toast); padding:var(--space-3) var(--space-5); border-radius:var(--radius-pill); background:var(--action-ink); color:var(--surface-card); font-weight:var(--weight-semibold); font-size:var(--text-body-sm); text-decoration:none; transform:translateY(-200%); transition:transform var(--duration-fast) var(--ease-out);" style-focus="transform:none;">{{ c.skip }}</a>
+</sc-if>
+<sc-if value="{{ notEmbedded }}" hint-placeholder-val="{{ true }}"><div aria-hidden="true" style="block-size:var(--header-height);"></div></sc-if>
+<header data-site-header data-shared data-fixed="{{ fixed }}" style="position:{{ position }}; inset-block-start:0; inset-inline-start:0; inset-inline-end:0; inline-size:100%; z-index:var(--z-sticky); background:var(--surface-header); -webkit-backdrop-filter:blur(var(--blur-header)); backdrop-filter:blur(var(--blur-header)); border-block-end:1px solid var(--border-subtle);">
+  <div class="cory-container" style="block-size:var(--header-height); display:flex; align-items:center; justify-content:space-between; gap:var(--space-3);">
+    <a href="{{ homeHref }}" aria-label="{{ c.homeAria }}" style="display:inline-flex; align-items:center; gap:var(--space-2); min-block-size:var(--tap-target); text-decoration:none; color:var(--text-strong); font-family:var(--font-display); font-weight:var(--weight-extrabold); font-size:var(--text-h4); letter-spacing:var(--tracking-tight); flex-shrink:0;">
+      <span aria-hidden="true" style="inline-size:var(--space-5); block-size:var(--space-5); border-radius:var(--radius-tile); background:var(--gradient-brand); flex-shrink:0;"></span>
+      <span lang="en" dir="ltr" style="white-space:nowrap;">AIUXAleem</span>
+    </a>
+    <nav data-hdr-desktop aria-label="Primary">
+      <ul style="display:flex; gap:var(--space-3); align-items:center;">
+        <sc-for list="{{ nav }}" as="n" hint-placeholder-count="5"><li><a data-nav-link href="{{ n.href }}" aria-current="{{ n.current }}" onClick="{{ navClick }}" style="display:inline-flex; align-items:center; justify-content:center; min-block-size:var(--tap-target); min-inline-size:var(--tap-target); padding-inline:var(--space-2); font-size:var(--text-body-sm); font-weight:var(--weight-medium); color:var(--text-body); text-decoration:none; transition:color var(--duration-base) var(--ease-out);" style-hover="color:var(--text-strong);">{{ n.label }}</a></li></sc-for>
+      </ul>
+    </nav>
+    <div style="display:flex; align-items:center; gap:var(--space-2); flex-shrink:0;">
+      <div role="group" aria-label="{{ c.display }}" style="display:flex; align-items:center; gap:var(--space-1); padding:var(--space-1); border-radius:var(--radius-pill); border:1px solid var(--border-subtle); background:var(--surface-card);">
+        <x-import component-from-global-scope="DesignSystem_ebeb85.IconButton" variant="ghost" size="md" label="{{ themeAria }}" title="{{ themeTip }}" onClick="{{ toggleTheme }}" hint-size="44px,44px"><sc-if value="{{ isDark }}" hint-placeholder-val="{{ false }}"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path></svg></sc-if><sc-if value="{{ isLight }}" hint-placeholder-val="{{ true }}"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg></sc-if></x-import>
+        <button type="button" onClick="{{ toggleLang }}" title="{{ langTip }}" style="min-inline-size:var(--tap-target); min-block-size:var(--tap-target); display:inline-flex; align-items:center; justify-content:center; gap:var(--space-1); padding-inline:var(--space-3); border-radius:var(--radius-pill); border:0; background:transparent; color:var(--text-link); font-weight:var(--weight-semibold); font-size:var(--text-ui-sm); cursor:pointer; transition:background var(--duration-base) var(--ease-out);" style-hover="background:var(--action-ghost-hover);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"></path></svg><span lang="{{ c.langLabelLang }}">{{ c.langLabel }}</span><span class="cory-visually-hidden">{{ langHint }}</span></button>
+      </div>
+      <span data-hdr-talk><x-import component-from-global-scope="DesignSystem_ebeb85.Button" variant="primary" size="md" href="{{ talkHref }}" onClick="{{ talk }}" hint-size="auto,44px">{{ c.talk }}</x-import></span>
+      <span data-hdr-mobile><x-import component-from-global-scope="DesignSystem_ebeb85.IconButton" variant="secondary" size="md" label="{{ c.openMenu }}" aria-expanded="{{ menuOpen }}" onClick="{{ openMenu }}" hint-size="44px,44px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></x-import></span>
+    </div>
+  </div>
+</header>
+<sc-if value="{{ copyFailed }}" hint-placeholder-val="{{ false }}">
+  <div role="alert" style="position:fixed; inset-block-start:calc(var(--header-height) + var(--space-3)); inset-inline:var(--gutter); z-index:var(--z-sticky); margin-inline:auto; max-inline-size:640px; display:flex; align-items:center; gap:var(--space-3); flex-wrap:wrap; padding:var(--space-3) var(--space-4); border-radius:var(--radius-lg); background:var(--surface-card); border:1px solid var(--border-default); box-shadow:var(--shadow-lg);">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--text-warning)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3zM12 9v4M12 17h.01"></path></svg>
+    <span style="flex:1 1 24ch; font-size:var(--text-body-sm); line-height:var(--leading-normal); color:var(--text-strong);">{{ failMsg }}</span>
+    <x-import component-from-global-scope="DesignSystem_ebeb85.Button" variant="secondary" size="md" onClick="{{ reload }}" hint-size="auto,44px">{{ reloadLabel }}</x-import>
+  </div>
+</sc-if>
+<sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+  <div role="dialog" aria-modal="true" aria-label="{{ c.menu }}" tabindex="-1" data-menu style="position:fixed; inset:0; z-index:var(--z-overlay); background:var(--surface-page); display:flex; flex-direction:column; padding:var(--space-4) var(--gutter) var(--space-8); overflow:auto;">
+    <div style="block-size:var(--header-height); display:flex; align-items:center; justify-content:space-between; gap:var(--space-3);">
+      <span style="font-family:var(--font-display); font-weight:var(--weight-extrabold); font-size:var(--text-h4); color:var(--text-strong);">{{ c.menu }}</span>
+      <span data-menu-close-wrap><x-import component-from-global-scope="DesignSystem_ebeb85.IconButton" variant="secondary" size="md" label="{{ c.closeMenu }}" onClick="{{ closeMenu }}" hint-size="44px,44px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"></path></svg></x-import></span>
+    </div>
+    <nav aria-label="Primary" style="margin-block-start:var(--space-8); display:flex; flex-direction:column; gap:var(--space-2);">
+      <sc-for list="{{ nav }}" as="n" hint-placeholder-count="5"><a href="{{ n.href }}" aria-current="{{ n.current }}" onClick="{{ navClick }}" style="display:flex; align-items:center; min-block-size:var(--tap-target); padding-block:var(--space-2); font-family:var(--font-display); font-weight:var(--weight-extrabold); font-size:var(--text-fluid-title); line-height:var(--leading-snug); letter-spacing:var(--tracking-tighter); color:var(--text-strong); text-decoration:none;">{{ n.label }}</a></sc-for>
+      <a href="https://drive.google.com/uc?export=download&amp;id=1cmkjeMQc1S9gIePpRh29T4nFkBBe3izm" style="display:inline-flex; align-items:center; gap:var(--space-2); inline-size:fit-content; min-block-size:var(--tap-target); margin-block-start:var(--space-4); font-size:var(--text-body); font-weight:var(--weight-semibold); color:var(--text-link); text-decoration:none;">{{ c.resume }}</a>
+    </nav>
+    <div style="margin-block-start:auto; padding-block-start:var(--space-8); display:grid; gap:var(--space-4);">
+      <div role="group" aria-label="{{ c.display }}" style="display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); gap:var(--space-3);">
+        <button type="button" onClick="{{ toggleTheme }}" aria-label="{{ themeAria }}" style="display:flex; align-items:center; justify-content:space-between; gap:var(--space-3); min-block-size:var(--tap-target); padding:var(--space-3) var(--space-4); border-radius:var(--radius-md); border:1px solid var(--border-interactive); background:var(--surface-card); color:var(--text-strong); font-weight:var(--weight-semibold); font-size:var(--text-body-sm); cursor:pointer; text-align:start;"><span>{{ themeTip }}</span><sc-if value="{{ isDark }}" hint-placeholder-val="{{ false }}"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path></svg></sc-if><sc-if value="{{ isLight }}" hint-placeholder-val="{{ true }}"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg></sc-if></button>
+        <button type="button" onClick="{{ toggleLang }}" style="display:flex; align-items:center; justify-content:space-between; gap:var(--space-3); min-block-size:var(--tap-target); padding:var(--space-3) var(--space-4); border-radius:var(--radius-md); border:1px solid var(--border-interactive); background:var(--surface-card); color:var(--text-strong); font-weight:var(--weight-semibold); font-size:var(--text-body-sm); cursor:pointer; text-align:start;"><span><span lang="{{ c.langLabelLang }}">{{ c.langLabel }}</span><span class="cory-visually-hidden">{{ langHint }}</span></span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"></path></svg></button>
+      </div>
+      <sc-if value="{{ langFallback }}" hint-placeholder-val="{{ false }}"><p style="margin:0; font-size:var(--text-caption); color:var(--text-muted);">{{ c.langTipFallback }}</p></sc-if>
+      <x-import component-from-global-scope="DesignSystem_ebeb85.Button" variant="primary" size="lg" full-width="{{ true }}" href="{{ talkHref }}" onClick="{{ talk }}" hint-size="100%,52px">{{ c.talk }}</x-import>
+    </div>
+  </div>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:&quot;100%&quot;,&quot;height&quot;:120},&quot;current&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;&quot;,&quot;options&quot;:[&quot;&quot;,&quot;home&quot;,&quot;work&quot;,&quot;content&quot;,&quot;guides&quot;,&quot;services&quot;,&quot;about&quot;],&quot;tsType&quot;:&quot;string&quot;},&quot;embedded&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;},&quot;theme&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;light&quot;,&quot;options&quot;:[&quot;light&quot;,&quot;dark&quot;],&quot;tsType&quot;:&quot;string&quot;},&quot;lang&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;en&quot;,&quot;options&quot;:[&quot;en&quot;,&quot;ar&quot;],&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  state = Component.read();
+  static read() {
+    const d = document.documentElement;
+    return { theme: d.getAttribute('data-theme') === 'dark' ? 'dark' : 'light', lang: d.lang === 'ar' ? 'ar' : 'en', menuOpen: false };
+  }
+  async componentDidMount() {
+    this.site = await import('./site.js');
+    const ok = await this.site.waitFor(() => window.AIUX_COPY && window.AIUX_I18N);
+    if (!ok && !this.props.embedded) this.setState({ copyFailed: true }); else this.forceUpdate();
+    if (this.props.embedded) return;
+    this.setState(Component.read());
+    this.unobserve = this.site.observeRoot(['data-theme', 'lang'], () => this.setState(Component.read()));
+    this.mq = matchMedia('(prefers-color-scheme: dark)');
+    this.onScheme = e => { let s = null; try { s = localStorage.getItem(this.site.THEME_KEY); } catch (err) {} if (!s) this.site.setTheme(e.matches ? 'dark' : 'light'); };
+    this.mq.addEventListener('change', this.onScheme);
+    this.onKey = e => {
+      if (!this.state.menuOpen) return;
+      if (e.key === 'Escape') { this.closeMenu(); return; }
+      if (e.key !== 'Tab') return;   // keep Tab inside the modal menu
+      const d = document.querySelector('[data-menu]'); if (!d) return;
+      const f = [...d.querySelectorAll('a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])')].filter(x => x.offsetParent !== null); if (!f.length) return;
+      const first = f[0], last = f[f.length - 1];
+      if (e.shiftKey && (document.activeElement === first || document.activeElement === d)) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    };
+    document.addEventListener('keydown', this.onKey);
+  }
+  componentWillUnmount() {
+    this.unobserve && this.unobserve();
+    this.mq && this.mq.removeEventListener('change', this.onScheme);
+    document.removeEventListener('keydown', this.onKey);
+    document.documentElement.style.overflow = '';
+  }
+  view() { return this.props.embedded ? { theme: this.props.theme === 'dark' ? 'dark' : 'light', lang: this.props.lang === 'ar' ? 'ar' : 'en' } : this.state; }
+  toggleTheme = e => { if (this.props.embedded || !this.site) return; this.site.setTheme(this.state.theme === 'dark' ? 'light' : 'dark', e.currentTarget); };
+  toggleLang = () => { if (this.props.embedded || !this.site) return; if (this.state.menuOpen) this.closeMenu(); this.site.setLang(this.state.lang === 'ar' ? 'en' : 'ar'); };
+  onHome() { return document.documentElement.getAttribute('data-page') === 'home'; }
+  navClick = e => {
+    if (this.props.embedded) { e.preventDefault(); return; }
+    const href = e.currentTarget.getAttribute('href') || ''; const i = href.indexOf('#');
+    if (i < 0 || !this.onHome() || !this.site) return;
+    const target = href.slice(i);
+    if (!document.querySelector(target)) return;
+    e.preventDefault(); if (this.state.menuOpen) this.closeMenu();
+    this.site.scrollToId(target);
+  };
+  talk = e => {
+    if (this.props.embedded) { e.preventDefault(); return; }
+    if (this.state.menuOpen) this.closeMenu();
+    const here = document.querySelector('[data-contact], #contact');
+    if (this.site && here) { e.preventDefault(); if (!here.id) here.id = 'contact'; this.site.scrollToId('#' + here.id); }
+  };
+  skip = e => { if (this.site && this.site.scrollToId('#main')) e.preventDefault(); };
+  openMenu = () => { if (this.props.embedded) return; this.opener = document.activeElement; document.documentElement.style.overflow = 'hidden'; this.setState({ menuOpen: true }, () => this.focusMenu()); };
+  // The close button mounts asynchronously: retry for ~600ms, then fall back to the dialog itself so focus is never left behind the overlay
+  // Focus lands on the dialog at once (never left behind the overlay), then moves to Close as soon as that button mounts
+  focusMenu = () => { if (!this.state.menuOpen) return; const d = document.querySelector('[data-menu]'); if (!d) return; const pick = () => { const c = d.querySelector('[data-menu-close-wrap] button'); if (c) { c.focus(); this.menuMo && this.menuMo.disconnect(); return true; } return false; }; d.focus(); if (pick()) return; this.menuMo = new MutationObserver(pick); this.menuMo.observe(d, { childList: true, subtree: true }); setTimeout(() => this.menuMo && this.menuMo.disconnect(), 3000); };
+  closeMenu = () => { this.menuMo && this.menuMo.disconnect(); document.documentElement.style.overflow = ''; this.setState({ menuOpen: false }, () => { this.opener && this.opener.focus && this.opener.focus(); }); };
+  renderVals() {
+    const v = this.view(); const isDark = v.theme === 'dark';
+    const all = window.AIUX_I18N || {}; const c = (all[v.lang] || all.en || {}).chrome || {};
+    const langs = (document.documentElement.getAttribute('data-langs') || 'en').split(' ');
+    const other = v.lang === 'ar' ? 'en' : 'ar'; const fallback = !this.props.embedded && !langs.includes(other);
+    const cur = this.props.current || '';
+    const nav = (c.nav || []).map(n => ({ ...n, current: cur === n.key ? 'page' : undefined }));
+    return {
+      c, nav, isDark, isLight: !isDark,
+      // Copy scripts failed to load: the page shell would render blank. Hard-coded bilingual message because the copy itself is what is missing.
+      copyFailed: !!this.state.copyFailed, reload: () => location.reload(),
+      failMsg: v.lang === 'ar' ? 'لم يتم تحميل بعض نصوص الصفحة. تحقّق من اتصالك ثم أعد التحميل.' : "Some of this page's text didn't load. Check your connection, then reload.",
+      reloadLabel: v.lang === 'ar' ? 'إعادة التحميل' : 'Reload', notEmbedded: !this.props.embedded, fixed: this.props.embedded ? 'false' : 'true', position: this.props.embedded ? 'relative' : 'fixed',
+      themeAria: isDark ? c.toLight : c.toDark, themeTip: isDark ? c.themeTipLight : c.themeTipDark,
+      langAria: fallback ? c.langAriaFallback : c.langAria, langHint: ' (' + (fallback ? c.langAriaFallback : c.langAria) + ')', langTip: fallback ? c.langTipFallback : c.langTip, langFallback: fallback,
+      homeHref: v.lang === 'ar' ? 'AIUXAleem Home.dc.html?lang=ar' : 'AIUXAleem Home.dc.html',
+      talkHref: v.lang === 'ar' ? 'AIUXAleem Home.dc.html?lang=ar#contact' : 'AIUXAleem Home.dc.html#contact',
+      toggleTheme: this.toggleTheme, toggleLang: this.toggleLang, navClick: this.navClick, talk: this.talk, skip: this.skip,
+      menuOpen: this.state.menuOpen, openMenu: this.openMenu, closeMenu: this.closeMenu,
+    };
+  }
+}
+</script>
+</body>
+</html>

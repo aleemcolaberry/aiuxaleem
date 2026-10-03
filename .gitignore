@@ -1,0 +1,18 @@
+# Build output (scripts/build.sh)
+dist/
+
+# Private source material: never publish
+uploads/
+*.zip
+
+# OS and editor noise
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+
+# Local tooling
+node_modules/
+.vercel/
+.claude/

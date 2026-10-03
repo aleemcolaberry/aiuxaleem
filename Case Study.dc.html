@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Case study · AIUXAleem</title>
+  <meta name="description" content="A case study by Mohammad Abdul Aleem: the trust problem, the workflow redesign, what shipped and what changed.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="AIUXAleem">
+  <meta property="og:title" content="Case study · AIUXAleem">
+  <meta property="og:description" content="A case study by Mohammad Abdul Aleem: the trust problem, the workflow redesign, what shipped and what changed.">
+  <meta property="og:image" content="https://aiuxaleem.com/assets/og-home.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="AIUXAleem: I design AI products people actually trust.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#0B1F36">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <script>(function(){var d=document.documentElement,q=new URLSearchParams(location.search),L='en ar',P='case',t=q.get('theme');if(t!=='light'&&t!=='dark'){try{t=localStorage.getItem('aiuxaleem-theme')}catch(e){}}if(t!=='light'&&t!=='dark')t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';var l=q.get('lang');if(L.split(' ').indexOf(l)<0)l='en';d.setAttribute('data-theme',t);d.lang=l;d.dir=l==='ar'?'rtl':'ltr';d.setAttribute('data-langs',L);d.setAttribute('data-page',P);if(q.get('qa')==='1')d.setAttribute('data-qa','');if(matchMedia('(prefers-reduced-motion: no-preference)').matches&&!d.hasAttribute('data-qa')){d.setAttribute('data-motion','pending');setTimeout(function(){if(d.hasAttribute('data-motion')){d.removeAttribute('data-motion');d.setAttribute('data-intro-shown','')}},1000)}})();</script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;600&amp;family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&amp;family=Noto+Kufi+Arabic:wght@700;800&amp;display=swap">
+  <link rel="stylesheet" href="site.css">
+  <script src="_ds/agentcory-design-system-ebeb8591-9d98-4009-838b-178d8ac72f26/_ds_bundle.js"></script>
+  <script src="i18n.js"></script>
+  <script src="cases.js"></script>
+  <script src="./image-slot.js"></script>
+</helmet>
+<dc-import name="Site Header" current="work" hint-size="100%,72px"></dc-import>
+<div aria-hidden="true" style="position:fixed; inset-block-start:var(--header-height); inset-inline:0; block-size:var(--space-1); z-index:var(--z-sticky); pointer-events:none;"><div data-progress style="inline-size:100%; block-size:100%; background:var(--gradient-brand); transform:scaleX(0); transform-origin:var(--origin-inline-start) center;"></div></div>
+<main id="main" tabindex="-1" style="position:relative; z-index:var(--z-raised); outline:none; padding-block-start:var(--header-height);">
+  <article data-article>
+    <sc-if value="{{ notFound }}" hint-placeholder-val="{{ false }}">
+      <div class="cory-container" style="padding-block-start:var(--space-6);">
+        <div role="status" style="display:flex; align-items:center; gap:var(--space-3); flex-wrap:wrap; padding:var(--space-3) var(--space-4); border-radius:var(--radius-lg); background:var(--surface-card); border:1px solid var(--border-default); box-shadow:var(--shadow-sm);">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--text-link)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4M12 8h.01"></path></svg>
+          <span style="flex:1 1 24ch; font-size:var(--text-body-sm); line-height:var(--leading-normal); color:var(--text-strong);">{{ nfText }}</span>
+          <a data-link href="{{ workHref }}" style="display:inline-flex; align-items:center; min-block-size:var(--tap-target); font-size:var(--text-body-sm); font-weight:var(--weight-semibold); color:var(--text-link); text-decoration:none;">{{ nfLink }}</a>
+        </div>
+      </div>
+    </sc-if>
+    <header id="top" data-section style="position:relative; overflow:clip; padding-block:clamp(var(--space-12), 8vw, var(--space-20)) var(--space-10);">
+      <div aria-hidden="true" style="position:absolute; inset-block-start:-30%; inset-inline-end:-10%; inline-size:min(50vw, 560px); aspect-ratio:1; background:var(--glow-cyan); pointer-events:none;"></div>
+      <div class="cory-container" style="position:relative; display:grid; gap:var(--space-8);">
+        <div style="display:grid; gap:var(--space-5);">
+          <a data-link data-hero-el href="{{ workHref }}" style="display:inline-flex; align-items:center; gap:var(--space-1); justify-self:start; min-block-size:var(--tap-target); font-size:var(--text-body-sm); font-weight:var(--weight-semibold); color:var(--text-link); text-decoration:none;"><svg data-dir-icon width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"></path></svg>{{ ui.all }}</a>
+          <p data-hero-el style="margin:0; display:flex; gap:var(--space-3); flex-wrap:wrap; font-family:var(--font-mono); font-size:var(--text-mono); color:var(--text-muted);"><bdi>{{ c.index }}</bdi><span>{{ c.category }}</span><bdi>{{ c.year }}</bdi></p>
+          <h1 data-hero-title style="margin:0; max-inline-size:16ch; font-family:var(--font-display); font-weight:var(--weight-extrabold); font-size:var(--text-fluid-display); line-height:var(--leading-snug); letter-spacing:var(--tracking-tighter); color:var(--text-strong);">{{ c.title }}</h1>
+          <p data-hero-el style="margin:0; max-inline-size:var(--measure-lead); font-size:var(--text-fluid-lead); line-height:var(--leading-relaxed); color:var(--text-body);">{{ c.outcome }}</p>
+          <dl data-hero-el class="cory-cards" style="--card-min:180px; margin:0; padding-block-start:var(--space-5); border-block-start:1px solid var(--border-default);">
+            <div style="display:grid; gap:var(--space-1);"><dt class="cory-overline" style="color:var(--text-muted);">{{ ui.role }}</dt><dd style="margin:0; font-size:var(--text-body-sm); color:var(--text-strong);">{{ c.role }}</dd></div>
+            <div style="display:grid; gap:var(--space-1);"><dt class="cory-overline" style="color:var(--text-muted);">{{ ui.team }}</dt><dd style="margin:0; font-size:var(--text-body-sm); color:var(--text-strong);">{{ c.team }}</dd></div>
+            <div style="display:grid; gap:var(--space-1);"><dt class="cory-overline" style="color:var(--text-muted);">{{ ui.stack }}</dt><dd style="margin:0; font-size:var(--text-body-sm); color:var(--text-strong);"><bdi>{{ c.stack }}</bdi></dd></div>
+            <div style="display:grid; gap:var(--space-1);"><dt class="cory-overline" style="color:var(--text-muted);">{{ ui.year }}</dt><dd style="margin:0; font-size:var(--text-body-sm); color:var(--text-strong);"><bdi>{{ c.year }}</bdi></dd></div>
+          </dl>
+          <div data-hero-el data-hero-ctas style="display:flex; gap:var(--space-3); flex-wrap:wrap; align-items:center;">
+            <x-import component-from-global-scope="DesignSystem_ebeb85.Button" variant="{{ callVariant }}" size="lg" href="https://cal.com/md-abdul-aleem-gilsy7/15min?overlayCalendar=true" target="_blank" rel="noopener" hint-size="auto,52px">{{ ui.call }}</x-import>
+            <x-import component-from-global-scope="DesignSystem_ebeb85.Button" variant="{{ resumeVariant }}" size="lg" href="https://drive.google.com/uc?export=download&amp;id=1cmkjeMQc1S9gIePpRh29T4nFkBBe3izm" hint-size="auto,52px">{{ ui.resume }}</x-import>
+          </div>
+        </div>
+        <div data-hero-el style="position:relative; aspect-ratio:var(--aspect-case); border-radius:var(--radius-2xl); overflow:hidden; background:var(--surface-sunken); border:1px solid var(--border-subtle); box-shadow:var(--shadow-md);"><div data-cover-fallback aria-hidden="true"><bdi>{{ c.index }}</bdi><span>{{ c.title }}</span></div><sc-if value="{{ ready }}" hint-placeholder-val="{{ false }}"><image-slot id="{{ c.coverId }}" shape="rect" src="{{ c.cover }}" placeholder="{{ c.coverLabel }}" style="position:absolute; inset:0;"></image-slot></sc-if></div>
+      </div>
+    </header>
+
+    <div data-desktop-only><dc-import name="Section Nav" items="{{ toc }}" label="{{ ui.onThisPage }}" cta="{{ ui.call }}" hint-size="100%,64px"></dc-import></div>
+
+    <section id="results" data-section aria-label="{{ ui.keyResults }}" style="padding-block:var(--space-8) clamp(var(--space-12), 8vw, var(--space-20));">
+      <div class="cory-container">
+        <div data-metrics data-reveal-group class="cory-cards" style="--card-min:220px;">
+          <dc-import name="Metric Tile" value="{{ m1 }}" label="{{ c.metricLabel1 }}" accent="{{ true }}" hint-size="100%,160px"></dc-import>
+          <dc-import name="Metric Tile" value="{{ m2 }}" label="{{ c.metricLabel2 }}" hint-size="100%,160px"></dc-import>
+          <dc-import name="Metric Tile" value="{{ m3 }}" label="{{ c.metricLabel3 }}" hint-size="100%,160px"></dc-import>
+        </div>
+      </div>
+    </section>
+
+    <section id="problem" data-section aria-labelledby="problem-title" style="scroll-margin-block-start:calc(var(--header-height) + var(--space-16)); background:var(--surface-card); border-block:1px solid var(--border-subtle); padding-block:var(--section-y);">
+      <div class="cory-container" data-stack style="display:grid; grid-template-columns:minmax(0, 1fr) minmax(0, 2fr); gap:var(--space-8) var(--space-12);">
+        <div data-reveal style="display:grid; gap:var(--space-3); align-content:start;">
+          <p class="cory-overline" style="margin:0;"><bdi>01</bdi> · {{ ui.problem }}</p>
+          <h2 id="problem-title" style="margin:0; font-family:var(--font-display); font-weight:var(--weight-extrabold); font-size:var(--text-fluid-title); line-height:var(--leading-snug); letter-spacing:var(--tracking-tighter); color:var(--text-strong);">{{ ui.problemTitle }}</h2>
+        </div>
+        <p data-reveal style="margin:0; max-inline-size:var(--measure-body); font-size:var(--text-body-lg); line-height:var(--leading-relaxed); color:var(--text-body);">{{ c.problem }}</p>
+      </div>
+    </section>
+
+    <section id="approach" data-section aria-labelledby="approach-title" style="scroll-margin-block-start:calc(var(--header-height) + var(--space-16)); padding-block:var(--section-y);">
+      <div class="cory-container" data-stack style="display:grid; grid-template-columns:minmax(0, 1fr) minmax(0, 2fr); gap:var(--space-8) var(--space-12);">
+        <div data-reveal style="display:grid; gap:var(--space-3); align-content:start;">
+          <p class="cory-overline" style="margin:0;"><bdi>02</bdi> · {{ ui.approach }}</p>
+          <h2 id="approach-title" style="margin:0; font-family:var(--font-display); font-weight:var(--weight-extrabold); font-size:var(--text-fluid-title); line-height:var(--leading-snug); letter-spacing:var(--tracking-tighter); color:var(--text-strong);">{{ ui.approachTitle }}</h2>
+        </div>
+        <ol data-reveal-group style="display:grid; gap:var(--space-4);">
+          <li><dc-import name="Step Row" num="01" title="{{ step1.title }}" body="{{ step1.body }}" hint-size="100%,140px"></dc-import></li>
+          <li><dc-import name="Step Row" num="02" title="{{ step2.title }}" body="{{ step2.body }}" hint-size="100%,140px"></dc-import></li>
+          <li><dc-import name="Step Row" num="03" title="{{ step3.title }}" body="{{ step3.body }}" hint-size="100%,140px"></dc-import></li>
+        </ol>
+      </div>
+    </section>
+
+    <section data-section aria-label="{{ ui.inOneLine }}" style="padding-block:0 var(--section-y);">
+      <div class="cory-container"><div data-reveal><dc-import name="Pull Quote" overline="{{ ui.inOneLine }}" quote="{{ c.quote }}" hint-size="100%,260px"></dc-import></div></div>
+    </section>
+
+    <section id="result" data-section aria-labelledby="result-title" style="scroll-margin-block-start:calc(var(--header-height) + var(--space-16)); background:var(--surface-card); border-block:1px solid var(--border-subtle); padding-block:var(--section-y);">
+      <div class="cory-container" style="display:grid; gap:var(--space-10);">
+        <div data-stack style="display:grid; grid-template-columns:minmax(0, 1fr) minmax(0, 2fr); gap:var(--space-8) var(--space-12);">
+          <div data-reveal style="display:grid; gap:var(--space-3); align-content:start;">
+            <p class="cory-overline" style="margin:0;"><bdi>03</bdi> · {{ ui.result }}</p>
+            <h2 id="result-title" style="margin:0; font-family:var(--font-display); font-weight:var(--weight-extrabold); font-size:var(--text-fluid-title); line-height:var(--leading-snug); letter-spacing:var(--tracking-tighter); color:var(--text-strong);">{{ ui.resultTitle }}</h2>
+          </div>
+          <p data-reveal style="margin:0; max-inline-size:var(--measure-body); font-size:var(--text-body-lg); line-height:var(--leading-relaxed); color:var(--text-body);">{{ c.result }}</p>
+        </div>
+        <div data-reveal-group class="cory-cards" style="--card-min:320px;">
+          <figure style="margin:0; display:grid; gap:var(--space-3);"><div style="position:relative; aspect-ratio:var(--aspect-case); border-radius:var(--radius-xl); overflow:hidden; background:var(--surface-sunken); border:1px solid var(--border-subtle);"><div data-cover-fallback aria-hidden="true"><span>{{ g1.label }}</span></div><sc-if value="{{ ready }}" hint-placeholder-val="{{ false }}"><image-slot id="{{ g1.id }}" shape="rect" src="{{ g1.src }}" placeholder="{{ g1.label }}" style="position:absolute; inset:0;"></image-slot></sc-if></div><figcaption style="font-family:var(--font-mono); font-size:var(--text-mono); color:var(--text-muted);">{{ g1.label }}</figcaption></figure>
+          <figure style="margin:0; display:grid; gap:var(--space-3);"><div style="position:relative; aspect-ratio:var(--aspect-case); border-radius:var(--radius-xl); overflow:hidden; background:var(--surface-sunken); border:1px solid var(--border-subtle);"><div data-cover-fallback aria-hidden="true"><span>{{ g2.label }}</span></div><sc-if value="{{ ready }}" hint-placeholder-val="{{ false }}"><image-slot id="{{ g2.id }}" shape="rect" src="{{ g2.src }}" placeholder="{{ g2.label }}" style="position:absolute; inset:0;"></image-slot></sc-if></div><figcaption style="font-family:var(--font-mono); font-size:var(--text-mono); color:var(--text-muted);">{{ g2.label }}</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <section id="learnings" data-section aria-labelledby="learnings-title" style="scroll-margin-block-start:calc(var(--header-height) + var(--space-16)); padding-block:var(--section-y);">
+      <div class="cory-container" data-stack style="display:grid; grid-template-columns:minmax(0, 1fr) minmax(0, 2fr); gap:var(--space-8) var(--space-12);">
+        <div data-reveal style="display:grid; gap:var(--space-3); align-content:start;">
+          <p class="cory-overline" style="margin:0;"><bdi>04</bdi> · {{ ui.learnings }}</p>
+          <h2 id="learnings-title" style="margin:0; font-family:var(--font-display); font-weight:var(--weight-extrabold); font-size:var(--text-fluid-title); line-height:var(--leading-snug); letter-spacing:var(--tracking-tighter); color:var(--text-strong);">{{ ui.learningsTitle }}</h2>
+        </div>
+        <div style="display:grid; gap:var(--space-6);">
+          <ul data-reveal-group style="display:grid; gap:var(--space-3);">
+            <li style="display:flex; gap:var(--space-3); align-items:flex-start; padding:var(--space-4) var(--space-5); background:var(--surface-card); border:1px solid var(--border-subtle); border-radius:var(--radius-lg); font-size:var(--text-body); line-height:var(--leading-relaxed); color:var(--text-body);"><span aria-hidden="true" style="inline-size:var(--space-2); block-size:var(--space-2); margin-block-start:var(--space-3); flex-shrink:0; border-radius:var(--radius-pill); background:var(--text-subtle);"></span><span>{{ l1 }}</span></li>
+            <li style="display:flex; gap:var(--space-3); align-items:flex-start; padding:var(--space-4) var(--space-5); background:var(--surface-card); border:1px solid var(--border-subtle); border-radius:var(--radius-lg); font-size:var(--text-body); line-height:var(--leading-relaxed); color:var(--text-body);"><span aria-hidden="true" style="inline-size:var(--space-2); block-size:var(--space-2); margin-block-start:var(--space-3); flex-shrink:0; border-radius:var(--radius-pill); background:var(--text-subtle);"></span><span>{{ l2 }}</span></li>
+            <li style="display:flex; gap:var(--space-3); align-items:flex-start; padding:var(--space-4) var(--space-5); background:var(--surface-card); border:1px solid var(--border-subtle); border-radius:var(--radius-lg); font-size:var(--text-body); line-height:var(--leading-relaxed); color:var(--text-body);"><span aria-hidden="true" style="inline-size:var(--space-2); block-size:var(--space-2); margin-block-start:var(--space-3); flex-shrink:0; border-radius:var(--radius-pill); background:var(--text-subtle);"></span><span>{{ l3 }}</span></li>
+          </ul>
+          <div data-reveal><dc-import name="Service Link Card" overline="{{ ui.needThis }}" title="{{ c.serviceTitle }}" body="{{ c.serviceBody }}" link="{{ ui.seeService }}" href="{{ c.serviceHref }}" hint-size="100%,140px"></dc-import></div>
+        </div>
+      </div>
+    </section>
+
+    <nav aria-labelledby="more-title" style="padding-block:0 var(--space-8);">
+      <div class="cory-container" style="display:grid; gap:var(--space-6);">
+      <h2 id="more-title" data-reveal style="margin:0; font-family:var(--font-display); font-weight:var(--weight-extrabold); font-size:var(--text-fluid-title); line-height:var(--leading-snug); letter-spacing:var(--tracking-tighter); color:var(--text-strong);">{{ ui.more }}</h2>
+      <div class="cory-cards" style="--card-min:300px;">
+        <div data-reveal style="display:grid;"><dc-import name="Case Card" copy="{{ prevCard }}" level="{{ 3 }}" hint-size="100%,420px"></dc-import></div>
+        <div data-reveal style="display:grid;"><dc-import name="Case Card" copy="{{ nextCard }}" level="{{ 3 }}" hint-size="100%,420px"></dc-import></div>
+      </div>
+      </div>
+    </nav>
+  </article>
+
+  <section id="contact" data-section aria-labelledby="cta-title" style="padding-block:var(--space-8) var(--section-y);">
+    <div class="cory-container">
+      <div data-reveal class="cory-ink" data-stack style="padding:clamp(var(--space-8), 5vw, var(--space-12)); display:grid; grid-template-columns:minmax(0, 1fr) auto; gap:var(--space-8); align-items:center;">
+        <div style="display:grid; gap:var(--space-3);">
+          <p class="cory-overline" style="margin:0; color:var(--on-ink-link);">{{ ui.ctaOverline }}</p>
+          <h2 id="cta-title" style="margin:0; font-family:var(--font-display); font-weight:var(--weight-extrabold); font-size:var(--text-fluid-title); line-height:var(--leading-snug); letter-spacing:var(--tracking-tighter); color:var(--on-ink-strong);">{{ ui.ctaTitle }}</h2>
+          <p style="margin:0; font-size:var(--text-body); line-height:var(--leading-relaxed); color:var(--on-ink-body); max-inline-size:var(--measure-lead);">{{ ui.ctaBody }}</p>
+        </div>
+        <div data-cta-row style="display:grid; gap:var(--space-2); justify-items:start;"><x-import component-from-global-scope="DesignSystem_ebeb85.Button" variant="onInkSolid" size="lg" href="mailto:hello@aiuxaleem.com?subject=Project%20conversation" hint-size="auto,52px">{{ ui.ctaButton }}</x-import><span style="color:var(--on-ink-body); font-size:var(--text-body-sm);"><dc-import name="Email Copy" subject="Project conversation" copy-label="{{ ui.copyEmail }}" copied-label="{{ ui.copied }}" fallback-label="{{ ui.pressCopy }}" hint-size="auto,44px"></dc-import></span></div>
+      </div>
+    </div>
+  </section>
+</main>
+<dc-import name="Site Footer" hint-size="100%,360px"></dc-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;caseSlug&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;colaberry-design-system&quot;,&quot;options&quot;:[&quot;colaberry-design-system&quot;,&quot;aixfreight-rebrand&quot;,&quot;ai-ad-reel-pipeline&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Content&quot;}}">
+class Component extends DCLogic {
+  state = { lang: document.documentElement.lang === 'ar' ? 'ar' : 'en', intent: Component.savedIntent() };
+  static savedIntent() { try { const v = localStorage.getItem('aiuxaleem-intent'); return v === 'hiring' || v === 'client' ? v : null; } catch (e) { return null; } }
+  static q(n) { try { return new URLSearchParams(location.search).get(n) || ''; } catch (e) { return ''; } }
+  async componentDidMount() {
+    const site = await import('./site.js'); this.site = site;
+    await site.waitFor(() => window.AIUX_CASE_BY_SLUG && window.AIUX_COPY); this.forceUpdate();
+    window.__aiuxLang = next => this.setState({ lang: next }, () => { site.applyLangAttrs(next); document.title = this.raw().title + ' · AIUXAleem'; });
+    this.unobserve = site.observeRoot(['lang'], () => { const l = document.documentElement.lang === 'ar' ? 'ar' : 'en'; if (l !== this.state.lang) this.setState({ lang: l }); });
+    document.title = this.raw().title + ' · AIUXAleem';
+    this.T = await site.pageInit(T => {
+      site.readingProgress(T, document.querySelector('[data-progress]'), document.querySelector('[data-article]'));
+      const els = Array.from(document.querySelectorAll('[data-metric]'));
+      site.countUp(T, document.querySelector('[data-metrics]'), this.raw().metrics.map((m, i) => ({ ...m, el: els[i] })));
+    });
+  }
+  componentWillUnmount() { this.unobserve && this.unobserve(); if (window.__aiuxLang) window.__aiuxLang = null; }
+  raw() { const by = window.AIUX_CASE_BY_SLUG; return by ? by(Component.q('case') || this.props.caseSlug || 'colaberry-design-system', this.state.lang) : null; }
+  renderVals() {
+    const lang = this.state.lang, stress = Component.q('stress') === '1';
+    const raw = this.raw(); const ui = window.AIUX_CASE_UI ? window.AIUX_CASE_UI(lang) : {};
+    const sfx = stress && window.AIUX_I18N ? ' ' + window.AIUX_I18N[lang].stress : '';
+    if (!raw) return { notFound: false, ready: false, c: {}, ui, step1: {}, step2: {}, step3: {}, g1: {}, g2: {}, toc: [], prevCard: {}, nextCard: {}, callVariant: 'primary', resumeVariant: 'secondary', workHref: 'Work.dc.html' };
+    const by = window.AIUX_CASE_BY_SLUG, next = by(raw.next, lang), prev = by(raw.prev, lang);
+    const href = s => 'Case Study.dc.html?' + (lang === 'ar' ? 'lang=ar&' : '') + 'case=' + s;
+    const card = (x, lbl) => ({ index: x.index, title: x.title, role: lbl + ' · ' + x.category, year: x.year, outcome: x.outcome + sfx, link: ui.read, href: href(x.slug), hreflang: lang, coverId: x.coverId, coverLabel: x.coverLabel, cover: x.cover || '' });
+    const c = { ...raw, outcome: raw.outcome + sfx, problem: raw.problem + sfx, result: raw.result + sfx, metricLabel1: raw.metrics[0].label, metricLabel2: raw.metrics[1].label, metricLabel3: raw.metrics[2].label, serviceTitle: raw.service.title, serviceBody: raw.service.body + sfx, serviceHref: raw.service.href };
+    const hiring = this.state.intent === 'hiring';
+    return {
+      // A mistyped or retired ?case= slug falls back to case 01; say so instead of pretending the link was right.
+      notFound: (() => { const s = Component.q('case'), I = window.AIUX_CASES_I18N; const list = I && (I[lang] || I.en).cases; return !!s && !!list && !list.some(x => x.slug === s); })(),
+      nfText: lang === 'ar' ? 'لم أجد دراسة الحالة هذه. إليك «' + raw.title + '» بدلًا منها.' : "I couldn't find that case study. Here's " + raw.title + ' instead.',
+      nfLink: lang === 'ar' ? 'كل الأعمال' : 'See all work',
+      ready: true, c, ui, workHref: lang === 'ar' ? 'AIUXAleem Home.dc.html?lang=ar#work' : 'Work.dc.html',
+      step1: raw.approach[0], step2: raw.approach[1], step3: raw.approach[2], g1: raw.gallery[0], g2: raw.gallery[1],
+      l1: raw.learnings[0] + sfx, l2: raw.learnings[1] + sfx, l3: raw.learnings[2] + sfx,
+      m1: raw.metrics[0].fmt(raw.metrics[0].to), m2: raw.metrics[1].fmt(raw.metrics[1].to), m3: raw.metrics[2].fmt(raw.metrics[2].to),
+      toc: [{ num: '01', label: ui.problem, href: '#problem' }, { num: '02', label: ui.approach, href: '#approach' }, { num: '03', label: ui.result, href: '#result' }, { num: '04', label: ui.learnings, href: '#learnings' }],
+      prevCard: card(prev, ui.prev), nextCard: card(next, ui.next),
+      callVariant: hiring ? 'secondary' : 'primary', resumeVariant: hiring ? 'primary' : 'secondary',
+    };
+  }
+}
+</script>
+</body>
+</html>

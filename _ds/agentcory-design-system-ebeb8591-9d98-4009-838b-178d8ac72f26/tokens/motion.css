@@ -1,0 +1,75 @@
+/* ===========================================================================
+   AgentCory: Motion tokens
+   Restrained by default (fades, 3px lifts, 0.97 press); a cinematic tier for
+   portfolio reveals. Every animation here respects prefers-reduced-motion.
+   =========================================================================== */
+:root {
+  /* --- Easing --- */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1); /* @kind other */ /* default: hover, enter */
+  --ease-in: cubic-bezier(0.55, 0, 1, 0.45); /* @kind other */ /* exit */
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1); /* @kind other */ /* move between places */
+  --ease-spring: cubic-bezier(0.34, 1.4, 0.64, 1); /* @kind other */ /* light overshoot: chips, toggles */
+  --ease-cinematic: cubic-bezier(0.16, 1, 0.3, 1); /* @kind other */ /* long reveals */
+
+  /* --- Duration --- */
+  --duration-instant: 80ms; /* @kind other */ /* color/opacity flicks */
+  --duration-fast: 140ms; /* @kind other */ /* press */
+  --duration-base: 220ms; /* @kind other */ /* hover, focus */
+  --duration-slow: 380ms; /* @kind other */ /* panels, menus */
+  --duration-enter: 600ms; /* @kind other */ /* content reveal */
+  --duration-cinematic: 900ms; /* @kind other */ /* hero reveal */
+  --duration-epic: 1200ms; /* @kind other */ /* page transitions, counters */
+  --duration-marquee: 32s; /* @kind other */
+
+  /* --- Delay / stagger --- */
+  --delay-1: 60ms; /* @kind other */
+  --delay-2: 120ms; /* @kind other */
+  --delay-3: 180ms; /* @kind other */
+  --delay-4: 240ms; /* @kind other */
+  --stagger: 70ms; /* @kind other */ /* per-item: calc(var(--i) * var(--stagger)) */
+
+  /* --- Distances --- */
+  --lift-hover: -3px; /* @kind other */
+  --lift-hover-lg: -6px; /* @kind other */
+  --press-scale: 0.97; /* @kind other */
+  --reveal-distance: 24px; /* @kind other */
+  --reveal-distance-lg: 48px; /* @kind other */
+  --parallax-depth: 0.12; /* multiplier for scroll-driven offsets */
+}
+
+/* --- Keyframe library --- */
+@keyframes cory-fade-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes cory-fade-up { from { opacity: 0; transform: translateY(var(--reveal-distance, 24px)); } to { opacity: 1; transform: translateY(0); } }
+@keyframes cory-fade-down { from { opacity: 0; transform: translateY(calc(var(--reveal-distance, 24px) * -1)); } to { opacity: 1; transform: translateY(0); } }
+@keyframes cory-scale-in { from { opacity: 0; transform: scale(0.94); } to { opacity: 1; transform: scale(1); } }
+@keyframes cory-blur-in { from { opacity: 0; filter: blur(12px); transform: translateY(12px); } to { opacity: 1; filter: blur(0); transform: translateY(0); } }
+@keyframes cory-clip-up { from { clip-path: inset(100% 0 0 0); transform: translateY(20%); } to { clip-path: inset(0 0 0 0); transform: translateY(0); } }
+@keyframes cory-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@keyframes cory-pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.45; } }
+@keyframes cory-glow-drift { 0% { transform: translate(0, 0) scale(1); } 50% { transform: translate(6%, -4%) scale(1.08); } 100% { transform: translate(0, 0) scale(1); } }
+@keyframes cory-shimmer { from { background-position: -200% 0; } to { background-position: 200% 0; } }
+
+/* --- Reveal utilities (set --i for stagger; add .is-visible via IntersectionObserver or use .cory-reveal-auto) --- */
+.cory-reveal { opacity: 0; transform: translateY(var(--reveal-distance)); transition: opacity var(--duration-enter) var(--ease-cinematic), transform var(--duration-enter) var(--ease-cinematic); transition-delay: calc(var(--i, 0) * var(--stagger)); }
+.cory-reveal.is-visible { opacity: 1; transform: none; }
+.cory-reveal-auto { animation: cory-fade-up var(--duration-enter) var(--ease-cinematic) both; animation-delay: calc(var(--i, 0) * var(--stagger)); }
+.cory-marquee { display: flex; width: max-content; gap: var(--space-10); animation: cory-marquee var(--duration-marquee) linear infinite; }
+.cory-marquee:hover { animation-play-state: paused; }
+.cory-glow-drift { animation: cory-glow-drift 14s var(--ease-in-out) infinite; }
+.cory-lift { transition: transform var(--duration-base) var(--ease-out), box-shadow var(--duration-base) var(--ease-out); }
+.cory-lift:hover { transform: translateY(var(--lift-hover)); box-shadow: var(--shadow-lg); }
+
+/* --- Scroll-driven (progressive enhancement; no-ops where unsupported) --- */
+@supports (animation-timeline: view()) {
+  .cory-reveal-scroll { animation: cory-fade-up linear both; animation-timeline: view(); animation-range: entry 0% entry 40%; }
+  .cory-parallax { animation: cory-parallax linear both; animation-timeline: view(); }
+  @keyframes cory-parallax { from { transform: translateY(calc(var(--parallax-depth) * 100px)); } to { transform: translateY(calc(var(--parallax-depth) * -100px)); } }
+}
+
+/* --- Reduced motion: keep state changes, drop movement --- */
+@media (prefers-reduced-motion: reduce) {
+  :root { --duration-enter: 1ms; /* @kind other */ --duration-cinematic: 1ms; /* @kind other */ --duration-epic: 1ms; /* @kind other */ --reveal-distance: 0px; /* @kind other */ --reveal-distance-lg: 0px; /* @kind other */ --lift-hover: 0px; /* @kind other */ --lift-hover-lg: 0px; /* @kind other */ --press-scale: 1; /* @kind other */ --parallax-depth: 0; /* @kind other */ }
+  .cory-reveal { opacity: 1; transform: none; transition: none; }
+  .cory-reveal-auto, .cory-marquee, .cory-glow-drift, .cory-reveal-scroll, .cory-parallax { animation: none !important; }
+  *, *::before, *::after { animation-duration: 1ms !important; animation-iteration-count: 1 !important; transition-duration: 1ms !important; scroll-behavior: auto !important; }
+}

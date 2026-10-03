@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AIUXAleem · AI-first Senior Product Designer</title>
+  <meta name="description" content="Mohammad Abdul Aleem, AI-first Senior Product Designer. 13+ years in enterprise UX, design systems and AI product design. Open to senior roles and client work in KSA, UAE and remote.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="AIUXAleem">
+  <meta property="og:title" content="AIUXAleem · AI-first Senior Product Designer">
+  <meta property="og:description" content="Mohammad Abdul Aleem, AI-first Senior Product Designer. 13+ years in enterprise UX, design systems and AI product design. Open to senior roles and client work in KSA, UAE and remote.">
+  <meta property="og:image" content="https://aiuxaleem.com/assets/og-home.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="AIUXAleem: I design AI products people actually trust.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#0B1F36">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="alternate" hreflang="en" href="AIUXAleem Home.dc.html">
+  <link rel="alternate" hreflang="ar" href="AIUXAleem Home.dc.html?lang=ar">
+  <script>(function(){var d=document.documentElement,q=new URLSearchParams(location.search),L='en ar',P='home',t=q.get('theme');if(t!=='light'&&t!=='dark'){try{t=localStorage.getItem('aiuxaleem-theme')}catch(e){}}if(t!=='light'&&t!=='dark')t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';var l=q.get('lang');if(L.split(' ').indexOf(l)<0)l='en';d.setAttribute('data-theme',t);d.lang=l;d.dir=l==='ar'?'rtl':'ltr';d.setAttribute('data-langs',L);d.setAttribute('data-page',P);if(q.get('qa')==='1')d.setAttribute('data-qa','');var fm=q.get('motion');if(fm==null){try{fm=localStorage.getItem('aiuxaleem-force-motion')}catch(e){}}if(fm==='1')d.setAttribute('data-force-motion','');if(q.get('perf')==='1'){var s=document.createElement('script');s.src='vitals.js';document.head.appendChild(s)}if(matchMedia('(prefers-reduced-motion: no-preference)').matches&&!d.hasAttribute('data-qa')){d.setAttribute('data-motion','pending');setTimeout(function(){if(d.hasAttribute('data-motion')){d.removeAttribute('data-motion');d.setAttribute('data-intro-shown','')}},1000)}})();</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="preload" as="script" href="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js">
+  <link rel="preload" as="script" href="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js">
+  <link rel="preload" as="script" href="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js">
+  <link rel="preload" as="script" href="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/CustomEase.min.js">
+  <link rel="modulepreload" href="site.js">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;600&amp;family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&amp;family=Noto+Kufi+Arabic:wght@700;800&amp;display=swap">
+  <link rel="stylesheet" href="site.css">
+  <script src="_ds/agentcory-design-system-ebeb8591-9d98-4009-838b-178d8ac72f26/_ds_bundle.js"></script>
+  <script src="i18n.js"></script>
+  <script src="./image-slot.js"></script>
+</helmet>
+<dc-import name="Site Header" current="home" hint-size="100%,72px"></dc-import>
+<div data-scene-poster aria-hidden="true" style="position:fixed; inset:0; z-index:var(--z-base); pointer-events:none; background:var(--glow-blue) no-repeat 78% 12% / 72vmax 72vmax, var(--glow-cyan) no-repeat 12% 88% / 56vmax 56vmax;"></div>
+<div data-atmosphere-dots aria-hidden="true" style="position:fixed; inset:0; z-index:var(--z-base); pointer-events:none;"></div>
+<canvas data-scene-canvas aria-hidden="true" style="position:fixed; inset:0; inline-size:100%; block-size:100%; z-index:var(--z-base); pointer-events:none; display:block;"></canvas>
+<main id="main" data-page="home" tabindex="-1" style="position:relative; z-index:var(--z-raised); outline:none;">
+
+  <section id="top" data-section data-hero data-scene-section aria-labelledby="hero-title" style="position:relative; min-block-size:calc(100svh - var(--header-height)); display:flex; align-items:center; padding-block:clamp(var(--space-10), 7svh, var(--space-20)) var(--space-16); overflow:clip;">
+    <div class="cory-container cory-split" style="gap:var(--space-12) var(--space-10); align-items:center;">
+      <div style="display:grid; gap:var(--space-6); align-content:center;">
+        <sc-if value="{{ showNotice }}" hint-placeholder-val="{{ false }}">
+          <div role="status" style="display:flex; align-items:center; justify-content:space-between; gap:var(--space-3); padding:var(--space-3) var(--space-4); border-radius:var(--radius-lg); background:var(--surface-card); border:1px solid var(--border-default); box-shadow:var(--shadow-sm); max-inline-size:var(--measure-lead);">
+            <span style="font-size:var(--text-body-sm); color:var(--text-body);">{{ noticeText }}</span>
+            <x-import component-from-global-scope="DesignSystem_ebeb85.IconButton" variant="ghost" size="md" label="{{ t.notice.dismiss }}" onClick="{{ dismissNotice }}" hint-size="44px,44px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"></path></svg></x-import>
+          </div>
+        </sc-if>
+        <div data-hero-el style="display:flex; align-items:center; flex-wrap:wrap; min-block-size:var(--space-7);">
+          <x-import component-from-global-scope="DesignSystem_ebeb85.Badge" tone="success" dot="{{ true }}" hint-size="auto,26px">{{ t.hero.badge }}</x-import>
+        </div>
+        <h1 id="hero-title" data-hero-title style="margin:0; max-inline-size:14ch; min-block-size:calc(2 * var(--leading-tight) * 1em); font-family:var(--font-display); font-weight:var(--weight-extrabold); font-size:var(--text-fluid-display); line-height:var(--leading-tight); letter-spacing:var(--tracking-tighter); color:var(--text-strong); text-wrap:balance;">{{ t.hero.titleA }}<span style="background:var(--gradient-text); -webkit-background-clip:text; background-clip:text; color:transparent;">{{ t.hero.titleB }}</span>{{ t.hero.titleC }}</h1>
+        <p data-hero-el style="margin:0; max-inline-size:var(--measure-lead); min-block-size:calc(2 * var(--leading-relaxed) * 1em); font-size:var(--text-fluid-lead); line-height:var(--leading-relaxed); color:var(--text-body);">{{ t.hero.sub }}</p>
+        <div data-hero-el data-hero-ctas style="display:flex; gap:var(--space-3); flex-wrap:wrap; align-items:center; min-block-size:var(--space-12);">
+          <x-import component-from-global-scope="DesignSystem_ebeb85.Button" variant="primary" size="lg" href="#work" icon-right="{{ iArrowDown }}" hint-size="auto,52px">{{ t.hero.work }}</x-import>
+          <x-import component-from-global-scope="DesignSystem_ebeb85.Button" variant="secondary" size="lg" href="https://drive.google.com/uc?export=download&amp;id=1cmkjeMQc1S9gIePpRh29T4nFkBBe3izm" icon-left="{{ iDownload }}" hint-size="auto,52px">{{ t.hero.resume }}</x-import>
+        </div>
+        <div data-hero-el style="display:grid; gap:var(--space-3); margin-block-start:var(--space-4); padding-block-start:var(--space-6); border-block-start:1px solid var(--border-subtle);">
+          <p style="margin:0; font-size:var(--text-caption); font-weight:var(--weight-semibold); color:var(--text-subtle);">{{ t.hero.workedWith }}</p>
+          <ul style="display:flex; align-items:center; gap:var(--space-2) var(--space-6); flex-wrap:wrap;"><sc-for list="{{ brands }}" as="b" hint-placeholder-count="5"><li lang="en" dir="ltr" style="white-space:nowrap; font-family:var(--font-display); font-weight:var(--weight-extrabold); font-size:var(--text-body-lg); letter-spacing:var(--tracking-tight); color:var(--text-muted);">{{ b }}</li></sc-for></ul>
+        </div>
+      </div>
+
+      <div data-hero-el data-demo style="position:relative; display:grid; gap:var(--space-3); justify-self:end; inline-size:min(100%, 480px);">
+        <div aria-hidden="true" style="position:absolute; inset:-18% -14%; background:var(--glow-cyan) no-repeat 85% 15% / 70% 70%, var(--glow-blue) no-repeat 10% 90% / 65% 65%; z-index:-1; pointer-events:none;"></div>
+        <div style="display:flex; align-items:center; justify-content:space-between; gap:var(--space-3); flex-wrap:wrap;">
+          <p class="cory-overline" style="margin:0; display:inline-flex; align-items:center; gap:var(--space-2);"><span aria-hidden="true" style="inline-size:8px; block-size:8px; border-radius:50%; background:var(--green-500); box-shadow:0 0 0 3px var(--green-100);"></span>{{ t.demo.overline }}</p>
+          <div role="group" aria-label="{{ t.demo.controls }}" style="display:flex; gap:var(--space-2);">
+            <x-import component-from-global-scope="DesignSystem_ebeb85.Chip" selected="{{ demoDark }}" on-toggle="{{ toggleDemoDark }}" dc-props="{{ chip44 }}" hint-size="auto,44px">{{ t.demo.dark }}</x-import>
+            <x-import component-from-global-scope="DesignSystem_ebeb85.Chip" selected="{{ demoFlip }}" on-toggle="{{ toggleDemoFlip }}" dc-props="{{ chip44 }}" hint-size="auto,44px">{{ t.demo.flip }}</x-import>
+          </div>
+        </div>
+        <div data-theme="{{ demoTheme }}" dir="{{ demoDir }}" lang="{{ demoLang }}" style="display:grid; gap:var(--space-4); padding:var(--space-5); border-radius:var(--radius-xl); background:var(--surface-card); color:var(--text-body); border:1px solid var(--border-default); box-shadow:var(--shadow-xl); font-family:var(--font-sans); transition:background var(--duration-slow) var(--ease-out), color var(--duration-slow) var(--ease-out), border-color var(--duration-slow) var(--ease-out);">
+          <div style="display:flex; align-items:center; gap:var(--space-3);">
+            <span aria-hidden="true" style="inline-size:40px; block-size:40px; flex-shrink:0; display:grid; place-items:center; border-radius:var(--radius-md); background:var(--gradient-ink); color:var(--on-ink-strong);"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"></path><rect x="4" y="8" width="16" height="12" rx="2"></rect><path d="M2 14h2M20 14h2M15 13v2M9 13v2"></path></svg></span>
+            <div style="display:grid; gap:2px; flex:1 1 auto; min-inline-size:0;">
+              <strong style="font-size:var(--text-body-sm); font-weight:var(--weight-bold); line-height:var(--leading-snug); color:var(--text-strong); white-space:nowrap;">{{ dm.agent }}</strong>
+              <span style="font-size:var(--text-caption); line-height:var(--leading-snug); color:var(--text-subtle);">{{ dm.time }}</span>
+            </div>
+            <span style="flex-shrink:0;"><x-import component-from-global-scope="DesignSystem_ebeb85.Badge" tone="brand" hint-size="auto,26px">{{ dm.badge }}</x-import></span>
+          </div>
+          <p style="margin:0; font-size:var(--text-body); line-height:var(--leading-relaxed); color:var(--text-strong); text-wrap:pretty;">{{ dm.msg }}</p>
+          <dl style="margin:0; display:grid; grid-template-columns:repeat(auto-fit, minmax(80px, 1fr)); gap:var(--space-3); padding:var(--space-3) var(--space-4); border-radius:var(--radius-md); background:var(--surface-sunken);">
+            <div style="display:grid; gap:2px;"><dt style="font-size:var(--text-caption); font-weight:var(--weight-medium); color:var(--text-subtle);">{{ dm.confidence }}</dt><dd style="margin:0; font-size:var(--text-body-sm); font-weight:var(--weight-bold); color:var(--text-strong);"><bdi style="font-variant-numeric:tabular-nums;">{{ dm.confidenceV }}</bdi></dd></div>
+            <div style="display:grid; gap:2px;"><dt style="font-size:var(--text-caption); font-weight:var(--weight-medium); color:var(--text-subtle);">{{ dm.cost }}</dt><dd style="margin:0; font-size:var(--text-body-sm); font-weight:var(--weight-bold); color:var(--text-success);"><bdi style="font-variant-numeric:tabular-nums;">{{ dm.costV }}</bdi></dd></div>
+            <div style="display:grid; gap:2px;"><dt style="font-size:var(--text-caption); font-weight:var(--weight-medium); color:var(--text-subtle);">{{ dm.impact }}</dt><dd style="margin:0; font-size:var(--text-body-sm); font-weight:var(--weight-bold); color:var(--text-strong);">{{ dm.impactV }}</dd></div>
+          </dl>
+          <sc-if value="{{ demoIdle }}" hint-placeholder-val="{{ true }}">
+            <div style="display:grid; gap:var(--space-3);">
+              <div style="display:flex; gap:var(--space-2); flex-wrap:wrap; align-items:center;">
+                <x-import component-from-global-scope="DesignSystem_ebeb85.Button" variant="ink" size="md" loading="{{ demoApplying }}" onClick="{{ applyDemo }}" hint-size="auto,44px">{{ applyLabel }}</x-import>
+                <x-import component-from-global-scope="DesignSystem_ebeb85.Button" variant="ghost" size="md" aria-expanded="{{ demoWhy }}" aria-controls="demo-why" onClick="{{ toggleWhy }}" hint-size="auto,44px">{{ whyLabel }}</x-import>
+              </div>
+              <sc-if value="{{ demoWhy }}" hint-placeholder-val="{{ false }}">
+                <ul id="demo-why" style="display:grid; gap:var(--space-2); padding:var(--space-3) var(--space-4); border-radius:var(--radius-md); border:1px solid var(--border-subtle); font-size:var(--text-body-sm); line-height:var(--leading-normal); color:var(--text-body);">
+                  <li style="display:flex; gap:var(--space-2); align-items:baseline;"><span aria-hidden="true" style="inline-size:6px; block-size:6px; flex-shrink:0; border-radius:50%; background:var(--node-accent); transform:translateY(-2px);"></span><span>{{ dm.why1 }}</span></li>
+                  <li style="display:flex; gap:var(--space-2); align-items:baseline;"><span aria-hidden="true" style="inline-size:6px; block-size:6px; flex-shrink:0; border-radius:50%; background:var(--node-accent); transform:translateY(-2px);"></span><span>{{ dm.why2 }}</span></li>
+                </ul>
+              </sc-if>
+              <p role="status" style="margin:0; font-size:var(--text-caption); line-height:var(--leading-normal); color:var(--text-muted);">{{ idleNote }}</p>
+            </div>
+          </sc-if>
+          <sc-if value="{{ demoApplied }}" hint-placeholder-val="{{ false }}">
+            <div role="status" style="display:flex; align-items:center; flex-wrap:wrap; gap:var(--space-3); padding-block:var(--space-2); padding-inline:var(--space-3) var(--space-2); border-radius:var(--radius-md); border:1px solid var(--border-default); background:var(--surface-card); box-shadow:var(--shadow-sm);">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--text-success)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>
+              <span style="flex:1 1 16ch; display:grid; gap:2px;"><span style="font-size:var(--text-body-sm); font-weight:var(--weight-semibold); color:var(--text-strong);">{{ appliedText }}</span><sc-if value="{{ canUndo }}" hint-placeholder-val="{{ true }}"><span aria-hidden="true" style="font-family:var(--font-mono); font-size:var(--text-mono-sm); color:var(--text-subtle); font-variant-numeric:tabular-nums;">{{ countdown }}</span></sc-if></span>
+              <sc-if value="{{ canUndo }}" hint-placeholder-val="{{ true }}"><x-import component-from-global-scope="DesignSystem_ebeb85.Button" variant="secondary" size="md" onClick="{{ undoDemo }}" hint-size="auto,44px">{{ dm.undoBtn }}</x-import></sc-if>
+              <sc-if value="{{ demoFinal }}" hint-placeholder-val="{{ false }}"><x-import component-from-global-scope="DesignSystem_ebeb85.Button" variant="ghost" size="md" onClick="{{ resetDemo }}" hint-size="auto,44px">{{ dm.reset }}</x-import></sc-if>
+            </div>
+          </sc-if>
+        </div>
+        <p style="margin:0; font-size:var(--text-caption); line-height:var(--leading-normal); color:var(--text-muted); max-inline-size:52ch;">{{ t.demo.caption }}</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" data-section data-manifesto data-scene-section aria-labelledby="about-title" style="padding-block:var(--section-y);">
+    <div class="cory-container cory-split" style="gap:var(--space-12) var(--space-16); align-items:center;">
+      <div style="display:grid; gap:var(--space-6);">
+        <p data-reveal id="about-title" class="cory-overline" style="margin:0;">{{ t.about.overline }}</p>
+        <h2 data-manifesto-text style="margin:0; max-inline-size:16ch; font-family:var(--font-display); font-weight:var(--weight-extrabold); font-size:var(--text-fluid-display); line-height:var(--leading-tight); letter-spacing:var(--tracking-tighter); color:var(--text-strong);">{{ t.about.text }}</h2>
+        <a data-link data-reveal href="{{ t.about.href }}" hreflang="en" style="display:inline-flex; align-items:center; gap:var(--space-2); inline-size:fit-content; min-block-size:var(--tap-target); font-size:var(--text-body); font-weight:var(--weight-semibold); color:var(--text-link); text-decoration:none;">{{ t.about.more }}<svg data-dir-icon width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
+      </div>
+      <div data-reveal data-stack style="display:grid; grid-template-columns:minmax(0, 220px) minmax(0, 1fr); gap:var(--space-6) var(--space-8); align-items:start;">
+        <div style="position:relative; inline-size:min(100%, 240px); aspect-ratio:var(--aspect-portrait); border-radius:var(--radius-xl); overflow:hidden; background:var(--gradient-ink); border:1px solid var(--border-subtle); box-shadow:var(--shadow-md);">
+          <div data-cover-fallback aria-hidden="true" style="align-items:center; justify-content:center; padding:0;"><span lang="en" dir="ltr" style="font-size:var(--text-metric-lg); max-inline-size:none; color:var(--on-ink-muted);">{{ t.about.initials }}</span></div>
+          <div style="position:absolute; inset:0;"><image-slot id="portrait-home" shape="rect" src="assets/media/portrait-home.webp" placeholder="{{ t.about.portraitLabel }}"></image-slot></div>
+        </div>
+        <dl style="margin:0; display:grid; gap:var(--space-4);">
+          <sc-for list="{{ facts }}" as="f" hint-placeholder-count="3">
+            <div style="display:grid; gap:var(--space-1); padding-block-start:var(--space-4); border-block-start:1px solid var(--border-subtle);">
+              <dt style="font-size:var(--text-caption); font-weight:var(--weight-semibold); color:var(--text-subtle);">{{ f.k }}</dt>
+              <dd style="margin:0; font-size:var(--text-body-lg); font-weight:var(--weight-semibold); line-height:var(--leading-snug); color:var(--text-strong);">{{ f.v }}</dd>
+            </div>
+          </sc-for>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section id="proof" data-section data-proof data-scene-section aria-labelledby="proof-title" style="padding-block:var(--section-y);">
+    <div class="cory-container" style="display:grid; gap:var(--space-10);">
+      <div data-reveal style="display:grid; gap:var(--space-3);">
+        <p class="cory-overline" style="margin:0;">{{ t.proof.overline }}</p>
+        <h2 id="proof-title" style="margin:0; max-inline-size:24ch; font-family:var(--font-display); font-weight:var(--weight-extrabold); font-size:var(--text-fluid-title); line-height:var(--leading-snug); letter-spacing:var(--tracking-tighter); color:var(--text-strong); text-wrap:balance;">{{ t.proof.title }}</h2>
+      </div>
+      <div data-reveal data-cq style="border-radius:var(--radius-xl); overflow:hidden; border:1px solid var(--border-subtle); background:var(--surface-card); box-shadow:var(--shadow-sm);">
+        <dl data-cq-grid="4" style="margin:0; display:grid; gap:1px; background:var(--border-subtle);">
+          <div style="display:flex; flex-direction:column; gap:var(--space-3); padding:var(--space-6); background:var(--surface-card);">
+            <dt style="font-size:var(--text-body); font-weight:var(--weight-semibold); line-height:var(--leading-normal); color:var(--text-strong);">{{ t.proof.s3Label }}</dt>
+            <dd style="margin:0; order:-1;"><bdi data-stat class="cory-metric" style="display:inline-block; font-size:var(--text-metric-lg); background:var(--gradient-text); -webkit-background-clip:text; background-clip:text; color:transparent; font-variant-numeric:tabular-nums;">+60%</bdi></dd>
+            <dd style="margin:auto 0 0; display:flex; align-items:center; justify-content:space-between; gap:var(--space-2); flex-wrap:wrap; min-block-size:var(--tap-target); font-size:var(--text-caption); font-weight:var(--weight-medium); color:var(--text-subtle);"><span>{{ t.proof.s3Sub }}</span></dd>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:var(--space-3); padding:var(--space-6); background:var(--surface-card);">
+            <dt style="font-size:var(--text-body); font-weight:var(--weight-semibold); line-height:var(--leading-normal); color:var(--text-strong);">{{ t.proof.s4Label }}</dt>
+            <dd style="margin:0; order:-1;"><bdi data-stat class="cory-metric" style="display:inline-block; font-size:var(--text-metric-lg); background:var(--gradient-text); -webkit-background-clip:text; background-clip:text; color:transparent; font-variant-numeric:tabular-nums;">+40%</bdi></dd>
+            <dd style="margin:auto 0 0; display:flex; align-items:center; justify-content:space-between; gap:var(--space-2); flex-wrap:wrap; min-block-size:var(--tap-target); font-size:var(--text-caption); font-weight:var(--weight-medium); color:var(--text-subtle);"><span>{{ t.proof.s4Sub }}</span></dd>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:var(--space-3); padding:var(--space-6); background:var(--surface-card);">
+            <dt style="font-size:var(--text-body); font-weight:var(--weight-semibold); line-height:var(--leading-normal); color:var(--text-strong);">{{ t.proof.s1Label }}</dt>
+            <dd style="margin:0; order:-1;"><bdi data-stat class="cory-metric" style="display:inline-block; font-size:var(--text-metric-lg); background:var(--gradient-text); -webkit-background-clip:text; background-clip:text; color:transparent; font-variant-numeric:tabular-nums;">1,646</bdi></dd>
+            <dd style="margin:auto 0 0; display:flex; align-items:center; justify-content:space-between; gap:var(--space-2); flex-wrap:wrap; min-block-size:var(--tap-target); font-size:var(--text-caption); font-weight:var(--weight-medium); color:var(--text-subtle);"><span>{{ t.proof.s1Sub }}</span><a data-link href="{{ t.proof.s1Href }}" style="display:inline-flex; align-items:center; gap:var(--space-1); min-block-size:var(--tap-target); font-size:var(--text-body-sm); font-weight:var(--weight-semibold); color:var(--text-link); text-decoration:none;"><span>{{ t.proof.s1Link }}</span><span class="cory-visually-hidden">: {{ t.proof.s1Sub }}</span><svg data-dir-icon width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a></dd>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:var(--space-3); padding:var(--space-6); background:var(--surface-card);">
+            <dt style="font-size:var(--text-body); font-weight:var(--weight-semibold); line-height:var(--leading-normal); color:var(--text-strong);">{{ t.proof.s2Label }}</dt>
+            <dd style="margin:0; order:-1;"><bdi data-stat class="cory-metric" style="display:inline-block; font-size:var(--text-metric-lg); background:var(--gradient-text); -webkit-background-clip:text; background-clip:text; color:transparent; font-variant-numeric:tabular-nums;">5</bdi></dd>
+            <dd style="margin:auto 0 0; display:flex; align-items:center; justify-content:space-between; gap:var(--space-2); flex-wrap:wrap; min-block-size:var(--tap-target); font-size:var(--text-caption); font-weight:var(--weight-medium); color:var(--text-subtle);"><span>{{ t.proof.s2Sub }}</span><a data-link href="{{ t.proof.s2Href }}" style="display:inline-flex; align-items:center; gap:var(--space-1); min-block-size:var(--tap-target); font-size:var(--text-body-sm); font-weight:var(--weight-semibold); color:var(--text-link); text-decoration:none;"><span>{{ t.proof.s2Link }}</span><span class="cory-visually-hidden">: {{ t.proof.s2Sub }}</span><svg data-dir-icon width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a></dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section id="work" data-section data-work aria-labelledby="work-title" style="background:var(--surface-card); border-block:1px solid var(--border-subtle); overflow:clip; padding-block:calc(var(--header-height) + var(--space-6)) var(--space-12);">
+    <div class="cory-container" style="display:grid; grid-template-columns:minmax(0, 1fr); gap:var(--space-8);">
+      <div data-reveal style="display:flex; align-items:flex-end; justify-content:space-between; gap:var(--space-6); flex-wrap:wrap;">
+        <div style="display:grid; gap:var(--space-3);">
+          <p class="cory-overline" style="margin:0;">{{ t.work.overline }}</p>
+          <h2 id="work-title" style="margin:0; max-inline-size:24ch; font-family:var(--font-display); font-weight:var(--weight-extrabold); font-size:var(--text-fluid-title); line-height:var(--leading-snug); letter-spacing:var(--tracking-tighter); color:var(--text-strong); text-wrap:balance;">{{ t.work.title }}</h2>
+        </div>
+        <div data-desktop-only style="display:flex; align-items:center; gap:var(--space-3);">
+          <bdi aria-live="polite" style="font-family:var(--font-mono); font-size:var(--text-mono); color:var(--text-muted); font-variant-numeric:tabular-nums; white-space:nowrap;">{{ workCounter }}</bdi>
+          <span aria-hidden="true" style="display:block; inline-size:var(--space-24); block-size:var(--space-1); border-radius:var(--radius-pill); background:var(--surface-sunken); overflow:hidden;"><span data-work-progress-fill style="display:block; inline-size:100%; block-size:100%; border-radius:var(--radius-pill); background:var(--gradient-brand); transform:scaleX(0); transform-origin:var(--origin-inline-start) center;"></span></span>
+          <x-import component-from-global-scope="DesignSystem_ebeb85.IconButton" variant="secondary" size="md" label="{{ t.work.prev }}" onClick="{{ workPrev }}" disabled="{{ workPrevOff }}" hint-size="44px,44px"><svg data-dir-icon width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"></path></svg></x-import>
+          <x-import component-from-global-scope="DesignSystem_ebeb85.IconButton" variant="secondary" size="md" label="{{ t.work.next }}" onClick="{{ workNext }}" disabled="{{ workNextOff }}" hint-size="44px,44px"><svg data-dir-icon width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></x-import>
+        </div>
+      </div>
+      <div data-work-viewport style="min-inline-size:0; margin-inline:calc(var(--gutter) * -1); padding-inline:var(--gutter);">
+      <div data-work-track style="display:flex; gap:var(--space-6); inline-size:max-content; will-change:transform;">
+        <div data-work-card style="inline-size:clamp(300px, min(58vw, calc((100svh - 380px) * 1.6)), 680px); flex-shrink:0;"><dc-import name="Case Card" copy="{{ c1 }}" hint-size="100%,460px"></dc-import></div>
+        <div data-work-card style="inline-size:clamp(300px, min(58vw, calc((100svh - 380px) * 1.6)), 680px); flex-shrink:0;"><dc-import name="Case Card" copy="{{ c2 }}" hint-size="100%,460px"></dc-import></div>
+        <div data-work-card style="inline-size:clamp(300px, min(58vw, calc((100svh - 380px) * 1.6)), 680px); flex-shrink:0;"><dc-import name="Case Card" copy="{{ c3 }}" hint-size="100%,460px"></dc-import></div>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" data-section aria-labelledby="projects-title" style="padding-block:var(--section-y);">
+    <div class="cory-container" style="display:grid; gap:var(--space-10);">
+      <div data-reveal style="display:flex; align-items:flex-end; justify-content:space-between; gap:var(--space-6); flex-wrap:wrap;">
+        <div style="display:grid; gap:var(--space-3);">
+          <p class="cory-overline" style="margin:0;">{{ t.projects.overline }}</p>
+          <h2 id="projects-title" style="margin:0; max-inline-size:24ch; font-family:var(--font-display); font-weight:var(--weight-extrabold); font-size:var(--text-fluid-title); line-height:var(--leading-snug); letter-spacing:var(--tracking-tighter); color:var(--text-strong); text-wrap:balance;">{{ t.projects.title }}</h2>
+        </div>
+        <a data-link href="{{ t.projects.allHref }}" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:var(--space-1); inline-size:fit-content; min-block-size:var(--tap-target); font-size:var(--text-body-sm); font-weight:var(--weight-semibold); text-decoration:none; font-size:var(--text-body); color:var(--text-link);"><span>{{ t.projects.all }}</span><svg data-dir-icon width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;"><path d="M7 7h10v10M7 17 17 7"></path></svg></a>
+      </div>
+      <div data-cq><ul data-reveal-group data-cq-grid style="display:grid; gap:var(--grid-gap);">
+        <sc-for list="{{ projects }}" as="p" hint-placeholder-count="2">
+          <li style="display:flex; flex-direction:column; border-radius:var(--radius-xl); overflow:hidden; background:var(--surface-page); border:1px solid var(--border-subtle); box-shadow:var(--shadow-sm);">
+            <div style="aspect-ratio:var(--aspect-case); overflow:hidden; background:var(--surface-sunken); border-block-end:1px solid var(--border-subtle);"><img src="{{ p.img }}" alt="{{ p.alt }}" loading="lazy" decoding="async" style="inline-size:100%; block-size:100%; object-fit:cover; object-position:top center;"></div>
+            <div style="flex:1; display:flex; flex-direction:column; gap:var(--space-3); padding:var(--space-6);">
+              <span lang="en" dir="ltr" style="display:inline-flex; align-items:center; gap:var(--space-2); font-family:var(--font-mono); font-size:var(--text-mono); color:var(--text-muted);"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>aleemcolaberry/{{ p.repo }}</span>
+              <h3 style="margin:0; font-size:var(--text-h3); font-weight:var(--weight-bold); line-height:var(--leading-heading); letter-spacing:var(--tracking-tight); color:var(--text-strong);">{{ p.name }}</h3>
+              <p style="margin:0; font-size:var(--text-body); line-height:var(--leading-relaxed); color:var(--text-body);">{{ p.desc }}</p>
+              <ul style="display:flex; flex-wrap:wrap; gap:var(--space-2);"><sc-for list="{{ p.tags }}" as="tg" hint-placeholder-count="4"><li><x-import component-from-global-scope="DesignSystem_ebeb85.Badge" tone="neutral" hint-size="auto,26px">{{ tg }}</x-import></li></sc-for></ul>
+              <div style="margin-block-start:auto; display:flex; flex-wrap:wrap; align-items:center; gap:var(--space-3); padding-block-start:var(--space-3);">
+                <x-import component-from-global-scope="DesignSystem_ebeb85.Button" variant="secondary" size="md" href="{{ p.git }}" target="_blank" rel="noopener" hint-size="auto,44px">{{ t.projects.gitLabel }}</x-import>
+                <a data-link href="{{ p.live }}" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:var(--space-1); inline-size:fit-content; min-block-size:var(--tap-target); font-size:var(--text-body-sm); font-weight:var(--weight-semibold); text-decoration:none; color:var(--text-link);"><span>{{ t.projects.liveLabel }}</span><span class="cory-visually-hidden">: {{ p.name }}</span><svg data-dir-icon width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;"><path d="M7 7h10v10M7 17 17 7"></path></svg></a>
+              </div>
+            </div>
+          </li>
+        </sc-for>
+      </ul></div>
+    </div>
+  </section>
+
+  <section id="method" data-section aria-labelledby="method-title" style="padding-block:var(--section-y); background:var(--surface-card); border-block:1px solid var(--border-subtle);">
+    <div class="cory-container" style="display:grid; gap:var(--space-12);">
+      <div data-reveal style="display:grid; gap:var(--space-3);">
+        <p class="cory-overline" style="margin:0;">{{ t.method.overline }}</p>
+        <h2 id="method-title" style="margin:0; max-inline-size:24ch; font-family:var(--font-display); font-weight:var(--weight-extrabold); font-size:var(--text-fluid-title); line-height:var(--leading-snug); letter-spacing:var(--tracking-tighter); color:var(--text-strong); text-wrap:balance;">{{ t.method.title }}</h2>
+      </div>
+      <div data-cq>
+        <ol data-reveal-group data-cq-grid="4" style="display:grid; gap:var(--space-10) var(--space-8);">
+          <li style="position:relative; display:grid; gap:var(--space-4); align-content:start; padding-block-start:var(--space-6); border-block-start:1px solid var(--border-default);">
+            <span aria-hidden="true" style="position:absolute; inset-block-start:-1px; inset-inline-start:0; inline-size:var(--space-12); block-size:2px; border-radius:var(--radius-pill); background:var(--gradient-brand);"></span>
+            <div style="display:flex; align-items:center; justify-content:space-between; gap:var(--space-3);"><span aria-hidden="true" style="inline-size:44px; block-size:44px; flex-shrink:0; display:grid; place-items:center; border-radius:var(--radius-md); background:var(--gradient-ink); color:var(--on-ink-strong);"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"></path></svg></span><span aria-hidden="true" style="font-family:var(--font-mono); font-size:var(--text-mono); color:var(--text-subtle); font-variant-numeric:tabular-nums;">01</span></div>
+            <div style="display:grid; gap:var(--space-2);"><h3 style="margin:0; font-size:var(--text-h3); font-weight:var(--weight-bold); line-height:var(--leading-heading); letter-spacing:var(--tracking-tight); color:var(--text-strong);">{{ t.how.s1t }}</h3><p style="margin:0; font-size:var(--text-body); line-height:var(--leading-normal); color:var(--text-muted);">{{ t.how.s1b }}</p></div>
+            <p style="margin:0; display:flex; flex-wrap:wrap; gap:var(--space-1) var(--space-2); align-items:baseline; font-size:var(--text-body-sm); line-height:var(--leading-normal);"><span style="font-weight:var(--weight-medium); color:var(--text-muted);">{{ t.how.outLabel }}</span><span style="font-weight:var(--weight-semibold); color:var(--text-strong);">{{ t.how.o1 }}</span></p>
+          </li>
+          <li style="position:relative; display:grid; gap:var(--space-4); align-content:start; padding-block-start:var(--space-6); border-block-start:1px solid var(--border-default);">
+            <span aria-hidden="true" style="position:absolute; inset-block-start:-1px; inset-inline-start:0; inline-size:var(--space-12); block-size:2px; border-radius:var(--radius-pill); background:var(--gradient-brand);"></span>
+            <div style="display:flex; align-items:center; justify-content:space-between; gap:var(--space-3);"><span aria-hidden="true" style="inline-size:44px; block-size:44px; flex-shrink:0; display:grid; place-items:center; border-radius:var(--radius-md); background:var(--gradient-ink); color:var(--on-ink-strong);"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="8" height="8" rx="2"></rect><path d="M7 11v4a2 2 0 0 0 2 2h4"></path><rect x="13" y="13" width="8" height="8" rx="2"></rect></svg></span><span aria-hidden="true" style="font-family:var(--font-mono); font-size:var(--text-mono); color:var(--text-subtle); font-variant-numeric:tabular-nums;">02</span></div>
+            <div style="display:grid; gap:var(--space-2);"><h3 style="margin:0; font-size:var(--text-h3); font-weight:var(--weight-bold); line-height:var(--leading-heading); letter-spacing:var(--tracking-tight); color:var(--text-strong);">{{ t.how.s2t }}</h3><p style="margin:0; font-size:var(--text-body); line-height:var(--leading-normal); color:var(--text-muted);">{{ t.how.s2b }}</p></div>
+            <p style="margin:0; display:flex; flex-wrap:wrap; gap:var(--space-1) var(--space-2); align-items:baseline; font-size:var(--text-body-sm); line-height:var(--leading-normal);"><span style="font-weight:var(--weight-medium); color:var(--text-muted);">{{ t.how.outLabel }}</span><span style="font-weight:var(--weight-semibold); color:var(--text-strong);">{{ t.how.o2 }}</span></p>
+          </li>
+          <li style="position:relative; display:grid; gap:var(--space-4); align-content:start; padding-block-start:var(--space-6); border-block-start:1px solid var(--border-default);">
+            <span aria-hidden="true" style="position:absolute; inset-block-start:-1px; inset-inline-start:0; inline-size:var(--space-12); block-size:2px; border-radius:var(--radius-pill); background:var(--gradient-brand);"></span>
+            <div style="display:flex; align-items:center; justify-content:space-between; gap:var(--space-3);"><span aria-hidden="true" style="inline-size:44px; block-size:44px; flex-shrink:0; display:grid; place-items:center; border-radius:var(--radius-md); background:var(--gradient-ink); color:var(--on-ink-strong);"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m18 16 4-4-4-4M6 8l-4 4 4 4M14.5 4l-5 16"></path></svg></span><span aria-hidden="true" style="font-family:var(--font-mono); font-size:var(--text-mono); color:var(--text-subtle); font-variant-numeric:tabular-nums;">03</span></div>
+            <div style="display:grid; gap:var(--space-2);"><h3 style="margin:0; font-size:var(--text-h3); font-weight:var(--weight-bold); line-height:var(--leading-heading); letter-spacing:var(--tracking-tight); color:var(--text-strong);">{{ t.how.s3t }}</h3><p style="margin:0; font-size:var(--text-body); line-height:var(--leading-normal); color:var(--text-muted);">{{ t.how.s3b }}</p></div>
+            <p style="margin:0; display:flex; flex-wrap:wrap; gap:var(--space-1) var(--space-2); align-items:baseline; font-size:var(--text-body-sm); line-height:var(--leading-normal);"><span style="font-weight:var(--weight-medium); color:var(--text-muted);">{{ t.how.outLabel }}</span><span style="font-weight:var(--weight-semibold); color:var(--text-strong);">{{ t.how.o3 }}</span></p>
+          </li>
+          <li style="position:relative; display:grid; gap:var(--space-4); align-content:start; padding-block-start:var(--space-6); border-block-start:1px solid var(--border-default);">
+            <span aria-hidden="true" style="position:absolute; inset-block-start:-1px; inset-inline-start:0; inline-size:var(--space-12); block-size:2px; border-radius:var(--radius-pill); background:var(--gradient-brand);"></span>
+            <div style="display:flex; align-items:center; justify-content:space-between; gap:var(--space-3);"><span aria-hidden="true" style="inline-size:44px; block-size:44px; flex-shrink:0; display:grid; place-items:center; border-radius:var(--radius-md); background:var(--gradient-ink); color:var(--on-ink-strong);"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"></path><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"></path><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"></path></svg></span><span aria-hidden="true" style="font-family:var(--font-mono); font-size:var(--text-mono); color:var(--text-subtle); font-variant-numeric:tabular-nums;">04</span></div>
+            <div style="display:grid; gap:var(--space-2);"><h3 style="margin:0; font-size:var(--text-h3); font-weight:var(--weight-bold); line-height:var(--leading-heading); letter-spacing:var(--tracking-tight); color:var(--text-strong);">{{ t.how.s4t }}</h3><p style="margin:0; font-size:var(--text-body); line-height:var(--leading-normal); color:var(--text-muted);">{{ t.how.s4b }}</p></div>
+            <p style="margin:0; display:flex; flex-wrap:wrap; gap:var(--space-1) var(--space-2); align-items:baseline; font-size:var(--text-body-sm); line-height:var(--leading-normal);"><span style="font-weight:var(--weight-medium); color:var(--text-muted);">{{ t.how.outLabel }}</span><span style="font-weight:var(--weight-semibold); color:var(--text-strong);">{{ t.how.o4 }}</span></p>
+          </li>
+        </ol>
+      </div>
+      <div data-reveal style="display:flex; align-items:center; gap:var(--space-3) var(--space-4); flex-wrap:wrap; padding-block-start:var(--space-6); border-block-start:1px solid var(--border-subtle);">
+        <span style="font-size:var(--text-caption); font-weight:var(--weight-semibold); color:var(--text-subtle);">{{ t.method.stack }}</span>
+        <ul style="display:flex; flex-wrap:wrap; gap:var(--space-2);"><sc-for list="{{ toolkit }}" as="it" hint-placeholder-count="12"><li><x-import component-from-global-scope="DesignSystem_ebeb85.Badge" tone="neutral" hint-size="auto,26px">{{ it }}</x-import></li></sc-for></ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="content" data-section aria-labelledby="read-title" style="padding-block:var(--section-y);">
+    <div class="cory-container" style="display:grid; gap:var(--space-10);">
+      <div data-reveal style="display:flex; align-items:flex-end; justify-content:space-between; gap:var(--space-6); flex-wrap:wrap;">
+        <div style="display:grid; gap:var(--space-3);">
+          <p class="cory-overline" style="margin:0;">{{ t.read.overline }}</p>
+          <h2 id="read-title" style="margin:0; max-inline-size:24ch; font-family:var(--font-display); font-weight:var(--weight-extrabold); font-size:var(--text-fluid-title); line-height:var(--leading-snug); letter-spacing:var(--tracking-tighter); color:var(--text-strong); text-wrap:balance;">{{ t.read.title }}</h2>
+        </div>
+        <a data-link href="Content.dc.html" hreflang="en" style="display:inline-flex; align-items:center; gap:var(--space-1); inline-size:fit-content; min-block-size:var(--tap-target); font-size:var(--text-body-sm); font-weight:var(--weight-semibold); text-decoration:none; font-size:var(--text-body); color:var(--text-link);"><span>{{ t.read.more }}</span><svg data-dir-icon width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
+      </div>
+      <div data-masonry data-reveal-group style="columns:3 300px; column-gap:var(--grid-gap);">
+          <article style="break-inside:avoid; margin-block-end:var(--grid-gap); display:grid; gap:var(--space-4); padding:var(--space-8) var(--space-6); border-radius:var(--radius-xl); background:var(--gradient-ink); color:var(--on-ink-body);">
+            <p class="cory-overline" style="margin:0; color:var(--on-ink-link);">{{ t.read.kicker }} · 01</p>
+            <h3 style="margin:0; font-family:var(--font-display); font-weight:var(--weight-extrabold); font-size:var(--text-fluid-h2); line-height:var(--leading-snug); letter-spacing:var(--tracking-tight); color:var(--on-ink-strong); text-wrap:balance;">{{ a1.title }}</h3>
+            <a data-link href="{{ a1.href }}" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:var(--space-1); inline-size:fit-content; min-block-size:var(--tap-target); font-size:var(--text-body-sm); font-weight:var(--weight-semibold); text-decoration:none; color:var(--on-ink-link);"><span>{{ t.read.link }}</span><span class="cory-visually-hidden">: {{ a1.title }}</span><svg data-dir-icon width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;"><path d="M7 7h10v10M7 17 17 7"></path></svg></a>
+          </article>
+          <div style="break-inside:avoid; margin-block-end:var(--grid-gap); display:grid;"><dc-import name="Post Card" copy="{{ t.post }}" hint-size="100%,340px"></dc-import></div>
+          <article style="break-inside:avoid; margin-block-end:var(--grid-gap); display:grid; gap:var(--space-4); padding:var(--space-6); border-radius:var(--radius-xl); background:var(--surface-card); border:1px solid var(--border-subtle); box-shadow:var(--shadow-sm);">
+            <p class="cory-overline" style="margin:0;">{{ t.read.kicker }} · 02</p>
+            <h3 style="margin:0; font-family:var(--font-display); font-weight:var(--weight-extrabold); font-size:var(--text-h3); line-height:var(--leading-snug); letter-spacing:var(--tracking-tight); color:var(--text-strong); text-wrap:balance;">{{ a2.title }}</h3>
+            <a data-link href="{{ a2.href }}" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:var(--space-1); inline-size:fit-content; min-block-size:var(--tap-target); font-size:var(--text-body-sm); font-weight:var(--weight-semibold); text-decoration:none; color:var(--text-link);"><span>{{ t.read.link }}</span><span class="cory-visually-hidden">: {{ a2.title }}</span><svg data-dir-icon width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;"><path d="M7 7h10v10M7 17 17 7"></path></svg></a>
+          </article>
+          <div id="guides" data-section style="break-inside:avoid; margin-block-end:var(--grid-gap); display:grid; scroll-margin-block-start:calc(var(--header-height) + var(--space-6));"><dc-import name="Bento Tile" kind="guide" copy="{{ t.guide }}" hint-size="100%,240px"></dc-import></div>
+          <section aria-labelledby="series-title" style="break-inside:avoid; margin-block-end:var(--grid-gap); display:grid; gap:var(--space-4); padding:var(--space-6); border-radius:var(--radius-xl); background:var(--surface-card); border:1px solid var(--border-subtle); box-shadow:var(--shadow-sm);">
+            <p class="cory-overline" style="margin:0;">{{ t.read.seriesKicker }}</p>
+            <h3 id="series-title" style="margin:0; font-size:var(--text-h3); font-weight:var(--weight-bold); line-height:var(--leading-heading); letter-spacing:var(--tracking-tight); color:var(--text-strong); text-wrap:balance;">{{ t.read.seriesTitle }}</h3>
+            <ul style="display:grid;">
+              <sc-for list="{{ series }}" as="s" hint-placeholder-count="3"><li style="display:flex; align-items:baseline; justify-content:space-between; gap:var(--space-3); padding-block:var(--space-3); border-block-start:1px solid var(--border-subtle); font-size:var(--text-body-sm); line-height:var(--leading-normal);"><span style="font-weight:var(--weight-semibold); color:var(--text-strong);">{{ s.name }}</span><span style="font-family:var(--font-mono); font-size:var(--text-mono); color:var(--text-muted); font-variant-numeric:tabular-nums;">{{ s.count }}</span></li></sc-for>
+            </ul>
+            <a data-link href="Content.dc.html#posts" hreflang="en" style="display:inline-flex; align-items:center; gap:var(--space-1); inline-size:fit-content; min-block-size:var(--tap-target); font-size:var(--text-body-sm); font-weight:var(--weight-semibold); text-decoration:none; color:var(--text-link);"><span>{{ t.read.seriesLink }}</span><svg data-dir-icon width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
+          </section>
+          <article style="break-inside:avoid; margin-block-end:var(--grid-gap); display:grid; gap:var(--space-4); padding:var(--space-6); border-radius:var(--radius-xl); background:var(--surface-card); border:1px solid var(--border-subtle); box-shadow:var(--shadow-sm);">
+            <p class="cory-overline" style="margin:0;">{{ t.read.kicker }} · 03</p>
+            <h3 style="margin:0; font-family:var(--font-display); font-weight:var(--weight-extrabold); font-size:var(--text-h3); line-height:var(--leading-snug); letter-spacing:var(--tracking-tight); color:var(--text-strong); text-wrap:balance;">{{ a3.title }}</h3>
+            <a data-link href="{{ a3.href }}" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:var(--space-1); inline-size:fit-content; min-block-size:var(--tap-target); font-size:var(--text-body-sm); font-weight:var(--weight-semibold); text-decoration:none; color:var(--text-link);"><span>{{ t.read.link }}</span><span class="cory-visually-hidden">: {{ a3.title }}</span><svg data-dir-icon width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;"><path d="M7 7h10v10M7 17 17 7"></path></svg></a>
+          </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="watch" data-section aria-labelledby="watch-title" style="padding-block:0 var(--section-y);">
+    <div class="cory-container">
+      <div data-reveal style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:var(--space-6) var(--space-10); padding:var(--space-8); border-radius:var(--radius-2xl); background:var(--surface-card); border:1px solid var(--border-default);">
+        <div style="flex:1 1 34ch; display:flex; gap:var(--space-5); align-items:flex-start;">
+          <span aria-hidden="true" style="inline-size:44px; block-size:44px; flex-shrink:0; display:grid; place-items:center; border-radius:var(--radius-md); background:var(--gradient-ink); color:var(--on-ink-strong);"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.87a.5.5 0 0 0-.752-.432L16 10.5"></path><rect x="2" y="6" width="14" height="12" rx="2"></rect></svg></span>
+          <div style="display:grid; gap:var(--space-2);">
+            <p class="cory-overline" style="margin:0;">{{ t.watch.overline }}</p>
+            <h2 id="watch-title" style="margin:0; font-family:var(--font-display); font-weight:var(--weight-extrabold); font-size:var(--text-h2); line-height:var(--leading-heading); letter-spacing:var(--tracking-tight); color:var(--text-strong); text-wrap:balance;">{{ t.watch.title }}</h2>
+            <p style="margin:0; font-size:var(--text-body); line-height:var(--leading-relaxed); color:var(--text-muted);">{{ t.watch.body }}</p>
+          </div>
+        </div>
+        <div style="display:flex; flex-wrap:wrap; align-items:center; gap:var(--space-3) var(--space-5);"><x-import component-from-global-scope="DesignSystem_ebeb85.Button" variant="ink" size="md" href="https://www.youtube.com/@aiuxaleem" target="_blank" rel="noopener" hint-size="auto,44px">{{ t.watch.follow }}</x-import><a data-link href="https://www.linkedin.com/in/aiuxaleem" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; min-block-size:var(--tap-target); font-size:var(--text-body-sm); font-weight:var(--weight-semibold); color:var(--text-link); text-decoration:none;"><span>{{ t.watch.followAlt }}</span></a></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services" data-section aria-labelledby="services-title" style="padding-block:var(--section-y); background:var(--surface-card); border-block:1px solid var(--border-subtle);">
+    <div class="cory-container" style="display:grid; gap:var(--space-10);">
+      <div data-reveal style="display:flex; align-items:flex-end; justify-content:space-between; gap:var(--space-6); flex-wrap:wrap;">
+        <div style="display:grid; gap:var(--space-3);">
+          <p class="cory-overline" style="margin:0;">{{ t.services.overline }}</p>
+          <h2 id="services-title" style="margin:0; max-inline-size:24ch; font-family:var(--font-display); font-weight:var(--weight-extrabold); font-size:var(--text-fluid-title); line-height:var(--leading-snug); letter-spacing:var(--tracking-tighter); color:var(--text-strong); text-wrap:balance;">{{ t.services.title }}</h2>
+        </div>
+        <a data-link href="{{ t.services.href }}" hreflang="en" style="display:inline-flex; align-items:center; gap:var(--space-2); min-block-size:var(--tap-target); font-size:var(--text-body); font-weight:var(--weight-semibold); color:var(--text-link); text-decoration:none;">{{ t.services.link }}<svg data-dir-icon width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
+      </div>
+      <div data-cq><div data-reveal-group data-cq-3 style="display:grid; gap:var(--grid-gap);">
+        <div style="display:grid;"><x-import component-from-global-scope="DesignSystem_ebeb85.FeatureCard" title="{{ t.services.ai.title }}" icon="{{ iconAi }}" tags="{{ t.services.ai.tags }}" hint-size="100%,260px">{{ t.services.ai.body }}</x-import></div>
+        <div style="display:grid;"><x-import component-from-global-scope="DesignSystem_ebeb85.FeatureCard" title="{{ t.services.ds.title }}" icon="{{ iconSystem }}" tags="{{ t.services.ds.tags }}" hint-size="100%,260px">{{ t.services.ds.body }}</x-import></div>
+        <div style="display:grid;"><x-import component-from-global-scope="DesignSystem_ebeb85.FeatureCard" title="{{ t.services.audit.title }}" icon="{{ iconAudit }}" tags="{{ t.services.audit.tags }}" hint-size="100%,260px">{{ t.services.audit.body }}</x-import></div>
+      </div></div>
+    </div>
+  </section>
+
+  <section id="contact" data-section data-closing data-scene-section aria-labelledby="contact-title" style="position:relative; padding-block:var(--space-10) var(--space-24);">
+    <div class="cory-container">
+      <div data-reveal style="position:relative; overflow:hidden; isolation:isolate; border-radius:var(--radius-2xl); background:var(--gradient-ink); color:var(--on-ink-body); padding:clamp(var(--space-12), 9vw, var(--space-24)) var(--gutter); display:grid; gap:var(--space-8); justify-items:center; text-align:center; box-shadow:var(--shadow-xl);">
+        <div aria-hidden="true" style="position:absolute; inline-size:60%; aspect-ratio:1; inset-inline-end:-22%; inset-block-start:-35%; background:var(--glow-cyan-strong); z-index:-1; pointer-events:none;"></div>
+        <div aria-hidden="true" style="position:absolute; inline-size:50%; aspect-ratio:1; inset-inline-start:-18%; inset-block-end:-40%; background:var(--glow-blue); z-index:-1; pointer-events:none;"></div>
+        <p class="cory-overline" style="margin:0; color:var(--on-ink-link);">{{ t.closing.overline }}</p>
+        <h2 id="contact-title" style="margin:0; max-inline-size:20ch; font-family:var(--font-display); font-weight:var(--weight-extrabold); font-size:var(--text-fluid-display); line-height:var(--leading-tight); letter-spacing:var(--tracking-tighter); color:var(--on-ink-strong);">{{ t.closing.title }}</h2>
+        <p style="margin:0; max-inline-size:var(--measure-lead); font-size:var(--text-fluid-lead); line-height:var(--leading-relaxed); color:var(--on-ink-body);">{{ t.closing.body }}</p>
+        <div style="display:grid; justify-items:center; gap:var(--space-6);">
+          <div data-cta-row style="display:flex; gap:var(--space-3); flex-wrap:wrap; justify-content:center; align-items:center;">
+            <span data-magnetic style="display:inline-block; padding:var(--space-2); margin:calc(var(--space-2) * -1);"><x-import component-from-global-scope="DesignSystem_ebeb85.Button" variant="primary" size="lg" href="https://cal.com/md-abdul-aleem-gilsy7/15min?overlayCalendar=true" target="_blank" rel="noopener" icon-left="{{ iCalendar }}" hint-size="auto,52px">{{ t.hero.call }}</x-import></span>
+            <x-import component-from-global-scope="DesignSystem_ebeb85.Button" variant="onInk" size="lg" href="{{ mailHref }}" icon-left="{{ iMail }}" hint-size="auto,52px">{{ t.closing.email }}</x-import>
+          </div>
+          <div style="display:flex; gap:var(--space-2) var(--space-6); flex-wrap:wrap; justify-content:center; align-items:center; color:var(--on-ink-link); font-size:var(--text-body-sm);">
+            <dc-import name="Email Copy" subject="{{ mailSubject }}" copy-label="{{ ch.copyEmail }}" copied-label="{{ ch.copied }}" fallback-label="{{ ch.pressCopy }}" hint-size="auto,44px"></dc-import>
+            <a data-link href="https://www.linkedin.com/in/aiuxaleem" target="_blank" rel="noopener" lang="en" dir="ltr" style="display:inline-flex; align-items:center; min-block-size:var(--tap-target); font-weight:var(--weight-semibold); color:var(--on-ink-link); text-decoration:none;">linkedin.com/in/aiuxaleem</a>
+            <a data-link href="https://www.youtube.com/@aiuxaleem" target="_blank" rel="noopener" lang="en" dir="ltr" style="display:inline-flex; align-items:center; min-block-size:var(--tap-target); font-weight:var(--weight-semibold); color:var(--on-ink-link); text-decoration:none;">youtube.com/@aiuxaleem</a>
+            <a data-link href="https://drive.google.com/uc?export=download&amp;id=1cmkjeMQc1S9gIePpRh29T4nFkBBe3izm" style="display:inline-flex; align-items:center; min-block-size:var(--tap-target); font-weight:var(--weight-semibold); color:var(--on-ink-link); text-decoration:none;">{{ t.closing.resumeLink }}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<dc-import name="Site Footer" hide-cta="{{ true }}" hint-size="100%,280px"></dc-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;nodeCount&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:140,&quot;min&quot;:40,&quot;max&quot;:320,&quot;step&quot;:10,&quot;unit&quot;:&quot;nodes&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Node field&quot;}}">
+class Component extends DCLogic {
+  state = { lang: document.documentElement.lang === 'ar' ? 'ar' : 'en', from: Component.q('from'), noticeOff: false, workIndex: 0, demoDark: false, demoFlip: false, demoPhase: 'idle', demoWhy: false, undoLeft: 0, demoUndone: false };
+  // Demo tile state machine: idle -> applying (700ms) -> applied (30s undo window) -> final. Undo returns to idle with a confirmation.
+  clearDemoTimers() { clearTimeout(this.applyT); clearInterval(this.undoI); }
+  applyDemo = () => {
+    if (this.state.demoPhase !== 'idle') return; this.clearDemoTimers();
+    this.setState({ demoPhase: 'applying', demoUndone: false });
+    this.applyT = setTimeout(() => {
+      this.setState({ demoPhase: 'applied', undoLeft: 30 });
+      this.undoI = setInterval(() => this.setState(s => s.undoLeft <= 1 ? (clearInterval(this.undoI), { demoPhase: 'final', undoLeft: 0 }) : { undoLeft: s.undoLeft - 1 }), 1000);
+    }, 700);
+  };
+  undoDemo = () => { this.clearDemoTimers(); this.setState({ demoPhase: 'idle', undoLeft: 0, demoUndone: true }); };
+  resetDemo = () => { this.clearDemoTimers(); this.setState({ demoPhase: 'idle', undoLeft: 0, demoUndone: false, demoWhy: false }); };
+  static chip44 = { style: { minHeight: 44 } };
+  static q(n) { try { return new URLSearchParams(location.search).get(n) || ''; } catch (e) { return ''; } }
+  S = { order: 0, converge: 0, orderTarget: 0, convergeTarget: 0 }; mouse = { x: 0, y: 0 }; visible = new Set(); canvasOpacity = 1; rafId = 0; splits = []; heroLinesDone = false;
+  statTargets = [{ to: 60, fmt: v => '+' + Math.round(v) + '%' }, { to: 40, fmt: v => '+' + Math.round(v) + '%' }, { to: 1646, fmt: v => Math.round(v).toLocaleString('en-US') }, { to: 5, fmt: v => String(Math.round(v)) }];
+  icons = (() => {
+    // Lucide, 1.75 stroke: sparkles, layers, scan-search (22px tiles); download, calendar, arrow-down, mail (20px buttons)
+    const svg = (paths, extra, size = 22) => React.createElement('svg', { width: size, height: size, viewBox: '0 0 24 24', fill: 'none', stroke: 'currentColor', strokeWidth: 1.75, strokeLinecap: 'round', strokeLinejoin: 'round', 'aria-hidden': true }, ...paths.map((d, i) => React.createElement('path', { key: i, d })), ...(extra || []));
+    return {
+      ai: svg(['M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z', 'M20 3v4', 'M22 5h-4', 'M4 17v2', 'M5 18H3']),
+      ds: svg(['M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z', 'M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12', 'M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17']),
+      audit: svg(['M3 7V5a2 2 0 0 1 2-2h2', 'M17 3h2a2 2 0 0 1 2 2v2', 'M21 17v2a2 2 0 0 1-2 2h-2', 'M7 21H5a2 2 0 0 1-2-2v-2', 'm16 16-1.9-1.9'], [React.createElement('circle', { key: 'c', cx: 11, cy: 11, r: 3 })]),
+      download: svg(['M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4', 'm7 10 5 5 5-5', 'M12 15V3'], null, 20),
+      calendar: svg(['M8 2v4', 'M16 2v4', 'M3 10h18'], [React.createElement('rect', { key: 'r', x: 3, y: 4, width: 18, height: 18, rx: 2 })], 20),
+      arrowDown: svg(['M12 5v14', 'm19 12-7 7-7-7'], null, 20),
+      mail: svg(['m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7'], [React.createElement('rect', { key: 'r', x: 2, y: 4, width: 20, height: 16, rx: 2 })], 20)
+    };
+  })();
+
+  async componentDidMount() {
+    this.site = await import('./site.js');
+    this.site.loadMotion();                       // start GSAP download immediately, in parallel with everything below
+    await this.site.waitFor(() => window.AIUX_COPY); this.forceUpdate(); this.setTitle();
+    window.__aiuxLang = next => this.switchLang(next);
+    this.unobserve = this.site.observeRoot(['dir', 'data-theme'], names => {
+      if (names.includes('data-theme') && this.sceneApi) this.sceneApi.refreshColors();
+      if (names.includes('dir')) { this.sceneApi && this.sceneApi.relayout(); this.rebuild(); }
+    });
+    await this.site.loadMotion();
+    const ok = await this.site.waitFor(() => window.gsap && window.ScrollTrigger && window.SplitText && window.CustomEase && document.querySelector('[data-site-footer]'));
+    document.documentElement.removeAttribute('data-motion');
+    if (!ok) { console.warn('[home] motion libraries did not arrive; page stays static'); return; }
+    if ((Component.q('debug') || '').includes('noinit')) return;
+    const dbg0 = Component.q('debug') || '';
+    if (!dbg0.includes('scene')) this.setupScene().catch(e => console.error('[home] scene', e));   // the field does not need fonts, and must never block init()
+    if (document.fonts) await Promise.race([document.fonts.ready, new Promise(r => setTimeout(r, 1200))]);
+    this.init();
+  }
+  componentWillUnmount() {
+    this.clearDemoTimers();
+    if (window.__aiuxLang) window.__aiuxLang = null;
+    this.unobserve && this.unobserve();
+    if (this.rafId) cancelAnimationFrame(this.rafId);
+    try { this.mm && this.mm.revert(); } catch (e) {}
+    this.ro && this.ro.disconnect(); this.io && this.io.disconnect();
+    this.sceneCleanup && this.sceneCleanup();
+  }
+  q = s => document.querySelector(s); qa = s => Array.from(document.querySelectorAll(s));
+
+  init() {
+    const { gsap, ScrollTrigger, SplitText, CustomEase } = window;
+    gsap.registerPlugin(ScrollTrigger, SplitText, CustomEase);
+    this.T = this.site.motion();
+    const dbg = Component.q('debug') || '';
+    if (!dbg.includes('build')) this.build();
+    if (!(Component.q('debug') || '').includes('ro')) {
+      this.site.watchLayout();
+    }
+    if (location.hash) requestAnimationFrame(() => this.site.scrollToId(location.hash));
+  }
+  build() {
+    const { gsap } = window;
+    this.mm = gsap.matchMedia();
+    this.mm.add({ desktop: '(min-width: 768px)', motion: '(prefers-reduced-motion: no-preference)', fine: '(pointer: fine)' }, ctx => {
+      const { desktop, motion, fine } = ctx.conditions; const T = { ...this.T, ok: motion }; const dir = this.site.dirX();
+      const off = (Component.q('debug') || '').split(',');
+      if (!off.includes('hero')) this.setupHero(T);
+      if (!off.includes('manifesto')) this.setupManifesto(T);
+      if (!off.includes('proof')) this.setupProof(T);
+      if (!off.includes('work')) this.setupWork(T, desktop && motion, dir);
+      if (!off.includes('bento')) this.setupBento(T);
+      if (!off.includes('reveals')) this.site.reveals(T);
+      if (desktop && motion && fine) this.setupMagnetic(T);
+      if (!off.includes('scenetr')) this.setupSceneTriggers();
+      return () => {
+        this.splits.forEach(s => { try { s.revert(); } catch (e) {} }); this.splits = []; this.workST = null;
+        const vp = this.q('[data-work-viewport]'); vp && vp.removeAttribute('data-pinned');
+        if (this.magnetic) { this.magnetic.el.removeEventListener('mousemove', this.magnetic.move); this.magnetic.el.removeEventListener('mouseleave', this.magnetic.leave); this.magnetic = null; }
+        if (this.onWorkFocus) { const w = this.q('[data-work]'); w && w.removeEventListener('focusin', this.onWorkFocus); this.onWorkFocus = null; }
+        if (this.workScroller) { this.workScroller.removeEventListener('scroll', this.onWorkScroll); ['overflowX', 'scrollSnapType', 'scrollPaddingInline', 'scrollbarWidth', 'paddingBlockEnd'].forEach(k => { this.workScroller.style[k] = ''; }); this.workScroller = null; this.onWorkScroll = null; }
+      };
+    });
+  }
+  rebuild() {
+    if (!this.mm || this.switching) return;
+    const k = this.pendingKeep || this.site.snapshot(); this.pendingKeep = null;
+    this.mm.revert(); this.build(); window.ScrollTrigger.refresh(); this.site.restore(k);
+  }
+  setTitle() { const d = window.AIUX_COPY && window.AIUX_COPY(this.state.lang); const m = d && d.home && d.home.meta; if (m && m.title) document.title = m.title; }
+  switchLang(next) {
+    if (!this.mm) { this.setState({ lang: next }, () => { this.site.applyLangAttrs(next); this.setTitle(); }); return; }
+    const before = document.documentElement.dir;
+    this.pendingKeep = this.site.snapshot();
+    this.mm.revert(); this.mm = null;           // SplitText restored before React swaps the copy
+    this.setState({ lang: next, from: '' }, () => {
+      this.site.applyLangAttrs(next); this.setTitle();
+      this.sceneApi && this.sceneApi.relayout();
+      const keep = this.pendingKeep; this.pendingKeep = null;
+      const rebuildNow = () => { if (this.mm) return; try { this.build(); window.ScrollTrigger.refresh(); this.site.restore(keep); } catch (e) { console.error('[home] rebuild failed', e); } };
+      if (document.documentElement.dir === before) rebuildNow(); else setTimeout(rebuildNow, 0);
+    });
+  }
+
+  setupHero(T) {
+    const { gsap, SplitText } = window; const h1 = this.q('[data-hero-title]'); if (!h1) return;
+    const shown = document.documentElement.hasAttribute('data-intro-shown');   // boot script already revealed the hero (motion arrived late): never re-hide it
+    const first = !this.heroIntroPlayed && !shown; this.heroIntroPlayed = true;
+    if (!T.ok) return;
+    this.splits.push(SplitText.create(h1, { type: 'lines', mask: 'lines', autoSplit: true, onSplit: self => {
+      gsap.set(self.masks || [], { paddingBlockEnd: '0.16em', marginBlockEnd: '-0.16em' });
+      if (this.heroLinesDone || shown) { this.heroLinesDone = true; return; } this.heroLinesDone = true;
+      return gsap.from(self.lines, { yPercent: 115, duration: T.epic, ease: T.cine, stagger: T.staggerMd });
+    } }));
+    if (first) gsap.from(this.qa('[data-hero-el]'), { y: T.reveal, opacity: 0, duration: T.enter, ease: T.out, stagger: T.stagger, delay: T.slow, clearProps: 'transform,opacity' });
+  }
+  setupManifesto(T) {
+    // Word-by-word ink-in on scroll, no pin: the statement now shares its screen with the portrait and facts.
+    const { gsap, SplitText } = window; const sec = this.q('[data-manifesto]'), h = this.q('[data-manifesto-text]');
+    if (!T.ok || !h) return;
+    this.splits.push(SplitText.create(h, { type: 'words', autoSplit: true, onSplit: self => {
+      const words = self.words;
+      words.forEach(w => { w.style.setProperty('--w', '0'); w.style.color = 'color-mix(in srgb, var(--text-strong) calc(var(--w) * 100%), var(--text-subtle))'; });
+      const last = words[words.length - 1]; let rule = null;
+      if (last) {
+        last.style.position = 'relative'; rule = document.createElement('span'); rule.setAttribute('aria-hidden', 'true');
+        Object.assign(rule.style, { position: 'absolute', insetInline: '0', insetBlockEnd: '0.02em', blockSize: '0.08em', borderRadius: 'var(--radius-pill)', background: 'var(--gradient-brand)', transform: 'scaleX(0)', transformOrigin: 'var(--origin-inline-start) center', pointerEvents: 'none' });
+        last.appendChild(rule);
+      }
+      const tl = gsap.timeline({ scrollTrigger: { id: 'manifesto', trigger: sec, start: 'top 80%', end: 'center 45%', scrub: 0.6 } });
+      tl.to(words, { '--w': 1, duration: 1, stagger: 1, ease: 'none' });
+      if (rule) tl.to(rule, { scaleX: 1, duration: 2.5, ease: 'none' }, '-=0.6');
+      return tl;
+    } }));
+  }
+  setupProof(T) {
+    const els = this.qa('[data-stat]');
+    this.site.countUp(T, this.q('[data-proof]'), this.statTargets.map((s, i) => ({ ...s, el: els[i] })));
+  }
+  setupWork(T, pin, dir) {
+    const { gsap } = window; const sec = this.q('[data-work]'), track = this.q('[data-work-track]'), cards = this.qa('[data-work-card]'), fill = this.q('[data-work-progress-fill]');
+    this.workCards = cards; if (!sec || !track) return;
+    const viewport = this.q('[data-work-viewport]') || track.parentElement, n = cards.length;
+    if (!pin) {
+      // No pin (reduced motion, GSAP absent, narrow): the row becomes a native horizontal scroller with snap points; stacked under 768 by CSS.
+      gsap.set(track, { clearProps: 'transform' }); cards.forEach(c => { gsap.set(c, { clearProps: 'transform' }); c.style.scrollSnapAlign = 'start'; });
+      Object.assign(viewport.style, { overflowX: 'auto', scrollSnapType: 'x mandatory', scrollPaddingInline: 'var(--gutter)', scrollbarWidth: 'none', paddingBlockEnd: 'var(--space-2)' });
+      this.workScroller = viewport;
+      this.onWorkScroll = () => { const mid = viewport.scrollLeft + viewport.clientWidth / 2; let best = 0, bd = Infinity; cards.forEach((c, i) => { const d = Math.abs(c.offsetLeft + c.offsetWidth / 2 - mid); if (d < bd) { bd = d; best = i; } }); if (best !== this.state.workIndex) this.setState({ workIndex: best }); if (fill) gsap.set(fill, { scaleX: n > 1 ? best / (n - 1) : 1 }); };
+      viewport.addEventListener('scroll', this.onWorkScroll, { passive: true }); this.onWorkScroll();
+      return;
+    }
+    viewport.setAttribute('data-pinned', '');   // CSS keeps the row a native scroller until this point
+    const dist = () => Math.max(0, track.scrollWidth - viewport.clientWidth);
+    const paint = p => {
+      const mid = innerWidth / 2;
+      cards.forEach(card => {
+        const r = card.getBoundingClientRect(), d = (r.left + r.width / 2 - mid) / innerWidth;
+        gsap.set(card, { scale: 1 - Math.min(0.05, Math.abs(d) * 0.08) });
+        const cover = card.querySelector('[data-work-cover]'); if (cover) gsap.set(cover, { xPercent: d * -6 });
+      });
+      if (fill) gsap.set(fill, { scaleX: p });
+      const i = Math.round(p * (n - 1)); if (i !== this.state.workIndex) this.setState({ workIndex: i });
+    };
+    const tw = gsap.to(track, { x: () => -dist() * dir, ease: 'none', scrollTrigger: {
+      id: 'work', trigger: sec, start: 'top top', end: () => '+=' + dist(), pin: true, scrub: 0.8, anticipatePin: 1, invalidateOnRefresh: true,
+      snap: { snapTo: 1 / (n - 1), duration: { min: T.base, max: T.slow }, delay: 0.05, ease: T.out },
+      onUpdate: s => paint(s.progress), onRefresh: s => paint(s.progress) } });
+    this.workST = tw.scrollTrigger;
+    this.onWorkFocus = e => { const card = e.target.closest('[data-work-card]'); viewport.scrollLeft = 0; sec.scrollLeft = 0; const i = cards.indexOf(card); if (i >= 0) this.goWork(i); };
+    sec.addEventListener('focusin', this.onWorkFocus);
+  }
+  goWork(i) {
+    const cards = this.workCards || []; const n = cards.length; if (!n) return;
+    i = Math.max(0, Math.min(n - 1, i)); const smooth = this.site.motionOK() ? 'smooth' : 'auto'; const st = this.workST;
+    if (st) window.scrollTo({ top: st.start + (st.end - st.start) * (i / (n - 1)), behavior: smooth });
+    else if (this.workScroller && matchMedia('(min-width: 768px)').matches) { const v = this.workScroller, pad = parseFloat(getComputedStyle(v).paddingInlineStart) || 0; v.scrollTo({ left: this.site.dirX() < 0 ? -(v.scrollWidth - cards[i].offsetLeft - cards[i].offsetWidth - pad) : cards[i].offsetLeft - pad, behavior: smooth }); }
+    else window.scrollTo({ top: cards[i].getBoundingClientRect().top + scrollY - this.site.cssPx('--header-height') - this.site.cssPx('--space-4'), behavior: smooth });
+    this.setState({ workIndex: i });
+  }
+  setupBento(T) {
+    const { gsap } = window; const tiles = this.qa('[data-tile]').filter(t => !this.tilesShown);
+    if (!T.ok || !tiles.length) return;
+    gsap.from(tiles, { y: T.reveal, opacity: 0, duration: T.enter, ease: T.out, stagger: T.stagger, clearProps: 'transform,opacity',
+      scrollTrigger: { trigger: this.q('[data-bento-grid]'), start: 'top 80%', once: true }, onStart: () => { this.tilesShown = true; } });
+  }
+  setupMagnetic(T) {
+    const { gsap } = window; const el = this.q('[data-magnetic]'); if (!el) return;
+    const xTo = gsap.quickTo(el, 'x', { duration: T.slow, ease: T.out }), yTo = gsap.quickTo(el, 'y', { duration: T.slow, ease: T.out });
+    const move = e => { const r = el.getBoundingClientRect(); xTo((e.clientX - r.left - r.width / 2) * 0.3); yTo((e.clientY - r.top - r.height / 2) * 0.3); };
+    const leave = () => { xTo(0); yTo(0); };
+    el.addEventListener('mousemove', move); el.addEventListener('mouseleave', leave); this.magnetic = { el, move, leave };
+  }
+  setupSceneTriggers() {
+    const ST = window.ScrollTrigger; const S = this.S;
+    const hero = this.q('[data-hero]'), proof = this.q('[data-proof]'), closing = this.q('[data-closing]'); if (!hero || !proof || !closing) return;
+    ST.create({ trigger: hero, start: 'top top', endTrigger: proof, end: 'center center', scrub: true, onUpdate: s => { S.orderTarget = s.progress; } });
+    ST.create({ trigger: proof, start: 'bottom 85%', end: 'bottom 15%', scrub: true, onUpdate: s => this.setCanvasOpacity && this.setCanvasOpacity(1 - s.progress) });
+    ST.create({ trigger: closing, start: 'top bottom', end: 'top 40%', scrub: true, onUpdate: s => this.setCanvasOpacity && this.setCanvasOpacity(s.progress) });
+    ST.create({ trigger: closing, start: 'top 55%', end: 'bottom bottom', scrub: true, onUpdate: s => { S.convergeTarget = s.progress; } });
+  }
+
+  /* ---------- Three.js node field: raw AI (chaos) → design (lattice) → one connected point ---------- */
+  async setupScene() {
+    if (this.sceneStarted) return; this.sceneStarted = true;
+    const canvas = this.q('[data-scene-canvas]'); if (!canvas) return;
+    const d = document.documentElement, nav = navigator;
+    const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches && !d.hasAttribute('data-force-motion'), mobile = matchMedia('(max-width: 767px)').matches;
+    const lowPower = d.hasAttribute('data-qa') || (nav.deviceMemory && nav.deviceMemory < 4) || (mobile && nav.hardwareConcurrency && nav.hardwareConcurrency <= 4) || (nav.connection && nav.connection.saveData);
+    const showPoster = () => { canvas.style.display = 'none'; };   // the CSS atmosphere (glows + dot grid) is always on; the field is an enhancement
+    if (reduce || lowPower) return showPoster();
+    let THREE, renderer;
+    THREE = await (this.threeLoad || import('https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js').catch(() => null));
+    if (!THREE) return showPoster();
+    await new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r)));   // one frame after first paint
+    try { renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: !mobile, powerPreference: 'low-power' }); } catch (e) { return showPoster(); }
+    const dpr = Math.min(devicePixelRatio || 1, mobile ? 1.5 : 2); renderer.setPixelRatio(dpr); renderer.setClearAlpha(0);
+    // GPU reset or tab memory pressure: drop to the CSS atmosphere instead of leaving a frozen canvas
+    canvas.addEventListener('webglcontextlost', e => { e.preventDefault(); this.sceneActive = false; if (this.rafId) cancelAnimationFrame(this.rafId); this.rafId = 0; showPoster(); }, { once: true });
+    const scene = new THREE.Scene(), FOV = 45, CAMZ = 10, camera = new THREE.PerspectiveCamera(FOV, 1, 0.1, 100); camera.position.set(0, 0, CAMZ);
+    const H = 2 * CAMZ * Math.tan(THREE.MathUtils.degToRad(FOV / 2)); let W = H;
+    const cores = nav.hardwareConcurrency || 4;
+    const N = Math.max(24, Math.round((Number(this.props.nodeCount) || 140) * (mobile ? 0.4 : cores <= 4 ? 0.7 : 1)));
+    let seed = 7; const rnd = () => { seed = (seed * 1664525 + 1013904223) % 4294967296; return seed / 4294967296; };
+    const unit = new Float32Array(N * 3), chaos = new Float32Array(N * 3), order = new Float32Array(N * 3), phase = new Float32Array(N * 3), pos = new Float32Array(N * 3), colors = new Float32Array(N * 3);
+    const sizes = new Float32Array(N), alphas = new Float32Array(N), oDelay = new Float32Array(N), cDelay = new Float32Array(N), accent = new Uint8Array(N);
+    for (let i = 0; i < N * 3; i++) { unit[i] = rnd() - 0.5; phase[i] = rnd() * Math.PI * 2; }
+    for (let i = 0; i < N; i++) { accent[i] = rnd() < 0.08 ? 1 : 0; sizes[i] = (0.07 + rnd() * 0.07) * (accent[i] ? 1.6 : 1); cDelay[i] = rnd() * 0.4; }
+    let spacing = 1, dir = this.site.dirX();
+    const layout = () => {
+      dir = this.site.dirX(); W = H * camera.aspect;
+      for (let i = 0; i < N; i++) { const i3 = i * 3; let x = unit[i3] * W * 1.15; if (!mobile && i % 3) x = (Math.abs(x) - W * 0.06) * dir; chaos[i3] = x; chaos[i3 + 1] = unit[i3 + 1] * H * 1.15; chaos[i3 + 2] = unit[i3 + 2] * 3; }
+      const R = Math.min(W, H) * 0.42; spacing = R * Math.sqrt(Math.PI / (0.866 * N));
+      const pts = [], rows = Math.ceil(R / (spacing * 0.866)) + 2, cols = Math.ceil(R / spacing) + 2;
+      for (let r = -rows; r <= rows; r++) for (let c = -cols; c <= cols; c++) { const x = (c + ((r & 1) ? 0.5 : 0)) * spacing, y = r * spacing * 0.866; pts.push([x, y, x * x + y * y]); }
+      pts.sort((a, b) => a[2] - b[2]);
+      const ox = mobile ? 0 : W * 0.14 * dir, maxR = Math.sqrt(pts[N - 1][2]) || 1;
+      for (let i = 0; i < N; i++) { const i3 = i * 3; order[i3] = pts[i][0] + ox; order[i3 + 1] = pts[i][1]; order[i3 + 2] = 0; oDelay[i] = 0.55 * Math.sqrt(pts[i][2]) / maxR; }
+    };
+    const spriteTex = (() => { const c = document.createElement('canvas'); c.width = c.height = 64; const g = c.getContext('2d'); g.fillStyle = this.site.cssVar('--white') || 'white'; g.filter = 'blur(6px)'; g.beginPath(); g.arc(32, 32, 16, 0, Math.PI * 2); g.fill(); return new THREE.CanvasTexture(c); })();
+    const geo = new THREE.BufferGeometry();
+    geo.setAttribute('position', new THREE.BufferAttribute(pos, 3)); geo.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+    geo.setAttribute('aSize', new THREE.BufferAttribute(sizes, 1)); geo.setAttribute('aAlpha', new THREE.BufferAttribute(alphas, 1));
+    const pmat = new THREE.ShaderMaterial({ transparent: true, depthWrite: false, vertexColors: true, uniforms: { uTex: { value: spriteTex }, uScale: { value: 1 }, uGrow: { value: 1 } },
+      vertexShader: 'attribute float aSize; attribute float aAlpha; varying float vA; varying vec3 vC; uniform float uScale; uniform float uGrow; void main(){ vC = color; vA = aAlpha; vec4 mv = modelViewMatrix * vec4(position, 1.0); gl_PointSize = aSize * uGrow * uScale / -mv.z; gl_Position = projectionMatrix * mv; }',
+      fragmentShader: 'uniform sampler2D uTex; varying float vA; varying vec3 vC;\nvoid main(){ vec4 t = texture2D(uTex, gl_PointCoord); if (t.a < 0.02) discard; gl_FragColor = vec4(vC, t.a * vA);\n#include <colorspace_fragment>\n}' });
+    const points = new THREE.Points(geo, pmat);
+    const maxE = N * 3, lpos = new Float32Array(maxE * 6), lcol = new Float32Array(maxE * 6), lgeo = new THREE.BufferGeometry();
+    lgeo.setAttribute('position', new THREE.BufferAttribute(lpos, 3)); lgeo.setAttribute('color', new THREE.BufferAttribute(lcol, 3)); lgeo.setDrawRange(0, 0);
+    const lines = new THREE.LineSegments(lgeo, new THREE.LineBasicMaterial({ vertexColors: true, transparent: true, depthWrite: false }));
+    const glow = new THREE.Sprite(new THREE.SpriteMaterial({ map: spriteTex, transparent: true, opacity: 0, depthWrite: false }));
+    scene.add(lines, points, glow);
+    const pA = geo.getAttribute('position'), cA = geo.getAttribute('color'), aA = geo.getAttribute('aAlpha'), lpA = lgeo.getAttribute('position'), lcA = lgeo.getAttribute('color');
+    const lineCol = new THREE.Color(), pageCol = new THREE.Color(), tmp = new THREE.Color();
+    const refreshColors = () => {
+      const col = n => { const c = new THREE.Color(); try { c.setStyle(this.site.cssVar(n)); } catch (e) {} return c; };
+      const base = col('--node-color'), acc = col('--node-accent');
+      for (let i = 0; i < N; i++) { const c = accent[i] ? acc : base; colors[i * 3] = c.r; colors[i * 3 + 1] = c.g; colors[i * 3 + 2] = c.b; }
+      cA.needsUpdate = true; lineCol.copy(col('--node-line')); pageCol.copy(col('--surface-page')); glow.material.color.copy(col('--node-glow'));
+      this.kick && this.kick();
+    };
+    const resize = () => { const w = canvas.clientWidth || innerWidth, h = canvas.clientHeight || innerHeight; renderer.setSize(w, h, false); camera.aspect = w / h; camera.updateProjectionMatrix(); pmat.uniforms.uScale.value = (h * dpr) / (2 * Math.tan(THREE.MathUtils.degToRad(FOV / 2))); layout(); };
+    resize(); refreshColors();
+    const clamp01 = x => x < 0 ? 0 : x > 1 ? 1 : x, smooth = x => { x = clamp01(x); return x * x * (3 - 2 * x); };
+    const cx = 0, cy = H * 0.28, S = this.S; let last = 0;
+    // Neighbour search uses a uniform grid (cell = link threshold) instead of N² pairs; the sim runs at most 60 Hz.
+    const cellOf = new Int32Array(N), head = new Int32Array(4096).fill(-1), nextIdx = new Int32Array(N);
+    const FRAME_MIN = 1000 / 60 - 1;
+    const tick = now => {
+      this.rafId = 0; if (!this.sceneActive) return;
+      if (last && now - last < FRAME_MIN) { this.rafId = requestAnimationFrame(tick); return; }
+      const dt = Math.min(0.05, (now - last) / 1000 || 0.016); last = now; const t = now * 0.001, k = 1 - Math.exp(-dt * 6);
+      S.order += (S.orderTarget - S.order) * k; S.converge += (S.convergeTarget - S.converge) * k;
+      const o = clamp01(S.order), c = clamp01(S.converge), amp = (1 - o) * 0.9 + 0.05, speed = 0.5 - 0.35 * o;
+      const rot = t * 0.012 * o * dir, rc = Math.cos(rot), rs = Math.sin(rot), breathe = 1 + 0.012 * Math.sin(t * 0.6) * o;
+      const mx = this.mouse.x * W / 2 + camera.position.x, my = this.mouse.y * H / 2 + camera.position.y, rr = 1.3;
+      for (let i = 0; i < N; i++) {
+        const i3 = i * 3, oi = smooth((o - oDelay[i]) / (1 - oDelay[i])), ci = smooth((c - cDelay[i]) / (1 - cDelay[i]));
+        let x = chaos[i3] + Math.sin(t * speed + phase[i3]) * amp, y = chaos[i3 + 1] + Math.cos(t * speed * 0.9 + phase[i3 + 1]) * amp, z = chaos[i3 + 2] + Math.sin(t * speed * 0.7 + phase[i3 + 2]) * amp * 0.6;
+        if (this.pointerFine && oi < 1) { const dx = x - mx, dy = y - my, d2 = dx * dx + dy * dy; if (d2 < rr * rr && d2 > 0.0001) { const dd = Math.sqrt(d2), f = (1 - dd / rr) * 0.5 * (1 - oi); x += dx / dd * f; y += dy / dd * f; } }
+        const ox = order[i3] * breathe, oy = order[i3 + 1] * breathe, tx = ox * rc - oy * rs, ty = ox * rs + oy * rc;
+        x += (tx - x) * oi; y += (ty - y) * oi; z += (order[i3 + 2] - z) * oi;
+        if (ci > 0) { const rx = x - cx, ry = y - cy, ang = ci * 1.4 * dir, cs = Math.cos(ang), sn = Math.sin(ang), sh = 1 - ci; x = cx + (rx * cs - ry * sn) * sh; y = cy + (rx * sn + ry * cs) * sh; z *= sh; }
+        pos[i3] = x; pos[i3 + 1] = y; pos[i3 + 2] = z; alphas[i] = (0.45 + 0.4 * clamp01((z + 2) / 4)) * (1 - 0.15 * oi) + 0.3 * ci;
+      }
+      pA.needsUpdate = true; aA.needsUpdate = true;
+      const thr = spacing * (1.75 - 0.62 * o), thr2 = thr * thr, fade = 1 - c; let e = 0;
+      if (c < 0.98) {
+        const inv = 1 / thr, GW = 64, OX = W, OY = H; head.fill(-1);
+        for (let i = 0; i < N; i++) { const gx = Math.max(0, Math.min(GW - 1, ((pos[i * 3] + OX) * inv) | 0)), gy = Math.max(0, Math.min(GW - 1, ((pos[i * 3 + 1] + OY) * inv) | 0)); const cell = gy * GW + gx; cellOf[i] = cell; nextIdx[i] = head[cell]; head[cell] = i; }
+        outer: for (let i = 0; i < N; i++) {
+          const i3 = i * 3, ci = cellOf[i], gx = ci % GW, gy = (ci / GW) | 0;
+          for (let oy = -1; oy <= 1; oy++) for (let ox = -1; ox <= 1; ox++) {
+            const nx = gx + ox, ny = gy + oy; if (nx < 0 || ny < 0 || nx >= GW || ny >= GW) continue;
+            for (let j = head[ny * GW + nx]; j !== -1; j = nextIdx[j]) {
+              if (j <= i) continue;
+              const j3 = j * 3, dx = pos[i3] - pos[j3], dy = pos[i3 + 1] - pos[j3 + 1], dz = pos[i3 + 2] - pos[j3 + 2], d2 = dx * dx + dy * dy + dz * dz;
+              if (d2 < thr2) { const k6 = e * 6; lpos[k6] = pos[i3]; lpos[k6 + 1] = pos[i3 + 1]; lpos[k6 + 2] = pos[i3 + 2]; lpos[k6 + 3] = pos[j3]; lpos[k6 + 4] = pos[j3 + 1]; lpos[k6 + 5] = pos[j3 + 2];
+                tmp.copy(pageCol).lerp(lineCol, (0.25 + 0.55 * (1 - Math.sqrt(d2) / thr)) * fade); lcol[k6] = lcol[k6 + 3] = tmp.r; lcol[k6 + 1] = lcol[k6 + 4] = tmp.g; lcol[k6 + 2] = lcol[k6 + 5] = tmp.b;
+                if (++e >= maxE) break outer; }
+            }
+          }
+        }
+      }
+      lgeo.setDrawRange(0, e * 2); lpA.needsUpdate = true; lcA.needsUpdate = true; lines.visible = c < 0.98;
+      pmat.uniforms.uGrow.value = 1 + 0.25 * o + 3.2 * c;
+      glow.position.set(cx, cy, 0); glow.scale.setScalar(0.2 + 3.4 * c); glow.material.opacity = 0.8 * c;
+      camera.position.x += (this.mouse.x * 0.35 - camera.position.x) * 0.04; camera.position.y += (this.mouse.y * 0.25 - camera.position.y) * 0.04; camera.lookAt(0, 0, 0);
+      renderer.render(scene, camera);
+      this.rafId = requestAnimationFrame(tick);
+    };
+    this.kick = () => { if (!this.rafId && this.sceneActive) { last = 0; this.rafId = requestAnimationFrame(tick); } };   // single loop: rafId is the only scheduler
+    this.updateSceneActive = () => { this.sceneActive = this.visible.size > 0 && !document.hidden && this.canvasOpacity > 0.02; this.kick(); };
+    this.setCanvasOpacity = v => { this.canvasOpacity = v; canvas.style.opacity = String(v); this.updateSceneActive(); };
+    this.io = new IntersectionObserver(es => { es.forEach(en => en.isIntersecting ? this.visible.add(en.target) : this.visible.delete(en.target)); this.updateSceneActive(); });
+    this.qa('[data-scene-section]').forEach(s => this.io.observe(s));
+    const onVis = () => this.updateSceneActive(); document.addEventListener('visibilitychange', onVis);
+    let rt; const onResize = () => { clearTimeout(rt); rt = setTimeout(resize, 150); };
+    addEventListener('resize', onResize); addEventListener('orientationchange', onResize);
+    this.pointerFine = matchMedia('(pointer: fine)').matches && !mobile;
+    const onMove = e => { this.mouse.x = (e.clientX / innerWidth) * 2 - 1; this.mouse.y = -((e.clientY / innerHeight) * 2 - 1); };
+    if (this.pointerFine) addEventListener('mousemove', onMove, { passive: true });
+    this.sceneApi = { refreshColors, relayout: layout };
+    this.sceneCleanup = () => { document.removeEventListener('visibilitychange', onVis); removeEventListener('resize', onResize); removeEventListener('orientationchange', onResize); removeEventListener('mousemove', onMove); renderer.dispose(); geo.dispose(); lgeo.dispose(); pmat.dispose(); spriteTex.dispose(); };
+    this.updateSceneActive();
+  }
+
+  renderVals() {
+    const s = this.state; const stress = Component.q('stress') === '1';
+    const d = window.AIUX_COPY ? window.AIUX_COPY(s.lang, stress) : { home: {}, cases: [] };
+    const t = d.home || {}; const cases = d.cases || [];
+    const notice = t.notice || {}; const pages = notice.pages || {};
+    const showNotice = !!s.from && !s.noticeOff && s.lang !== 'en';
+    const mailSubject = 'Role or project conversation';
+    // The demo tile keeps its own theme and language, independent of the page: that is the point of it.
+    const tileLang = s.demoFlip ? (s.lang === 'ar' ? 'en' : 'ar') : s.lang;
+    const I = window.AIUX_I18N || {}; const dm = ((I[tileLang] || {}).home || {}).demo || {};
+    return {
+      t, ch: d.chrome || {}, c1: cases[0] || {}, c2: cases[1] || {}, c3: cases[2] || {},
+      brands: (t.hero || {}).brands || [], projects: (t.projects || {}).items || [], series: (t.read || {}).series || [], a1: ((t.read || {}).articles || [])[0] || {}, a2: ((t.read || {}).articles || [])[1] || {}, a3: ((t.read || {}).articles || [])[2] || {}, facts: (t.about || {}).facts || [], ossItems: (t.oss || {}).items || [], toolkit: (t.toolkit || {}).items || [],
+      dm, demoTheme: s.demoDark ? 'dark' : 'light', demoDir: tileLang === 'ar' ? 'rtl' : 'ltr', demoLang: tileLang,
+      demoDark: s.demoDark, demoFlip: s.demoFlip,
+      demoIdle: s.demoPhase === 'idle' || s.demoPhase === 'applying', demoApplying: s.demoPhase === 'applying',
+      demoApplied: s.demoPhase === 'applied' || s.demoPhase === 'final', canUndo: s.demoPhase === 'applied', demoFinal: s.demoPhase === 'final',
+      applyLabel: s.demoPhase === 'applying' ? dm.applying : dm.apply, whyLabel: s.demoWhy ? dm.whyHide : dm.why, demoWhy: s.demoWhy,
+      idleNote: s.demoUndone ? dm.undone : dm.undo, appliedText: s.demoPhase === 'final' ? dm.final : dm.appliedMsg,
+      countdown: (dm.countdown || '').replace('{n}', String(s.undoLeft)),
+      toggleDemoDark: () => this.setState(x => ({ demoDark: !x.demoDark })), toggleDemoFlip: () => this.setState(x => ({ demoFlip: !x.demoFlip })),
+      toggleWhy: () => this.setState(x => ({ demoWhy: !x.demoWhy })),
+      applyDemo: this.applyDemo, undoDemo: this.undoDemo, resetDemo: this.resetDemo,
+      closingLabel: (t.closing || {}).def, mailSubject, mailHref: 'mailto:hello@aiuxaleem.com?subject=' + encodeURIComponent(mailSubject),
+      workCounter: '0' + (s.workIndex + 1) + ' / 03', workPrevOff: s.workIndex <= 0, workNextOff: s.workIndex >= 2,
+      workPrev: () => this.goWork(s.workIndex - 1), workNext: () => this.goWork(s.workIndex + 1),
+      showNotice, noticeText: (notice.text || '').replace('{page}', pages[s.from] || s.from), dismissNotice: () => this.setState({ noticeOff: true }),
+      iconAi: this.icons.ai, iconSystem: this.icons.ds, iconAudit: this.icons.audit,
+      chip44: Component.chip44, iDownload: this.icons.download, iCalendar: this.icons.calendar, iArrowDown: this.icons.arrowDown, iMail: this.icons.mail,
+    };
+  }
+}
+</script>
+</body>
+</html>

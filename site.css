@@ -1,0 +1,826 @@
+/* aiuxaleem.com: single compiled stylesheet. AgentCory tokens (v2) + portfolio additions (aiuxaleem.css). Regenerate after editing either source. */
+
+/* ---- tokens/fonts.css ---- */
+/* ===========================================================================
+   AgentCory: Webfonts
+   NOTE: AgentCory's production typeface could not be extracted from the live
+   site. "Plus Jakarta Sans" is used as a close brand substitute, a friendly,
+   geometric humanist sans that matches the rounded, approachable wordmark and
+   professional SaaS tone. Swap the @font-face src below for the real font
+   files when available. Loaded here via Google Fonts CSS2.
+   =========================================================================== */
+
+/* ---- tokens/colors.css ---- */
+/* ===========================================================================
+   AgentCory: Color tokens
+   Brand: deep navy ink + blue→cyan signal gradient on cool off-white surfaces.
+   Two themes: light (default) and dark. Switch with <html data-theme="dark">;
+   ThemeToggle (or the one-line script at the bottom) applies the OS preference.
+   =========================================================================== */
+:root {
+  color-scheme: light;
+  /* --- Brand: Navy (the Cory mascot ink) --- */
+  --navy-950: #040C16;
+  --navy-900: #06121F;
+  --navy-850: #0E2440; /* dark-theme card */
+  --navy-800: #0B1F36; /* core brand navy */
+  --navy-700: #12304F;
+  --navy-600: #1B4068;
+  --navy-500: #2A547F;
+  --navy-400: #4C7197;
+  --navy-300: #8197AF;
+  --navy-200: #BCC7D5;
+  --navy-100: #DEE4EC;
+
+  /* --- Brand: Blue (signal / primary action, gradient start) --- */
+  --blue-700: #1568D4;
+  --blue-600: #1B79EC;
+  --blue-500: #258AFD; /* gradient start */
+  --blue-400: #5AA7FE;
+  --blue-300: #91C4FE;
+  --blue-200: #C2DEFF;
+  --blue-100: #E6F1FF;
+
+  /* --- Brand: Cyan (gradient end) --- */
+  --cyan-700: #0E7F9E; /* AA-safe cyan: white text ≥ 4.5:1 */
+  --cyan-800: #095A70; /* AA text on cyan-100 (5.2:1) */
+  --cyan-600: #169FC0;
+  --cyan-500: #29BEDD; /* gradient end */
+  --cyan-400: #5FD0E8;
+  --cyan-300: #95E1F0;
+  --cyan-200: #C4EEF8;
+  --cyan-100: #E6F8FC;
+
+  /* --- Neutrals (cool slate, tuned to the #F4F5FA surface) --- */
+  --white: #FFFFFF;
+  --slate-50: #F4F5FA;  /* page surface */
+  --slate-100: #ECEEF4;
+  --slate-150: #E2E5EE;
+  --slate-200: #D5D9E4;
+  --slate-300: #B9BFCF;
+  --slate-400: #939BAE;
+  --slate-500: #6E7689;
+  --slate-550: #636B7E; /* 4.6:1 on the page surface, 5.1:1 on white */
+  --slate-600: #525A6B;
+  --slate-700: #3B4253;
+  --slate-800: #262C3A;
+  --slate-900: #151A26;
+
+  /* --- Semantic scales --- */
+  --green-700: #0E7A4E;  /* AA text on green-100 / white */
+  --green-500: #1FB877;  /* success / positive metric (fills, dots, large text only) */
+  --green-100: #DCF6EC;
+  --amber-700: #7A4F00;  /* AA text on amber-100 */
+  --amber-500: #F5A524;  /* warning */
+  --amber-100: #FDF0D9;
+  --red-700: #B42318;    /* AA text on red-100 / white */
+  --red-500: #E5484D;    /* error / negative (fills, borders) */
+  --red-100: #FBE3E4;
+
+  /* --- Brand gradient --- */
+  --gradient-brand: linear-gradient(90deg, #258AFD 0%, #29BEDD 100%); /* @kind color */ /* decorative + large text (≥24px) */
+  --gradient-brand-135: linear-gradient(135deg, #258AFD 0%, #29BEDD 100%); /* @kind color */
+  --gradient-brand-deep: linear-gradient(90deg, #1568D4 0%, #0E7F9E 100%); /* @kind color */ /* white label passes AA at any size */
+  --gradient-ink: linear-gradient(160deg, #12304F 0%, #0B1F36 100%); /* @kind color */
+
+  /* --- Glows (off-edge radial accents; the brand's substitute for texture) --- */
+  --glow-cyan: radial-gradient(circle, rgba(41, 190, 221, 0.35) 0%, rgba(41, 190, 221, 0) 70%); /* @kind color */
+  --glow-blue: radial-gradient(circle, rgba(37, 138, 253, 0.30) 0%, rgba(37, 138, 253, 0) 70%); /* @kind color */
+  --glow-cyan-strong: radial-gradient(circle, rgba(41, 190, 221, 0.55) 0%, rgba(41, 190, 221, 0) 70%); /* @kind color */
+
+  /* =====================================================================
+     Semantic aliases: reach for these in components, not raw scales
+     ===================================================================== */
+  --text-strong: var(--navy-800);
+  --text-body: var(--slate-700);
+  --text-muted: var(--slate-600);   /* 6.5:1 on page, AA for body copy */
+  --text-subtle: var(--slate-550);  /* 4.6:1 on page, captions/labels minimum */
+  --text-disabled: var(--slate-400); /* decorative only; never for information */
+  --text-on-brand: var(--white);
+  --text-link: var(--blue-700);     /* 5.3:1 on white */
+  --text-link-hover: var(--blue-600);
+  --text-success: var(--green-700);
+  --text-warning: var(--amber-700);
+  --text-danger: var(--red-700);
+
+  --surface-page: var(--slate-50);
+  --surface-card: var(--white);
+  --surface-raised: var(--white);
+  --surface-sunken: var(--slate-100);
+  --surface-ink: var(--navy-800);
+  --surface-tile: var(--slate-50);
+  --surface-header: rgba(255, 255, 255, 0.85);
+  --surface-overlay: rgba(11, 31, 54, 0.55); /* @kind color */
+
+  --border-subtle: var(--slate-150);
+  --border-default: var(--slate-200);
+  --border-strong: var(--slate-300);
+  --border-interactive: var(--slate-500); /* 4.6:1, the only border allowed as a sole affordance */
+  --border-focus: var(--blue-500);
+
+  --action-primary: var(--blue-500);
+  --action-primary-hover: var(--blue-600);
+  --action-primary-active: var(--blue-700);
+  --action-ink: var(--navy-800);
+  --action-ink-hover: var(--navy-700);
+  --action-ink-active: var(--navy-900);
+  --action-secondary-hover: var(--slate-50);
+  --action-ghost-hover: var(--blue-100);
+
+  --focus-ring: rgba(37, 138, 253, 0.35);
+  --accent-mint: var(--green-500);
+
+  /* --- On-ink (text/borders over --surface-ink / --gradient-ink; theme-stable) --- */
+  --on-ink-strong: #FFFFFF;
+  --on-ink-body: rgba(255, 255, 255, 0.78);  /* 10.5:1 */
+  --on-ink-muted: rgba(255, 255, 255, 0.64); /* 7.4:1 */
+  --on-ink-link: var(--cyan-400);            /* 9.2:1 */
+  --on-ink-border: rgba(255, 255, 255, 0.12);
+  --on-ink-border-strong: rgba(255, 255, 255, 0.28);
+  --on-ink-fill: rgba(255, 255, 255, 0.08);
+  --on-ink-fill-hover: rgba(255, 255, 255, 0.14);
+}
+
+/* ===========================================================================
+   Dark theme: surfaces step up through navy; shadows become black + glow.
+   =========================================================================== */
+[data-theme="dark"] {
+  color-scheme: dark;
+  --text-strong: #FFFFFF;
+  --text-body: var(--navy-100);
+  --text-muted: var(--navy-200);
+  --text-subtle: #9DB0C6; /* 6.1:1 on navy-850, 4.6:1 on navy-700 */
+  --text-disabled: var(--navy-500);
+  --text-on-brand: #FFFFFF;
+  --text-link: var(--blue-400);
+  --text-link-hover: var(--blue-300);
+  --text-success: #5FD9A5;
+  --text-warning: #FFC766;
+  --text-danger: #FF8A8E;
+
+  --surface-page: var(--navy-900);
+  --surface-card: var(--navy-850);
+  --surface-raised: var(--navy-700);
+  --surface-sunken: var(--navy-950);
+  --surface-ink: var(--navy-950);
+  --surface-tile: var(--navy-700);
+  --surface-header: rgba(6, 18, 31, 0.82);
+  --surface-overlay: rgba(4, 12, 22, 0.70);
+
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-default: rgba(255, 255, 255, 0.12);
+  --border-strong: rgba(255, 255, 255, 0.22);
+  --border-interactive: rgba(255, 255, 255, 0.48);
+  --border-focus: var(--blue-400);
+
+  --action-primary: var(--blue-500);
+  --action-primary-hover: var(--blue-400);
+  --action-primary-active: var(--blue-600);
+  --action-ink: #FFFFFF;
+  --action-ink-hover: var(--navy-100);
+  --action-ink-active: var(--navy-200);
+  --action-secondary-hover: var(--navy-700);
+  --action-ghost-hover: rgba(90, 167, 254, 0.14);
+
+  --focus-ring: rgba(90, 167, 254, 0.45);
+  --gradient-ink: linear-gradient(160deg, #0E2440 0%, #06121F 100%); /* @kind color */
+
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.30);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.32);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.36);
+  --shadow-lg: 0 18px 48px rgba(0, 0, 0, 0.42);
+  --shadow-xl: 0 32px 72px rgba(0, 0, 0, 0.50);
+  --shadow-brand: 0 12px 32px rgba(37, 138, 253, 0.40);
+  --shadow-glow: 0 0 0 1px rgba(255,255,255,0.08), 0 0 48px rgba(41, 190, 221, 0.18);
+}
+
+/* OS preference: CSS can't alias a media query onto [data-theme], so set the
+   attribute once at load (ThemeToggle does this automatically):
+   <script>document.documentElement.dataset.theme ||= matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';</script> */
+
+/* ---- tokens/typography.css ---- */
+/* ===========================================================================
+   AgentCory: Typography tokens
+   Plus Jakarta Sans across the brand; JetBrains Mono for data/metrics readouts.
+   Fixed steps for components; fluid steps for marketing/portfolio display.
+   =========================================================================== */
+:root {
+  /* --- Families --- */
+  --font-sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-display: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+
+  /* --- Weights --- */
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+  --weight-extrabold: 800;
+
+  /* --- Fixed type scale (px) --- */
+  --text-display-2xl: 72px;
+  --text-display-xl: 60px;
+  --text-display-lg: 48px;
+  --text-display-md: 40px;
+  --text-h1: 34px;
+  --text-h2: 28px;
+  --text-h3: 22px;
+  --text-h4: 18px;
+  --text-body-lg: 18px;
+  --text-body: 16px;
+  --text-body-sm: 14px;
+  --text-caption: 13px;
+  --text-overline: 12px;
+  --text-micro: 11px;   /* badge sm, legal, minimum size in the system */
+
+  /* --- UI control text (buttons, inputs, chips, tabs) --- */
+  --text-ui-sm: 14px;
+  --text-ui: 15px;
+  --text-ui-lg: 17px;
+  --text-label: 13px;   /* field labels, hints */
+
+  /* --- Metric (the biggest thing on screen is usually a number) --- */
+  --text-metric-xl: clamp(56px, 7vw, 88px); /* @kind font */
+  --text-metric-lg: clamp(40px, 6vw, 56px); /* @kind font */
+  --text-metric-md: 36px;
+  --text-metric-sm: 28px;
+
+  /* --- Fluid display (marketing / portfolio; shrink gracefully to 360px) --- */
+  --text-fluid-display: clamp(40px, 5.6vw, 72px); /* @kind font */
+  --text-fluid-title: clamp(32px, 4vw, 48px); /* @kind font */
+  --text-fluid-h2: clamp(24px, 2.8vw, 34px); /* @kind font */
+  --text-fluid-lead: clamp(16px, 1.5vw, 19px); /* @kind font */
+
+  /* --- Mono scale --- */
+  --text-mono-sm: 12px;
+  --text-mono: 13px;
+  --text-mono-lg: 15px;
+
+  /* --- Line heights --- */
+  --leading-none: 1; /* @kind other */
+  --leading-tight: 1.05;
+  --leading-snug: 1.18;
+  --leading-heading: 1.25;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.65;
+  --leading-mono: 1.7; /* @kind other */
+
+  /* --- Letter spacing --- */
+  --tracking-tighter: -0.03em;
+  --tracking-tight: -0.018em;
+  --tracking-ui: -0.01em; /* @kind other */
+  --tracking-normal: 0em;
+  --tracking-wide: 0.02em;
+  --tracking-overline: 0.14em;
+
+  /* --- Measure --- */
+  --measure-body: 68ch; /* @kind other */
+  --measure-lead: 56ch; /* @kind other */
+  --measure-display: 18ch; /* @kind other */
+}
+
+/* ---- tokens/layout.css ---- */
+/* ===========================================================================
+   AgentCory: Spacing, radius, shadow, layer, layout tokens
+   8px base grid. Generous rounding (the brand's signature soft corners).
+   Motion lives in motion.css; breakpoints + grid helpers in responsive.css.
+   =========================================================================== */
+:root {
+  /* --- Spacing scale (8px base) --- */
+  --space-0: 0;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-7: 28px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+  --space-32: 128px;
+
+  /* --- Gutters & rhythm (fluid; replace the hard-coded 20/28/72–80px) --- */
+  --gutter: clamp(16px, 2.5vw, 28px); /* @kind spacing */          /* page edge padding */
+  --grid-gap: clamp(16px, 1.8vw, 24px); /* @kind spacing */        /* card / bento gap */
+  --section-y: clamp(56px, 7vw, 96px); /* @kind spacing */         /* vertical section padding */
+  --stack-gap: var(--space-4);                 /* default vertical stack */
+
+  /* --- Radius (the logo tile rounds at ~22.7%, soft, friendly) --- */
+  --radius-xs: 6px;
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 18px;
+  --radius-xl: 24px;
+  --radius-2xl: 32px;
+  --radius-pill: 999px;
+  --radius-tile: 22.7%; /* mascot tile corner ratio */
+
+  /* --- Border widths --- */
+  --border-width: 1px; /* @kind other */
+  --border-width-strong: 2px; /* focus outlines, selected chips */
+
+  /* --- Shadows (soft, cool, low-spread, never harsh; dark theme overrides) --- */
+  --shadow-xs: 0 1px 2px rgba(11, 31, 54, 0.06);
+  --shadow-sm: 0 2px 8px rgba(11, 31, 54, 0.06);
+  --shadow-md: 0 8px 24px rgba(11, 31, 54, 0.08);
+  --shadow-lg: 0 18px 48px rgba(11, 31, 54, 0.10);
+  --shadow-xl: 0 32px 72px rgba(11, 31, 54, 0.14);
+  --shadow-brand: 0 12px 32px rgba(37, 138, 253, 0.28);
+  --shadow-glow: 0 0 0 1px rgba(11,31,54,0.04), 0 0 40px rgba(41, 190, 221, 0.14);
+  --shadow-focus: 0 0 0 4px var(--focus-ring);
+
+  /* --- Opacity --- */
+  --opacity-disabled: 0.5; /* @kind other */
+  --opacity-muted: 0.72; /* @kind other */
+  --opacity-hover-media: 0.92; /* @kind other */
+
+  /* --- Blur --- */
+  --blur-header: 12px; /* @kind other */
+  --blur-scrim: 6px; /* @kind other */
+  --blur-glow: 48px; /* @kind other */
+
+  /* --- Z-index layers --- */
+  --z-base: 0; /* @kind other */
+  --z-raised: 10; /* @kind other */
+  --z-sticky: 50; /* @kind other */
+  --z-overlay: 100; /* @kind other */
+  --z-modal: 200; /* @kind other */
+  --z-toast: 300; /* @kind other */
+  --z-tooltip: 400; /* @kind other */
+
+  /* --- Aspect ratios --- */
+  --aspect-video: 16 / 9; /* @kind other */
+  --aspect-photo: 4 / 3; /* @kind other */
+  --aspect-square: 1 / 1; /* @kind other */
+  --aspect-portrait: 4 / 5; /* @kind other */
+  --aspect-story: 9 / 16; /* @kind other */
+  --aspect-cover: 21 / 9; /* @kind other */
+
+  /* --- Layout --- */
+  --container-max: 1200px;
+  --container-wide: 1400px;
+  --container-narrow: 760px;
+  --container-prose: 68ch;
+  --header-height: 72px;
+  --header-height-compact: 60px;
+}
+
+/* ---- tokens/motion.css ---- */
+/* ===========================================================================
+   AgentCory: Motion tokens
+   Restrained by default (fades, 3px lifts, 0.97 press); a cinematic tier for
+   portfolio reveals. Every animation here respects prefers-reduced-motion.
+   =========================================================================== */
+:root {
+  /* --- Easing --- */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1); /* @kind other */ /* default: hover, enter */
+  --ease-in: cubic-bezier(0.55, 0, 1, 0.45); /* @kind other */ /* exit */
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1); /* @kind other */ /* move between places */
+  --ease-spring: cubic-bezier(0.34, 1.4, 0.64, 1); /* @kind other */ /* light overshoot: chips, toggles */
+  --ease-cinematic: cubic-bezier(0.16, 1, 0.3, 1); /* @kind other */ /* long reveals */
+
+  /* --- Duration --- */
+  --duration-instant: 80ms; /* @kind other */ /* color/opacity flicks */
+  --duration-fast: 140ms; /* @kind other */ /* press */
+  --duration-base: 220ms; /* @kind other */ /* hover, focus */
+  --duration-slow: 380ms; /* @kind other */ /* panels, menus */
+  --duration-enter: 600ms; /* @kind other */ /* content reveal */
+  --duration-cinematic: 900ms; /* @kind other */ /* hero reveal */
+  --duration-epic: 1200ms; /* @kind other */ /* page transitions, counters */
+  --duration-marquee: 32s; /* @kind other */
+
+  /* --- Delay / stagger --- */
+  --delay-1: 60ms; /* @kind other */
+  --delay-2: 120ms; /* @kind other */
+  --delay-3: 180ms; /* @kind other */
+  --delay-4: 240ms; /* @kind other */
+  --stagger: 70ms; /* @kind other */ /* per-item: calc(var(--i) * var(--stagger)) */
+
+  /* --- Distances --- */
+  --lift-hover: -3px; /* @kind other */
+  --lift-hover-lg: -6px; /* @kind other */
+  --press-scale: 0.97; /* @kind other */
+  --reveal-distance: 24px; /* @kind other */
+  --reveal-distance-lg: 48px; /* @kind other */
+  --parallax-depth: 0.12; /* multiplier for scroll-driven offsets */
+}
+
+/* --- Keyframe library --- */
+@keyframes cory-fade-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes cory-fade-up { from { opacity: 0; transform: translateY(var(--reveal-distance, 24px)); } to { opacity: 1; transform: translateY(0); } }
+@keyframes cory-fade-down { from { opacity: 0; transform: translateY(calc(var(--reveal-distance, 24px) * -1)); } to { opacity: 1; transform: translateY(0); } }
+@keyframes cory-scale-in { from { opacity: 0; transform: scale(0.94); } to { opacity: 1; transform: scale(1); } }
+@keyframes cory-blur-in { from { opacity: 0; filter: blur(12px); transform: translateY(12px); } to { opacity: 1; filter: blur(0); transform: translateY(0); } }
+@keyframes cory-clip-up { from { clip-path: inset(100% 0 0 0); transform: translateY(20%); } to { clip-path: inset(0 0 0 0); transform: translateY(0); } }
+@keyframes cory-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@keyframes cory-pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.45; } }
+@keyframes cory-glow-drift { 0% { transform: translate(0, 0) scale(1); } 50% { transform: translate(6%, -4%) scale(1.08); } 100% { transform: translate(0, 0) scale(1); } }
+@keyframes cory-shimmer { from { background-position: -200% 0; } to { background-position: 200% 0; } }
+@keyframes cory-spin { to { transform: rotate(360deg); } }
+
+/* --- Reveal utilities (set --i for stagger; add .is-visible via IntersectionObserver or use .cory-reveal-auto) --- */
+.cory-reveal { opacity: 0; transform: translateY(var(--reveal-distance)); transition: opacity var(--duration-enter) var(--ease-cinematic), transform var(--duration-enter) var(--ease-cinematic); transition-delay: calc(var(--i, 0) * var(--stagger)); }
+.cory-reveal.is-visible { opacity: 1; transform: none; }
+.cory-reveal-auto { animation: cory-fade-up var(--duration-enter) var(--ease-cinematic) both; animation-delay: calc(var(--i, 0) * var(--stagger)); }
+.cory-marquee { display: flex; width: max-content; gap: var(--space-10); animation: cory-marquee var(--duration-marquee) linear infinite; }
+.cory-marquee:hover { animation-play-state: paused; }
+.cory-glow-drift { animation: cory-glow-drift 14s var(--ease-in-out) infinite; }
+.cory-lift { transition: transform var(--duration-base) var(--ease-out), box-shadow var(--duration-base) var(--ease-out); }
+.cory-lift:hover { transform: translateY(var(--lift-hover)); box-shadow: var(--shadow-lg); }
+
+/* --- Scroll-driven (progressive enhancement; no-ops where unsupported) --- */
+@supports (animation-timeline: view()) {
+  .cory-reveal-scroll { animation: cory-fade-up linear both; animation-timeline: view(); animation-range: entry 0% entry 40%; }
+  .cory-parallax { animation: cory-parallax linear both; animation-timeline: view(); }
+  @keyframes cory-parallax { from { transform: translateY(calc(var(--parallax-depth) * 100px)); } to { transform: translateY(calc(var(--parallax-depth) * -100px)); } }
+}
+
+/* --- Reduced motion: keep state changes, drop movement --- */
+@media (prefers-reduced-motion: reduce) {
+  :root { --duration-enter: 1ms; /* @kind other */ --duration-cinematic: 1ms; /* @kind other */ --duration-epic: 1ms; /* @kind other */ --reveal-distance: 0px; /* @kind other */ --reveal-distance-lg: 0px; /* @kind other */ --lift-hover: 0px; /* @kind other */ --lift-hover-lg: 0px; /* @kind other */ --press-scale: 1; /* @kind other */ --parallax-depth: 0; /* @kind other */ }
+  .cory-reveal { opacity: 1; transform: none; transition: none; }
+  .cory-reveal-auto, .cory-marquee, .cory-glow-drift, .cory-reveal-scroll, .cory-parallax { animation: none !important; }
+  *, *::before, *::after { animation-duration: 1ms !important; animation-iteration-count: 1 !important; transition-duration: 1ms !important; scroll-behavior: auto !important; }
+}
+
+/* ---- tokens/responsive.css ---- */
+/* ===========================================================================
+   AgentCory: Breakpoints, containers, responsive grid + bento helpers
+   Mobile-first. Custom properties can't drive @media, so the breakpoints are
+   declared once here (for JS / docs) and repeated literally in the queries.
+     sm 640  ·  md 768  ·  lg 1024  ·  xl 1280  ·  2xl 1536
+   =========================================================================== */
+:root {
+  --bp-sm: 640px; /* @kind other */
+  --bp-md: 768px; /* @kind other */
+  --bp-lg: 1024px; /* @kind other */
+  --bp-xl: 1280px; /* @kind other */
+  --bp-2xl: 1536px; /* @kind other */
+  --cols: 4; /* @kind other */ /* responsive column count, read by .cory-grid / .cory-bento */
+}
+@media (min-width: 640px)  { :root { --cols: 6; /* @kind other */ } }
+@media (min-width: 1024px) { :root { --cols: 12; /* @kind other */ } }
+
+/* --- Container --- */
+.cory-container { width: 100%; max-width: var(--container-max); margin-inline: auto; padding-inline: var(--gutter); }
+.cory-container-narrow { max-width: var(--container-narrow); }
+.cory-container-wide { max-width: var(--container-wide); }
+.cory-section { padding-block: var(--section-y); }
+
+/* --- Column grid: 4 / 6 / 12 tracks. Children use grid-column: span N (clamped to --cols) --- */
+.cory-grid { display: grid; grid-template-columns: repeat(var(--cols), minmax(0, 1fr)); gap: var(--grid-gap); }
+.cory-grid > * { grid-column: span min(var(--span, var(--cols)), var(--cols)); min-width: 0; }
+
+/* --- Auto-fit card grid: columns appear as space allows (replaces fixed repeat(3,1fr)) --- */
+.cory-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--card-min, 280px)), 1fr)); gap: var(--grid-gap); }
+
+/* --- Bento: square-ish tiles with span rules; collapses to single column on phones --- */
+.cory-bento { display: grid; grid-template-columns: repeat(var(--bento-cols, 1), minmax(0, 1fr)); grid-auto-rows: minmax(var(--bento-row, 180px), auto); grid-auto-flow: dense; gap: var(--grid-gap); }
+.cory-bento > * { min-width: 0; border-radius: var(--radius-xl); }
+.cory-bento .span-2 { grid-column: span min(2, var(--bento-cols, 1)); }
+.cory-bento .span-3 { grid-column: span min(3, var(--bento-cols, 1)); }
+.cory-bento .tall { grid-row: span 2; }
+.cory-bento .hero { grid-column: span min(2, var(--bento-cols, 1)); grid-row: span 2; }
+@media (min-width: 640px)  { .cory-bento { --bento-cols: 2; /* @kind other */ } }
+@media (min-width: 1024px) { .cory-bento { --bento-cols: 4; /* @kind other */ --bento-row: 200px; /* @kind other */ } }
+
+/* --- Split (hero two-column that stacks) --- */
+.cory-split { display: grid; grid-template-columns: 1fr; gap: var(--space-10); align-items: center; }
+@media (min-width: 1024px) { .cory-split { grid-template-columns: 1.05fr 0.95fr; } }
+
+/* --- Visibility --- */
+@media (max-width: 767px) { .cory-hide-mobile { display: none !important; } }
+@media (min-width: 768px) { .cory-hide-desktop { display: none !important; } }
+
+/* ---- tokens/base.css ---- */
+/* ===========================================================================
+   AgentCory: Base element styling & brand helpers
+   =========================================================================== */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  line-height: var(--leading-normal);
+  color: var(--text-body);
+  background: var(--surface-page);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  transition: background-color var(--duration-slow) var(--ease-out), color var(--duration-slow) var(--ease-out);
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  color: var(--text-strong);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-heading);
+  letter-spacing: var(--tracking-tight);
+  margin: 0;
+  text-wrap: balance;
+}
+p { text-wrap: pretty; }
+/* --- No text overflow, ever: long words wrap, flex/grid children may shrink, nothing is clipped by default --- */
+body { overflow-wrap: break-word; }
+h1, h2, h3, h4, .cory-metric { overflow-wrap: break-word; hyphens: manual; }
+:where(.cory-container, .cory-grid, .cory-cards, .cory-bento, .cory-split, .cory-section) > * { min-width: 0; }
+:where(.cory-btn, .cory-eyebrow-pill) { max-width: 100%; white-space: normal; text-align: center; }
+@media (min-width: 640px) { :where(.cory-btn, .cory-eyebrow-pill) { white-space: nowrap; } }
+table { table-layout: fixed; width: 100%; }
+pre, code { overflow-wrap: anywhere; white-space: pre-wrap; }
+img, video, svg { max-width: 100%; height: auto; display: block; }
+
+a { color: var(--text-link); text-decoration: none; transition: color var(--duration-base) var(--ease-out); }
+a:hover { color: var(--text-link-hover); }
+
+/* --- Focus: visible ring on keyboard focus only, everywhere --- */
+:focus { outline: none; }
+:focus-visible { outline: var(--border-width-strong) solid var(--border-focus); outline-offset: 2px; box-shadow: var(--shadow-focus); }
+
+/* --- Brand helpers --- */
+.cory-gradient-text {
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.cory-overline {
+  font-size: var(--text-overline);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-overline);
+  text-transform: uppercase;
+  color: var(--text-link);
+}
+
+.cory-eyebrow-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  background: var(--blue-100);
+  color: var(--blue-700);
+  font-size: var(--text-caption);
+  font-weight: var(--weight-semibold);
+}
+[data-theme="dark"] .cory-eyebrow-pill { background: rgba(90,167,254,0.16); color: var(--blue-300); }
+
+/* --- Ink panel: dark spotlight surface with on-ink text, identical in both themes --- */
+.cory-ink { background: var(--gradient-ink); color: var(--on-ink-body); border-radius: var(--radius-2xl); position: relative; overflow: hidden; isolation: isolate; }
+.cory-ink h1, .cory-ink h2, .cory-ink h3, .cory-ink h4 { color: var(--on-ink-strong); }
+.cory-ink a { color: var(--on-ink-link); }
+.cory-ink::after { content: ""; position: absolute; width: 60%; aspect-ratio: 1; right: -20%; top: -30%; background: var(--glow-cyan); filter: blur(var(--blur-glow)); z-index: -1; pointer-events: none; }
+
+/* --- Sticky blurred header --- */
+.cory-header { position: sticky; top: 0; z-index: var(--z-sticky); height: var(--header-height); background: var(--surface-header); -webkit-backdrop-filter: blur(var(--blur-header)); backdrop-filter: blur(var(--blur-header)); border-bottom: var(--border-width) solid var(--border-subtle); }
+
+/* --- Scrim --- */
+.cory-scrim { position: fixed; inset: 0; z-index: var(--z-overlay); background: var(--surface-overlay); -webkit-backdrop-filter: blur(var(--blur-scrim)); backdrop-filter: blur(var(--blur-scrim)); }
+
+/* --- Metric --- */
+.cory-metric { font-family: var(--font-display); font-weight: var(--weight-extrabold); font-size: var(--text-metric-lg); line-height: var(--leading-none); letter-spacing: var(--tracking-tighter); color: var(--text-strong); }
+
+.cory-visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* --- CTA buttons for plain-HTML surfaces (mirror of the React Button) --- */
+.cory-btn { display: inline-flex; align-items: center; justify-content: center; gap: var(--space-2); min-height: 44px; padding: 11px 22px; border-radius: var(--radius-pill); border: var(--border-width) solid transparent; font-family: var(--font-sans); font-size: var(--text-ui); font-weight: var(--weight-semibold); letter-spacing: var(--tracking-ui); line-height: 1; white-space: nowrap; cursor: pointer; text-decoration: none; transition: transform var(--duration-fast) var(--ease-out), box-shadow var(--duration-base) var(--ease-out), background var(--duration-base) var(--ease-out), color var(--duration-base) var(--ease-out), filter var(--duration-base) var(--ease-out); }
+.cory-btn:hover { transform: translateY(-1px); }
+.cory-btn:active { transform: scale(var(--press-scale)); }
+.cory-btn:focus-visible { outline: var(--border-width-strong) solid var(--border-focus); outline-offset: 2px; }
+.cory-btn[aria-disabled="true"], .cory-btn:disabled { opacity: var(--opacity-disabled); cursor: not-allowed; transform: none; }
+.cory-btn-sm { min-height: 36px; padding: 8px 16px; font-size: var(--text-ui-sm); }
+.cory-btn-lg { min-height: 52px; padding: 15px 30px; font-size: var(--text-ui-lg); gap: var(--space-3); }
+.cory-btn-primary { background: var(--gradient-brand-deep); color: var(--text-on-brand); box-shadow: var(--shadow-brand); }
+.cory-btn-primary:hover { color: var(--text-on-brand); filter: brightness(1.08) saturate(1.05); box-shadow: var(--shadow-brand), var(--shadow-md); }
+.cory-btn-ink { background: var(--action-ink); color: var(--surface-card); box-shadow: var(--shadow-sm); }
+.cory-btn-ink:hover { background: var(--action-ink-hover); color: var(--surface-card); box-shadow: var(--shadow-md); }
+.cory-btn-secondary { background: var(--surface-card); color: var(--text-strong); border-color: var(--border-interactive); box-shadow: var(--shadow-xs); }
+.cory-btn-secondary:hover { background: var(--action-secondary-hover); color: var(--text-strong); box-shadow: var(--shadow-sm); }
+.cory-btn-ghost { background: transparent; color: var(--text-link); }
+.cory-btn-ghost:hover { background: var(--action-ghost-hover); color: var(--text-link-hover); }
+.cory-btn-on-ink { background: rgba(11, 31, 54, 0.45); color: var(--on-ink-strong); border-color: var(--on-ink-border-strong); }
+.cory-btn-on-ink:hover { background: var(--on-ink-fill-hover); color: var(--on-ink-strong); }
+.cory-btn-on-ink-solid { background: var(--on-ink-strong); color: var(--navy-800); box-shadow: var(--shadow-md); }
+.cory-btn-on-ink-solid:hover { color: var(--navy-800); box-shadow: var(--shadow-lg), var(--shadow-glow); }
+
+::selection { background: var(--cyan-200); color: var(--navy-800); }
+
+/* ---- aiuxaleem.css ---- */
+/* aiuxaleem.com: portfolio additions to AgentCory v2.
+   Two root switches drive every display state: data-theme (light | dark) and dir (ltr | rtl) + lang.
+   Everything here is scoped to [data-theme] / [dir] / [lang] selectors (not :root only) so the QA matrix
+   can render all four states side by side. Components never branch on theme or direction. */
+
+:root {
+  /* Node field (Three.js reads these at runtime) */
+  --node-color: var(--blue-500);
+  --node-line: var(--navy-200);
+  --node-accent: var(--cyan-500);
+  --node-glow: var(--cyan-400);
+  /* Headline highlight: AA at headline size on light surfaces */
+  --gradient-text: linear-gradient(90deg, var(--blue-700) 0%, var(--blue-500) 100%); /* @kind color */
+  /* Case-study cover ratio */
+  --aspect-case: 16 / 10; /* @kind other */
+  /* Minimum hit target */
+  --tap-target: 44px;
+  /* Direction tokens: the only place direction is resolved */
+  --dir-x: 1; /* @kind other */
+  --origin-inline-start: left; /* @kind other */
+  --origin-inline-end: right; /* @kind other */
+  /* Arabic families, matched to Plus Jakarta Sans weight and x-height */
+  --font-arabic: 'IBM Plex Sans Arabic', 'Noto Sans Arabic', sans-serif;
+  --font-arabic-display: 'Noto Kufi Arabic', 'IBM Plex Sans Arabic', sans-serif;
+}
+[data-theme="dark"] {
+  --node-color: var(--cyan-400);
+  --node-line: var(--navy-500);
+  --node-accent: var(--blue-400);
+  --node-glow: var(--blue-500);
+  --gradient-text: var(--gradient-brand);
+}
+[dir="ltr"] { --dir-x: 1; --origin-inline-start: left; --origin-inline-end: right; }
+[dir="rtl"] { --dir-x: -1; --origin-inline-start: right; --origin-inline-end: left; }
+
+/* Arabic type tokens: Latin stays in Plus Jakarta Sans, Arabic falls through to the matched family.
+   Letter-spacing must be zero (tracking breaks Arabic joins); leading opens up for ascenders/descenders. */
+[lang="ar"] {
+  --font-sans: 'Plus Jakarta Sans', var(--font-arabic);
+  --font-display: 'Plus Jakarta Sans', var(--font-arabic-display);
+  --font-mono: 'JetBrains Mono', var(--font-arabic);
+  --tracking-tighter: 0em; --tracking-tight: 0em; --tracking-ui: 0em; --tracking-wide: 0em; --tracking-overline: 0em;
+  --leading-tight: 1.3; --leading-snug: 1.4; --leading-heading: 1.45; --leading-normal: 1.7; --leading-relaxed: 1.85;
+  --text-body-lg: 19px; --text-body: 17px; --text-body-sm: 15px; --text-caption: 14px; --text-overline: 13px; --text-label: 14px;
+  font-family: var(--font-sans);
+}
+[lang="en"] { font-family: var(--font-sans); }
+
+/* Resets the system leaves to the page */
+html { scroll-padding-block-start: var(--header-height); }
+body { overflow-wrap: anywhere; }
+h1, h2, h3, h4 { overflow-wrap: anywhere; text-wrap: balance; }
+/* Block copy may break anywhere; inline labels only break when they would overflow, so flex rows never shrink a word to one letter per line */
+html :is(h1, h2, h3, h4, p, li, dd, blockquote, figcaption) { overflow-wrap: anywhere; }
+/* ...but inside block copy they inherit "anywhere", so a centred heading built from word spans can still shrink */
+html :is(span, a, strong, dt, bdi):not(:is(h1, h2, h3, h4, p, li, dd, blockquote, figcaption) *) { overflow-wrap: break-word; }
+/* Short UI labels (nav links, buttons, chips) keep whole words; long copy still breaks anywhere */
+html :is(nav a, button, [role="button"], .cory-overline) { overflow-wrap: break-word; }   /* whole words, but a single over-long word may still break instead of overflowing */
+p, li, dd, figcaption, blockquote { text-wrap: pretty; }
+:where(*) { min-width: 0; }
+/* A grid with no explicit tracks must never be widened by one wide child */
+:where([style*="display:grid"]:not([style*="grid-template-columns"]), .cory-container[style*="display:grid"]:not([style*="grid-template-columns"])) { grid-template-columns: minmax(0, 1fr); }
+button { font: inherit; }
+img, iframe { display: block; max-width: 100%; }
+ul, ol { margin: 0; padding: 0; list-style: none; }
+details > summary { list-style: none; cursor: pointer; }
+details > summary::-webkit-details-marker { display: none; }
+details[open] [data-chevron] { transform: rotate(180deg); }
+html[data-motion="pending"] [data-hero-el], html[data-motion="pending"] [data-hero-title] { opacity: 0; }
+[data-dir-icon] { transform: scaleX(var(--dir-x)); }
+[data-toc][aria-current="page"], [data-nav-link][aria-current="page"] { color: var(--text-strong); }
+[data-toc][aria-current="page"] { background: var(--surface-sunken); border-color: var(--border-default); }
+
+/* Empty image slots outside the editor: hide the drop scaffold so the designed fallback behind the slot shows through.
+   In the editor (data-editable) the scaffold stays, so slots can still be filled by drag and drop. */
+image-slot:not([data-editable]):not([data-filled])::part(frame) { background: transparent !important; }
+image-slot:not([data-editable]):not([data-filled])::part(empty),
+image-slot:not([data-editable]):not([data-filled])::part(ring) { display: none !important; }
+[data-cover-fallback] { position: absolute; inset: 0; display: flex; align-items: flex-end; justify-content: flex-start; padding: var(--space-5); background: var(--gradient-ink); color: var(--on-ink-muted); pointer-events: none; }
+[data-cover-fallback]::after { content: ""; position: absolute; width: 70%; aspect-ratio: 1; inset-inline-end: -25%; inset-block-start: -35%; background: var(--glow-cyan); filter: blur(var(--blur-glow)); pointer-events: none; }
+[data-cover-fallback] > span { position: relative; font-family: var(--font-mono); font-size: var(--text-mono); line-height: var(--leading-mono); max-inline-size: 28ch; }
+[data-cover-fallback] > bdi { position: absolute; inset-inline-end: var(--space-4); inset-block-start: var(--space-2); font-family: var(--font-display); font-weight: var(--weight-extrabold); font-size: var(--text-metric-xl); line-height: var(--leading-none); letter-spacing: var(--tracking-tighter); color: var(--on-ink-fill); }
+
+/* Theme switch: one synchronized swap. Per-element colour transitions are suppressed while it happens. */
+html[data-theme-switching] *, html[data-theme-switching] *::before, html[data-theme-switching] *::after { transition: none !important; }
+::view-transition-old(root), ::view-transition-new(root) { animation: none; mix-blend-mode: normal; }
+
+/* Container queries: tiles and cards respond to their own width */
+[data-cq] { container-type: inline-size; }
+@container (min-width: 520px) { [data-cq-grid] { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; } }
+@container (min-width: 860px) { [data-cq-grid="4"] { grid-template-columns: repeat(4, minmax(0, 1fr)) !important; } }
+@container (min-width: 720px) { [data-cq-3] { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; } }
+@container (min-width: 760px) { [data-case-grid] { grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr) !important; } }
+@container (max-width: 359px) { [data-cq-pad] { padding: var(--space-4) !important; } }
+
+/* Bento follows its own container width, not the viewport (overrides the system's viewport columns) */
+[data-bento-cq] { container-type: inline-size; }
+[data-bento-cq] > .cory-bento { --bento-cols: 1 !important; }
+[data-bento-cq] .tall { grid-row: span 1; }
+@container (min-width: 600px) { [data-bento-cq] > .cory-bento { --bento-cols: 2 !important; } }
+@container (min-width: 980px) { [data-bento-cq] > .cory-bento { --bento-cols: 4 !important; --bento-row: 200px; } [data-bento-cq] .tall { grid-row: span 2; } }
+
+/* Header: the page reserves its box; the header itself pins to the top (geometry lives here, not on the import wrapper) */
+[data-site-header][data-fixed="true"] { position: fixed; inset-block-start: 0; inset-inline-start: 0; inset-inline-end: 0; }
+/* The header renders its own spacer; pages must not pad for it again */
+main[tabindex] { padding-block-start: 0 !important; }
+[data-site-header] [data-hdr-talk], [data-site-header] [role="group"] { min-block-size: var(--tap-target); display: inline-flex; align-items: center; }
+
+/* Header layout follows the header's own width */
+[data-site-header] { container-type: inline-size; }
+@container (max-width: 959px) { [data-hdr-desktop] { display: none !important; } }
+@container (min-width: 960px) { [data-hdr-mobile] { display: none !important; } }
+@container (max-width: 419px) { [data-hdr-talk] { display: none !important; } }
+
+/* Viewport rules (mobile is designed, not shrunk) */
+@media (max-width: 767px) {
+  [data-desktop-only] { display: none !important; }
+  [data-work-track] { flex-direction: column !important; inline-size: auto !important; transform: none !important; }
+  [data-work-card] { inline-size: 100% !important; }
+  [data-hero-ctas] { flex-direction: column; align-items: stretch !important; }
+  [data-hero-ctas] :is(button, a) { inline-size: 100%; }
+  [data-stack] { grid-template-columns: minmax(0, 1fr) !important; }
+}
+@media (min-width: 768px) { [data-mobile-only] { display: none !important; } }
+@media (max-width: 639px) { [data-hero-ctas] :is(button, a), [data-cta-row] :is(button, a) { white-space: normal !important; text-align: center; } }
+
+
+/* ---- Home revamp additions ---- */
+/* Nested theme scope: a subtree can be light inside a dark page (the hero demo tile). Values mirror :root. */
+[data-theme="light"] { color-scheme: light; --text-strong: var(--navy-800); --text-body: var(--slate-700); --text-muted: var(--slate-600); --text-subtle: var(--slate-550); --text-disabled: var(--slate-400); --text-on-brand: var(--white); --text-link: var(--blue-700); --text-link-hover: var(--blue-600); --text-success: var(--green-700); --text-warning: var(--amber-700); --text-danger: var(--red-700); --surface-page: var(--slate-50); --surface-card: var(--white); --surface-raised: var(--white); --surface-sunken: var(--slate-100); --surface-ink: var(--navy-800); --surface-tile: var(--slate-50); --surface-header: rgba(255, 255, 255, 0.85); --surface-overlay: rgba(11, 31, 54, 0.55); --border-subtle: var(--slate-150); --border-default: var(--slate-200); --border-strong: var(--slate-300); --border-interactive: var(--slate-500); --border-focus: var(--blue-500); --action-primary: var(--blue-500); --action-primary-hover: var(--blue-600); --action-primary-active: var(--blue-700); --action-ink: var(--navy-800); --action-ink-hover: var(--navy-700); --action-ink-active: var(--navy-900); --action-secondary-hover: var(--slate-50); --action-ghost-hover: var(--blue-100); --focus-ring: rgba(37, 138, 253, 0.35); --gradient-ink: linear-gradient(160deg, #12304F 0%, #0B1F36 100%); --shadow-xs: 0 1px 2px rgba(11, 31, 54, 0.06); --shadow-sm: 0 2px 8px rgba(11, 31, 54, 0.06); --shadow-md: 0 8px 24px rgba(11, 31, 54, 0.08); --shadow-lg: 0 18px 48px rgba(11, 31, 54, 0.10); --shadow-xl: 0 32px 72px rgba(11, 31, 54, 0.14); --shadow-brand: 0 12px 32px rgba(37, 138, 253, 0.28); --shadow-glow: 0 0 0 1px rgba(11,31,54,0.04), 0 0 40px rgba(41, 190, 221, 0.14); --node-color: var(--blue-500); --node-line: var(--navy-200); --node-accent: var(--cyan-500); --node-glow: var(--cyan-400); --gradient-text: linear-gradient(90deg, var(--blue-700) 0%, var(--blue-500) 100%); }
+
+/* Always-on atmosphere behind the page: a fine dot grid that fades out, plus the brand glows. The node field layers on top when WebGL is available. */
+[data-atmosphere-dots] { background-image: radial-gradient(circle, var(--border-strong) 1px, transparent 1.3px); background-size: 28px 28px; -webkit-mask-image: radial-gradient(ellipse 90% 70% at 60% 0%, #000 0%, transparent 100%); mask-image: radial-gradient(ellipse 90% 70% at 60% 0%, #000 0%, transparent 100%); opacity: 0.75; }
+[data-theme="dark"] [data-atmosphere-dots] { opacity: 0.45; }
+
+/* Case cover fallback: typographic cover in display type (until a real cover is dropped in) */
+[data-cover-fallback] > span { font-family: var(--font-display); font-weight: var(--weight-extrabold); font-size: var(--text-fluid-h2); line-height: var(--leading-snug); letter-spacing: var(--tracking-tight); color: var(--on-ink-strong); max-inline-size: 14ch; text-wrap: balance; }
+
+/* Hero demo tile follows the split: beside the headline on desktop, full width underneath when stacked */
+@media (max-width: 1023px) { [data-demo] { justify-self: stretch !important; inline-size: 100% !important; max-inline-size: 560px; } }
+
+/* Work row without the GSAP pin: native horizontal scroller (set from JS); hide its scrollbar but keep it scrollable */
+[data-work-viewport]::-webkit-scrollbar { display: none; }
+[data-work-viewport] { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { [data-work-viewport] { scroll-behavior: auto; } }
+
+/* Work row: a native snap-scrolling row by default (no JS yet, JS blocked, reduced motion), so cards 2 and 3 are never unreachable.
+   The GSAP pin marks the viewport data-pinned and drives the track instead. */
+@media (min-width: 768px) {
+  [data-work-viewport]:not([data-pinned]) { overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scroll-padding-inline: var(--gutter); scrollbar-width: none; padding-block: var(--space-2) var(--space-4); }
+  [data-work-viewport]:not([data-pinned]) [data-work-card] { scroll-snap-align: start; }
+}
+
+/* ---- Viewport tuning (responsive audit) ---- */
+/* Arabic display type: Kufi sets visibly larger than Latin at the same size, so headlines step down ~15% to keep the same line count */
+[lang="ar"] { --text-fluid-display: clamp(34px, 4.8vw, 60px); --text-fluid-title: clamp(28px, 3.4vw, 42px); }
+/* Small phones (iPhone SE, 320-374px): one size down so the hero headline keeps the primary action above the fold */
+@media (max-width: 374px) { :root { --text-fluid-display: clamp(32px, 10.5vw, 40px); --text-fluid-title: clamp(26px, 8.4vw, 32px); } }
+/* Phones in landscape: short viewports get a compact header, tighter rhythm and smaller display type */
+@media (max-height: 500px) and (orientation: landscape) {
+  :root { --header-height: var(--header-height-compact); --section-y: clamp(40px, 6vw, 64px); --text-fluid-display: clamp(30px, 4.6vw, 44px); --text-fluid-title: clamp(26px, 3.6vw, 36px); }
+}
+/* Measure, corrected for Plus Jakarta Sans: its zero (the ch unit) is ~0.73em, so the system's 68ch/56ch ran 90+ characters a line.
+   54ch / 46ch land at roughly 75 / 65 characters, inside the 45-75 range. */
+:root { --measure-body: 54ch; --measure-lead: 46ch; }
+/* Any paragraph that doesn't set its own measure (zero specificity, so inline values win) */
+:where(main) :where(p) { max-inline-size: var(--measure-body); }
+
+/* ---- Accessibility guarantees (see CLAUDE.md) ---- */
+/* Current page in the header: weight + a brand underline, never colour alone (1.4.1). !important beats the link's inline colour. */
+[data-nav-link][aria-current="page"] { color: var(--text-strong) !important; font-weight: var(--weight-bold) !important; background: var(--gradient-brand) no-repeat center bottom 6px / calc(100% - var(--space-4)) 2px; }
+/* Windows high contrast / forced colours: gradient-clipped text falls back to the system text colour, focus uses Highlight */
+@media (forced-colors: active) {
+  [style*="background-clip:text"], [style*="background-clip: text"], .cory-gradient-text, .cory-metric { background: none !important; color: CanvasText !important; -webkit-text-fill-color: CanvasText !important; }
+  :focus-visible { outline: 2px solid Highlight !important; }
+  [data-nav-link][aria-current="page"] { text-decoration: underline 2px; }
+}
+
+/* Visually hidden text: the full, engine-proof pattern (kept in the a11y tree, never in layout or overflow) */
+.cory-visually-hidden { position: absolute !important; inline-size: 1px !important; block-size: 1px !important; margin: -1px !important; padding: 0 !important; border: 0 !important; overflow: hidden !important; clip: rect(0 0 0 0) !important; clip-path: inset(50%) !important; white-space: nowrap !important; inset-block-start: 0; inset-inline-start: 0; }
+
+/* Balanced grid: 1 column, then 2 with an odd last card spanning the row, then 3. Never a lone orphan card. */
+[data-cq-balance] { grid-template-columns: minmax(0, 1fr); }
+@container (min-width: 600px) and (max-width: 959px) { [data-cq-balance] { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; } [data-cq-balance] > :last-child:nth-child(odd) { grid-column: 1 / -1; } }
+@container (min-width: 960px) { [data-cq-balance] { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; } }
+
+/* Fit-content boxes (links, overline labels) never grow past their container: a long word then wraps instead of widening the page */
+:where(a, button, .cory-overline) { max-inline-size: 100%; }
+
+
+/* ---- Hover language (CLAUDE.md "Motion, hover and cards") ---- */
+/* Text links: underline on hover and keyboard focus, never colour alone; the arrow nudges toward where the link goes.
+   !important because links carry an inline text-decoration:none. */
+[data-link] { text-underline-offset: 0.22em; text-decoration-thickness: 1px; }
+[data-link]:hover, [data-link]:focus-visible { text-decoration-line: underline !important; }
+[data-link] > svg { transition: transform var(--duration-base) var(--ease-out); }
+@media (hover: hover) { [data-link]:hover > svg[data-dir-icon] { transform: translateX(calc(3px * var(--dir-x))) scaleX(var(--dir-x)); } }
+
+/* Card components fill their grid cell: the DS Card sits behind a display:contents mount, so the root passes its height down two levels */
+:where([data-card-fill]) { block-size: 100%; }
+:where([data-card-fill]) > *, :where([data-card-fill]) > * > * { block-size: 100%; }
+
+/* ---- Contrast guarantees (CLAUDE.md "Contrast") ---- */
+/* Link hover darkens instead of lightening: blue-600 was 4.2:1 on white and 3.8:1 on the ghost-button tint.
+   blue-800 is blue-700 mixed 22% toward navy-800 (6.9:1 on white). Dark theme keeps blue-300. */
+:root { --blue-800: #1258B1; }
+/* Focus ring: blue-500 was 2.95:1 on the sunken surface; blue-600 is 3.7:1 there and 3.2:1 on ink panels */
+:root:not([data-theme="dark"]), [data-theme="light"] { --text-link-hover: var(--blue-800); --border-focus: var(--blue-600); }
+
+/* ---- Performance ---- */
+/* Glow pseudo-elements are radial gradients that already fade out; a blur filter on top doubles their paint cost for no visible gain */
+[data-cover-fallback]::after, .cory-ink::after { filter: none; }

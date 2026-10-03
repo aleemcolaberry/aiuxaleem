@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Content · AIUXAleem</title>
+  <meta name="description" content="LinkedIn articles and posts on AI product design, design systems and trustworthy AI, by Mohammad Abdul Aleem.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="AIUXAleem">
+  <meta property="og:title" content="Content · AIUXAleem">
+  <meta property="og:description" content="LinkedIn articles and posts on AI product design, design systems and trustworthy AI, by Mohammad Abdul Aleem.">
+  <meta property="og:image" content="https://aiuxaleem.com/assets/og-home.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="AIUXAleem: I design AI products people actually trust.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#0B1F36">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <script>(function(){var d=document.documentElement,q=new URLSearchParams(location.search),L='en',P='content',t=q.get('theme');if(t!=='light'&&t!=='dark'){try{t=localStorage.getItem('aiuxaleem-theme')}catch(e){}}if(t!=='light'&&t!=='dark')t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';var l=q.get('lang');if(L.split(' ').indexOf(l)<0)l='en';d.setAttribute('data-theme',t);d.lang=l;d.dir=l==='ar'?'rtl':'ltr';d.setAttribute('data-langs',L);d.setAttribute('data-page',P);if(q.get('qa')==='1')d.setAttribute('data-qa','');if(matchMedia('(prefers-reduced-motion: no-preference)').matches&&!d.hasAttribute('data-qa')){d.setAttribute('data-motion','pending');setTimeout(function(){if(d.hasAttribute('data-motion')){d.removeAttribute('data-motion');d.setAttribute('data-intro-shown','')}},1000)}})();</script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;600&amp;family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&amp;family=Noto+Kufi+Arabic:wght@700;800&amp;display=swap">
+  <link rel="stylesheet" href="site.css">
+  <script src="_ds/agentcory-design-system-ebeb8591-9d98-4009-838b-178d8ac72f26/_ds_bundle.js"></script>
+  <script src="i18n.js"></script>
+</helmet>
+<dc-import name="Site Header" current="content" hint-size="100%,72px"></dc-import>
+<main id="main" tabindex="-1" style="position:relative; z-index:var(--z-raised); outline:none; padding-block-start:var(--header-height);">
+  <section id="intro" data-section aria-labelledby="content-title" style="position:relative; overflow:clip; padding-block:var(--section-y) var(--space-12);">
+    <div aria-hidden="true" style="position:absolute; inset-block-start:-30%; inset-inline-end:-10%; inline-size:min(50vw, 560px); aspect-ratio:1; background:var(--glow-cyan); pointer-events:none;"></div>
+    <div class="cory-container" style="position:relative; display:grid; gap:var(--space-5);">
+      <p data-hero-el class="cory-overline" style="margin:0;">Content</p>
+      <h1 id="content-title" data-hero-title style="margin:0; max-inline-size:16ch; font-family:var(--font-display); font-weight:var(--weight-extrabold); font-size:var(--text-fluid-display); line-height:var(--leading-snug); letter-spacing:var(--tracking-tighter); color:var(--text-strong);">Thinking out loud, <span style="background:var(--gradient-text); -webkit-background-clip:text; background-clip:text; color:transparent;">in public</span>.</h1>
+      <p data-hero-el style="margin:0; max-inline-size:var(--measure-lead); font-size:var(--text-fluid-lead); line-height:var(--leading-relaxed); color:var(--text-muted);">LinkedIn articles, post series and YouTube videos on AI product design, design systems and the craft of making AI trustworthy.</p>
+      <div data-hero-el data-hero-ctas style="display:flex; gap:var(--space-3); flex-wrap:wrap; align-items:center;">
+        <x-import component-from-global-scope="DesignSystem_ebeb85.Button" variant="primary" size="lg" href="https://www.linkedin.com/in/aiuxaleem" target="_blank" rel="noopener" hint-size="auto,52px">Follow on LinkedIn</x-import>
+        <x-import component-from-global-scope="DesignSystem_ebeb85.Button" variant="secondary" size="lg" href="https://www.youtube.com/@aiuxaleem" target="_blank" rel="noopener" hint-size="auto,52px">Watch on YouTube</x-import>
+        <x-import component-from-global-scope="DesignSystem_ebeb85.Button" variant="ghost" size="lg" href="Guides.dc.html" hint-size="auto,52px">Read the guides</x-import>
+      </div>
+    </div>
+  </section>
+  <section id="articles" data-section aria-labelledby="articles-title" style="padding-block:var(--space-4) var(--section-y);">
+    <div class="cory-container" style="display:grid; gap:var(--space-8);">
+      <div data-reveal style="display:grid; gap:var(--space-3);"><p class="cory-overline" style="margin:0;">Articles</p><h2 id="articles-title" style="margin:0; font-family:var(--font-display); font-weight:var(--weight-extrabold); font-size:var(--text-fluid-title); line-height:var(--leading-snug); letter-spacing:var(--tracking-tighter); color:var(--text-strong); text-wrap:balance;">When an idea needs a few thousand words.</h2></div>
+      <div data-cq><ul data-reveal-group data-cq-balance style="display:grid; gap:var(--grid-gap);">
+        <sc-for list="{{ articles }}" as="a" hint-placeholder-count="3">
+          <li style="display:flex; flex-direction:column; gap:var(--space-4); padding:var(--space-6); border-radius:var(--radius-xl); background:var(--surface-card); border:1px solid var(--border-subtle); box-shadow:var(--shadow-sm);">
+            <p class="cory-overline" style="margin:0;">{{ a.kicker }}</p>
+            <h3 style="margin:0; font-size:var(--text-h3); font-weight:var(--weight-bold); line-height:var(--leading-heading); letter-spacing:var(--tracking-tight); color:var(--text-strong); text-wrap:balance;">{{ a.title }}</h3>
+            <a data-link href="{{ a.href }}" target="_blank" rel="noopener" style="margin-block-start:auto; display:inline-flex; align-items:center; gap:var(--space-1); inline-size:fit-content; min-block-size:var(--tap-target); font-size:var(--text-body-sm); font-weight:var(--weight-semibold); color:var(--text-link); text-decoration:none;">Read the article<span class="cory-visually-hidden">: {{ a.title }}, on LinkedIn</span><svg data-dir-icon width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;"><path d="M7 7h10v10M7 17 17 7"></path></svg></a>
+          </li>
+        </sc-for>
+      </ul></div>
+    </div>
+  </section>
+  <section id="posts" data-section aria-labelledby="posts-title" style="background:var(--surface-card); border-block:1px solid var(--border-subtle); padding-block:var(--section-y);">
+    <div class="cory-container" style="display:grid; gap:var(--space-8);">
+      <div data-reveal style="display:grid; gap:var(--space-3);"><p class="cory-overline" style="margin:0;">LinkedIn posts</p><h2 id="posts-title" style="margin:0; font-family:var(--font-display); font-weight:var(--weight-extrabold); font-size:var(--text-fluid-title); line-height:var(--leading-snug); letter-spacing:var(--tracking-tighter); color:var(--text-strong); text-wrap:balance;">Three running series.</h2><p style="margin:0; font-size:var(--text-body); line-height:var(--leading-relaxed); color:var(--text-muted);">Short, visual posts. Newest first in each series.</p></div>
+      <div data-cq><div data-reveal-group data-cq-balance style="display:grid; gap:var(--grid-gap);">
+        <sc-for list="{{ series }}" as="s" hint-placeholder-count="3">
+          <section aria-labelledby="{{ s.hid }}" style="display:grid; gap:var(--space-2); padding:var(--space-6); border-radius:var(--radius-xl); background:var(--surface-page); border:1px solid var(--border-subtle);">
+            <div style="display:flex; align-items:center; justify-content:space-between; gap:var(--space-3); flex-wrap:wrap; padding-block-end:var(--space-2);">
+              <h3 id="{{ s.hid }}" style="margin:0; font-size:var(--text-h4); font-weight:var(--weight-bold); line-height:var(--leading-heading); letter-spacing:var(--tracking-tight); color:var(--text-strong); text-wrap:balance;">{{ s.title }}</h3>
+              <x-import component-from-global-scope="DesignSystem_ebeb85.Badge" tone="neutral" hint-size="auto,26px">{{ s.count }}</x-import>
+            </div>
+            <ol style="display:grid;">
+              <sc-for list="{{ s.posts }}" as="p" hint-placeholder-count="3">
+                <li style="border-block-start:1px solid var(--border-subtle);"><a data-link href="{{ p.href }}" target="_blank" rel="noopener" style="display:flex; align-items:center; justify-content:space-between; gap:var(--space-2) var(--space-4); flex-wrap:wrap; min-block-size:var(--tap-target); padding-block:var(--space-3); font-size:var(--text-body-sm); font-weight:var(--weight-semibold); color:var(--text-strong); text-decoration:none;" style-hover="color:var(--text-link);"><span style="display:inline-flex; align-items:center; gap:var(--space-2);">{{ p.title }}<svg data-dir-icon width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;"><path d="M7 7h10v10M7 17 17 7"></path></svg></span><span style="font-family:var(--font-mono); font-size:var(--text-mono); font-weight:var(--weight-regular); color:var(--text-muted); font-variant-numeric:tabular-nums;">{{ p.date }}</span></a></li>
+              </sc-for>
+            </ol>
+          </section>
+        </sc-for>
+      </div></div>
+    </div>
+  </section>
+  <section id="guides-cta" data-section aria-label="Guides" style="padding-block:0 var(--section-y);">
+    <div class="cory-container"><dc-import name="Bento Tile" kind="guide" copy="{{ guide }}" level="{{ 2 }}" hint-size="100%,240px"></dc-import></div>
+  </section>
+</main>
+<dc-import name="Site Footer" hint-size="100%,360px"></dc-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  // LinkedIn activity ids carry their publish time (id >> 22 = ms since epoch), so dates are exact and never go stale.
+  static date = id => { const d = new Date(Number(BigInt(id) >> 22n)); return d.getUTCDate() + ' ' + 'Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec'.split(' ')[d.getUTCMonth()] + ' ' + d.getUTCFullYear(); };
+  static P = {"books":[["7511236061377748993","8 books I'd recommend to any designer moving into AI product design","https://www.linkedin.com/posts/aiuxaleem_ai-x-ux-reading-list-activity-7511236061377748993-4xzs/"],["7510511219129094144","Fourteen years into UX and product design, the books I still reopen are the ones about people","https://www.linkedin.com/posts/aiuxaleem_ux-reading-list-activity-7510511219129094144-i6yV/"],["7509507555224903680","UX design and AI","https://www.linkedin.com/posts/aiuxaleem_uxdesign-ai-activity-7509507555224903680-XqUq/"]],"edtech":[["7510149105298604032","I used to treat journey maps, service blueprints and ecosystem maps as research artifacts","https://www.linkedin.com/posts/aiuxaleem_aiux-aiproductdesign-activity-7510149105298604032-wVtn/"],["7509786404395323392","5 stages make up the Human-Centered Design Funnel 2027, and AI can speed up almost every one of them","https://www.linkedin.com/posts/aiuxaleem_uxdesign-humancentereddesign-activity-7509786404395323392-idDE/"],["7509424081918873600","6 plugins that fix the boring, expensive parts of product design","https://www.linkedin.com/posts/aiuxaleem_figma-productdesign-uxdesign-activity-7509424081918873600-PZJf/"],["7509303957341716480","I have 16 MCP servers connected to Claude right now, and about half of them are for design work","https://www.linkedin.com/posts/aiuxaleem_uxdesign-mcp-activity-7509303957341716480-NrOW/"]],"reviewed":[["7508567622100156416","AI UX and product design","https://www.linkedin.com/posts/aiuxaleem_aiux-productdesign-activity-7508567622100156416-OYby/"]]};
+  static A = [["Design systems were built for interfaces. AI needs more.","https://www.linkedin.com/pulse/design-systems-were-built-interfaces-ai-needs-more-abdul-aleem-mofdf/"],["What I'm learning building a career as an AI product designer","https://www.linkedin.com/pulse/what-im-learning-building-career-ai-product-designer-abdul-aleem-fc49f/"],["Trust before intelligence","https://www.linkedin.com/pulse/trust-before-intelligence-what-book-ai-infrastructure-abdul-aleem-vovaf/"]];
+  async componentDidMount() { const site = await import('./site.js'); this.T = await site.pageInit(); }
+  renderVals() {
+    return {
+      articles: Component.A.map(([title, href], k) => ({ title, href, kicker: 'Article ' + String(k + 1).padStart(2, '0') })),
+      series: [['s-books', 'AI x UX book series', 'books'], ['s-edtech', 'AI x UX x Product Design, EdTech series', 'edtech'], ['s-reviewed', 'Books reviewed by me', 'reviewed']].map(([hid, title, k]) => { const posts = Component.P[k].map(([id, t, href]) => ({ title: t, href, date: Component.date(id) })); return { hid, title, posts, count: posts.length + (posts.length === 1 ? ' post' : ' posts') }; }),
+      guide: { overline: 'Prefer to read?', title: 'The guides go deeper than any reel can.', body: 'Templates and checklists from real systems, written for designers, engineers and the AI agents between them.', link: 'Browse guides', href: 'Guides.dc.html' },
+    };
+  }
+}
+</script>
+</body>
+</html>

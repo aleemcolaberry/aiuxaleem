@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="site.css">
+  <script src="_ds/agentcory-design-system-ebeb8591-9d98-4009-838b-178d8ac72f26/_ds_bundle.js"></script>
+  <script src="./image-slot.js"></script>
+</helmet>
+<div data-card-fill data-cq style="block-size:100%;">
+  <x-import component-from-global-scope="DesignSystem_ebeb85.Card" padding="sm" style="block-size:100%;" hint-size="100%,360px">
+    <div style="display:grid; gap:var(--space-4);">
+      <div style="position:relative; aspect-ratio:var(--aspect-video); border-radius:var(--radius-lg); overflow:hidden; background:var(--surface-sunken);">
+        <div data-cover-fallback aria-hidden="true"><span>{{ copy.title }}</span></div>
+        <sc-if value="{{ closed }}" hint-placeholder-val="{{ true }}">
+          <sc-if value="{{ hasSlot }}" hint-placeholder-val="{{ false }}"><image-slot id="{{ copy.slot }}" shape="rect" placeholder="{{ copy.placeholder }}" style="position:absolute; inset:0;"></image-slot></sc-if>
+          <sc-if value="{{ playable }}" hint-placeholder-val="{{ true }}">
+            <button type="button" aria-label="{{ copy.playAria }}" onClick="{{ play }}" style="position:absolute; inset:0; inline-size:100%; block-size:100%; display:grid; place-items:center; background:transparent; border:0; padding:0; cursor:pointer;">
+              <span style="inline-size:var(--space-16); block-size:var(--space-16); border-radius:var(--radius-pill); background:var(--action-ink); color:var(--surface-card); display:grid; place-items:center; box-shadow:var(--shadow-lg); transition:transform var(--duration-fast) var(--ease-out);"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"></path></svg></span>
+            </button>
+          </sc-if>
+          <sc-if value="{{ soon }}" hint-placeholder-val="{{ false }}">
+            <span style="position:absolute; inset-block-start:var(--space-3); inset-inline-start:var(--space-3);"><x-import component-from-global-scope="DesignSystem_ebeb85.Badge" tone="ink" dot="{{ true }}" hint-size="auto,26px">{{ soonLabel }}</x-import></span>
+          </sc-if>
+        </sc-if>
+        <sc-if value="{{ open }}" hint-placeholder-val="{{ false }}">
+          <sc-if value="{{ loading }}" hint-placeholder-val="{{ false }}"><div role="status" style="position:absolute; inset:0; display:grid; place-items:center; gap:var(--space-2); background:var(--gradient-ink); color:var(--on-ink-body); font-family:var(--font-mono); font-size:var(--text-mono);">{{ spinner }}<span>{{ loadingLabel }}</span></div></sc-if>
+          <sc-if value="{{ failed }}" hint-placeholder-val="{{ false }}"><div role="alert" style="position:absolute; inset:0; z-index:1; display:grid; place-content:center; justify-items:center; gap:var(--space-3); padding:var(--space-5); text-align:center; background:var(--gradient-ink); color:var(--on-ink-body);"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zM12 8v4M12 16h.01"></path></svg><span style="max-inline-size:36ch; font-size:var(--text-body-sm); line-height:var(--leading-normal); color:var(--on-ink-strong);">{{ failedLabel }}</span><div style="display:flex; gap:var(--space-2); flex-wrap:wrap; justify-content:center;"><x-import component-from-global-scope="DesignSystem_ebeb85.Button" variant="onInk" size="md" onClick="{{ retry }}" hint-size="auto,44px">{{ retryLabel }}</x-import><x-import component-from-global-scope="DesignSystem_ebeb85.Button" variant="onInk" size="md" href="{{ watchHref }}" target="_blank" rel="noopener" hint-size="auto,44px">{{ watchLabel }}</x-import></div></div></sc-if>
+          <iframe src="{{ src }}" title="{{ copy.title }}" onLoad="{{ loaded }}" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen="{{ true }}" style="position:absolute; inset:0; inline-size:100%; block-size:100%; border:0;"></iframe>
+        </sc-if>
+      </div>
+      <div data-cq-pad style="display:grid; gap:var(--space-1); padding-inline:var(--space-2); padding-block-end:var(--space-2);">
+        <p class="cory-overline" style="margin:0;">{{ copy.overline }}</p>
+        <div role="heading" aria-level="{{ level }}" style="font-size:var(--text-body); font-weight:var(--weight-bold); line-height:var(--leading-heading); color:var(--text-strong);">{{ copy.title }}</div>
+        <sc-if value="{{ playable }}" hint-placeholder-val="{{ false }}"><a data-link href="{{ watchHref }}" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:var(--space-1); inline-size:fit-content; min-block-size:var(--tap-target); font-size:var(--text-body-sm); font-weight:var(--weight-semibold); color:var(--text-link); text-decoration:none;">{{ watchLabel }}<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"></path></svg></a></sc-if>
+      </div>
+    </div>
+  </x-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:520,&quot;height&quot;:420},&quot;copy&quot;:{&quot;editor&quot;:null,&quot;tsType&quot;:&quot;{overline,title,playAria,placeholder,slot,videoId,soon,loading,onYouTube}&quot;},&quot;level&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:3,&quot;tsType&quot;:&quot;number&quot;}}">
+class Component extends DCLogic {
+  state = { open: false, loading: false, failed: false, attempt: 0 };
+  // An embed that never paints (blocked network, captive portal) turns into an error with Retry + a direct link after 12s.
+  play = () => { clearTimeout(this.t); this.setState(s => ({ open: true, loading: true, failed: false, attempt: s.attempt + 1 })); this.t = setTimeout(() => { if (this.state.loading) this.setState({ loading: false, failed: true }); }, 12000); };
+  loaded = () => { clearTimeout(this.t); this.setState({ loading: false }); };
+  retry = () => this.play();
+  componentWillUnmount() { clearTimeout(this.t); }
+  spinner = React.createElement('span', { 'aria-hidden': true, style: { display: 'block', inlineSize: 28, blockSize: 28, borderRadius: '50%', border: '2px solid var(--on-ink-border-strong)', borderBlockStartColor: 'var(--on-ink-strong)', animation: 'cory-spin 0.8s linear infinite' } });
+  renderVals() {
+    const copy = this.props.copy || {}; const id = String(copy.videoId || '');
+    const playable = !!id && !/^YOUR_/i.test(id);
+    return { copy, open: this.state.open, closed: !this.state.open, loading: this.state.loading, play: this.play, loaded: this.loaded,
+      failed: this.state.failed, attempt: this.state.attempt, retry: this.retry, failedLabel: copy.failed || "The video didn't load. Your network may block YouTube.", retryLabel: copy.retry || 'Try again', hasSlot: !!copy.slot, level: this.props.level || 3,
+      playable, soon: !playable, soonLabel: copy.soon || 'Recording coming soon', loadingLabel: copy.loading || 'Loading video', watchLabel: copy.onYouTube || 'Watch on YouTube', spinner: this.spinner,
+      src: 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(id) + '?autoplay=1&rel=0&r=' + this.state.attempt, watchHref: 'https://www.youtube.com/watch?v=' + encodeURIComponent(id) };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="site.css">
+  <script src="_ds/agentcory-design-system-ebeb8591-9d98-4009-838b-178d8ac72f26/_ds_bundle.js"></script>
+  <script src="./image-slot.js"></script>
+</helmet>
+<div data-card-fill data-cq style="block-size:100%;">
+  <x-import component-from-global-scope="DesignSystem_ebeb85.Card" padding="sm" style="block-size:100%;" hint-size="100%,520px">
+    <div style="display:grid; gap:var(--space-4);">
+      <a href="{{ copy.href }}" target="_blank" rel="noopener" aria-label="{{ linkLabel }}" style="position:relative; display:block; inline-size:min(100%, 280px); margin-inline:auto; aspect-ratio:var(--aspect-story); border-radius:var(--radius-lg); overflow:hidden; background:var(--surface-sunken);">
+        <div data-cover-fallback aria-hidden="true"><span>{{ copy.title }}</span></div>
+        <sc-if value="{{ hasSlot }}" hint-placeholder-val="{{ false }}"><image-slot id="{{ copy.slot }}" shape="rect" placeholder="{{ copy.placeholder }}" style="position:absolute; inset:0;"></image-slot></sc-if>
+        <span aria-hidden="true" style="position:absolute; inset-block-end:var(--space-3); inset-inline-end:var(--space-3); inline-size:var(--space-10); block-size:var(--space-10); border-radius:var(--radius-pill); background:var(--surface-card); color:var(--text-strong); display:grid; place-items:center; box-shadow:var(--shadow-md); pointer-events:none;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"></path></svg></span>
+      </a>
+      <div data-cq-pad style="display:grid; gap:var(--space-1); padding-inline:var(--space-2); padding-block-end:var(--space-2);">
+        <p class="cory-overline" style="margin:0;">{{ copy.overline }}</p>
+        <div role="heading" aria-level="{{ level }}" style="font-size:var(--text-body); font-weight:var(--weight-bold); line-height:var(--leading-heading); color:var(--text-strong);">{{ copy.title }}</div>
+      </div>
+    </div>
+  </x-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:320,&quot;height&quot;:640},&quot;copy&quot;:{&quot;editor&quot;:null,&quot;tsType&quot;:&quot;{overline,title,aria,placeholder,slot,href}&quot;},&quot;level&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:3,&quot;tsType&quot;:&quot;number&quot;}}">
+class Component extends DCLogic {
+  renderVals() { const copy = this.props.copy || {}; return { copy, linkLabel: [copy.title, copy.aria].filter(Boolean).join(': '), hasSlot: !!copy.slot, level: this.props.level || 3 }; }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+/* ===========================================================================
+   AgentCory: Base element styling & brand helpers
+   =========================================================================== */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  line-height: var(--leading-normal);
+  color: var(--text-body);
+  background: var(--surface-page);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  transition: background-color var(--duration-slow) var(--ease-out), color var(--duration-slow) var(--ease-out);
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  color: var(--text-strong);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-heading);
+  letter-spacing: var(--tracking-tight);
+  margin: 0;
+  text-wrap: balance;
+}
+p { text-wrap: pretty; }
+/* --- No text overflow, ever: long words wrap, flex/grid children may shrink, nothing is clipped by default --- */
+body { overflow-wrap: break-word; }
+h1, h2, h3, h4, .cory-metric { overflow-wrap: break-word; hyphens: manual; }
+:where(.cory-container, .cory-grid, .cory-cards, .cory-bento, .cory-split, .cory-section) > * { min-width: 0; }
+:where(.cory-btn, .cory-eyebrow-pill) { max-width: 100%; white-space: normal; text-align: center; }
+@media (min-width: 640px) { :where(.cory-btn, .cory-eyebrow-pill) { white-space: nowrap; } }
+table { table-layout: fixed; width: 100%; }
+pre, code { overflow-wrap: anywhere; white-space: pre-wrap; }
+img, video, svg { max-width: 100%; height: auto; display: block; }
+
+a { color: var(--text-link); text-decoration: none; transition: color var(--duration-base) var(--ease-out); }
+a:hover { color: var(--text-link-hover); }
+
+/* --- Focus: visible ring on keyboard focus only, everywhere --- */
+:focus { outline: none; }
+:focus-visible { outline: var(--border-width-strong) solid var(--border-focus); outline-offset: 2px; box-shadow: var(--shadow-focus); }
+
+/* --- Brand helpers --- */
+.cory-gradient-text {
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.cory-overline {
+  font-size: var(--text-overline);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-overline);
+  text-transform: uppercase;
+  color: var(--text-link);
+}
+
+.cory-eyebrow-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  background: var(--blue-100);
+  color: var(--blue-700);
+  font-size: var(--text-caption);
+  font-weight: var(--weight-semibold);
+}
+[data-theme="dark"] .cory-eyebrow-pill { background: rgba(90,167,254,0.16); color: var(--blue-300); }
+
+/* --- Ink panel: dark spotlight surface with on-ink text, identical in both themes --- */
+.cory-ink { background: var(--gradient-ink); color: var(--on-ink-body); border-radius: var(--radius-2xl); position: relative; overflow: hidden; isolation: isolate; }
+.cory-ink h1, .cory-ink h2, .cory-ink h3, .cory-ink h4 { color: var(--on-ink-strong); }
+.cory-ink a { color: var(--on-ink-link); }
+.cory-ink::after { content: ""; position: absolute; width: 60%; aspect-ratio: 1; right: -20%; top: -30%; background: var(--glow-cyan); filter: blur(var(--blur-glow)); z-index: -1; pointer-events: none; }
+
+/* --- Sticky blurred header --- */
+.cory-header { position: sticky; top: 0; z-index: var(--z-sticky); height: var(--header-height); background: var(--surface-header); -webkit-backdrop-filter: blur(var(--blur-header)); backdrop-filter: blur(var(--blur-header)); border-bottom: var(--border-width) solid var(--border-subtle); }
+
+/* --- Scrim --- */
+.cory-scrim { position: fixed; inset: 0; z-index: var(--z-overlay); background: var(--surface-overlay); -webkit-backdrop-filter: blur(var(--blur-scrim)); backdrop-filter: blur(var(--blur-scrim)); }
+
+/* --- Metric --- */
+.cory-metric { font-family: var(--font-display); font-weight: var(--weight-extrabold); font-size: var(--text-metric-lg); line-height: var(--leading-none); letter-spacing: var(--tracking-tighter); color: var(--text-strong); }
+
+.cory-visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* --- CTA buttons for plain-HTML surfaces (mirror of the React Button) --- */
+.cory-btn { display: inline-flex; align-items: center; justify-content: center; gap: var(--space-2); min-height: 44px; padding: 11px 22px; border-radius: var(--radius-pill); border: var(--border-width) solid transparent; font-family: var(--font-sans); font-size: var(--text-ui); font-weight: var(--weight-semibold); letter-spacing: var(--tracking-ui); line-height: 1; white-space: nowrap; cursor: pointer; text-decoration: none; transition: transform var(--duration-fast) var(--ease-out), box-shadow var(--duration-base) var(--ease-out), background var(--duration-base) var(--ease-out), color var(--duration-base) var(--ease-out), filter var(--duration-base) var(--ease-out); }
+.cory-btn:hover { transform: translateY(-1px); }
+.cory-btn:active { transform: scale(var(--press-scale)); }
+.cory-btn:focus-visible { outline: var(--border-width-strong) solid var(--border-focus); outline-offset: 2px; }
+.cory-btn[aria-disabled="true"], .cory-btn:disabled { opacity: var(--opacity-disabled); cursor: not-allowed; transform: none; }
+.cory-btn-sm { min-height: 36px; padding: 8px 16px; font-size: var(--text-ui-sm); }
+.cory-btn-lg { min-height: 52px; padding: 15px 30px; font-size: var(--text-ui-lg); gap: var(--space-3); }
+.cory-btn-primary { background: var(--gradient-brand-deep); color: var(--text-on-brand); box-shadow: var(--shadow-brand); }
+.cory-btn-primary:hover { color: var(--text-on-brand); filter: brightness(1.08) saturate(1.05); box-shadow: var(--shadow-brand), var(--shadow-md); }
+.cory-btn-ink { background: var(--action-ink); color: var(--surface-card); box-shadow: var(--shadow-sm); }
+.cory-btn-ink:hover { background: var(--action-ink-hover); color: var(--surface-card); box-shadow: var(--shadow-md); }
+.cory-btn-secondary { background: var(--surface-card); color: var(--text-strong); border-color: var(--border-interactive); box-shadow: var(--shadow-xs); }
+.cory-btn-secondary:hover { background: var(--action-secondary-hover); color: var(--text-strong); box-shadow: var(--shadow-sm); }
+.cory-btn-ghost { background: transparent; color: var(--text-link); }
+.cory-btn-ghost:hover { background: var(--action-ghost-hover); color: var(--text-link-hover); }
+.cory-btn-on-ink { background: rgba(11, 31, 54, 0.45); color: var(--on-ink-strong); border-color: var(--on-ink-border-strong); }
+.cory-btn-on-ink:hover { background: var(--on-ink-fill-hover); color: var(--on-ink-strong); }
+.cory-btn-on-ink-solid { background: var(--on-ink-strong); color: var(--navy-800); box-shadow: var(--shadow-md); }
+.cory-btn-on-ink-solid:hover { color: var(--navy-800); box-shadow: var(--shadow-lg), var(--shadow-glow); }
+
+::selection { background: var(--cyan-200); color: var(--navy-800); }
